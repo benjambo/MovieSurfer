@@ -1,4 +1,4 @@
-package com.msgroup.moviesurfer;
+package com.msgroup.moviesurfer.web;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
