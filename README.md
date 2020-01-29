@@ -18,19 +18,19 @@
 ## Install
 
 ```sh
-install
+npm install
 ```
 
 ## Usage
 
 ```sh
-start      #For scripts start
+npm start      #For scripts start
 ```
 
 ## Run tests
 
 ```sh
-test        #Runs tests
+npm test        #Runs tests
 ```
 
 ## REST-API
