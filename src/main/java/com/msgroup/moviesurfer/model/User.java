@@ -1,4 +1,5 @@
-package com.msgroup.moviesurfer;
+package com.msgroup.moviesurfer.model;
+
 
 
 import javax.persistence.Entity;
@@ -6,9 +7,10 @@ import javax.persistence.*;
 
 @Entity
 public class User {
+    // generate automatically an id for every User object
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String fullName;
     private String username;
@@ -19,11 +21,11 @@ public class User {
     public User() {
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

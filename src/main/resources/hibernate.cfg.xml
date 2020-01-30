@@ -6,18 +6,18 @@
 		<!-- Yhteyden perustiedot: ajuri, palvelin käyttäjätunnus/salasana -->
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 
+		<!--
 		<property name="hibernate.connection.url">jdbc:mysql://10.114.32.11:3306/test</property>
 		<property name="hibernate.connection.username">abdullah</property>
 		<property name="hibernate.connection.password">moviesurfer</property>
-
+		-->
 
 
 		<!-- Locally -->
-		<!--
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/test</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password"></property>
-		-->
+
 
 
 		<!-- create , create-drop, update tai validate -->
