@@ -12,7 +12,11 @@ export const Footer = () => {
         <li>00100</li>
         <li>HELSINKI</li>
         <li>
-          <a href="https://github.com/benjambo/MovieSurfer">
+          <a
+            href="https://github.com/benjambo/MovieSurfer"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Github / MovieSurfer
           </a>
         </li>
