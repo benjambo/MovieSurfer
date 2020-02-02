@@ -34,13 +34,13 @@ img {
 /* Colors */
 /*
 pitch black #000000
-light blue: #258EA6
+wine red: #4b0e1d;
 dark green: #519E8A
 medium green: #7EB09B
 light green: #A3C4BC
 */
 .wrapper {
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     display: flex;
     flex-direction: column;
