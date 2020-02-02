@@ -1,7 +1,12 @@
 * {
-    font-family: Avenir, Montserrat, sans-serif;
+    font-family: "Courier New", Avenir, sans-serif;
+    background-color: black;
 }
-
+.marvelImage {
+    padding: 8vh 10vh 1vh 10vh;
+    height: auto;
+    width: 100%;
+}
 /* Footer CSS */
 
 .footer {
@@ -10,13 +15,8 @@
     justify-content: center;
     flex-wrap: wrap;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: black;
     color: white;
-}
-img {
-    padding: 2vh;
-    height: auto;
-    width: 80%;
 }
 
 .column {
@@ -35,27 +35,36 @@ img {
 /*
 pitch black #000000
 wine red: #4b0e1d;
-dark green: #519E8A
-medium green: #7EB09B
-light green: #A3C4BC
 */
 .wrapper {
-    height: 80vh;
+    height: 78.2vh;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     background-color: #4b0e1d;
 }
 
-.form-wrapper {
+.first-form-wrapper {
     width: 400px;
     display: flex;
     flex-direction: column;
     padding: 20px 40px;
     border-radius: 10px;
     box-shadow: 0px 10px 50px #555;
+    margin: auto 10vh auto auto;
+    background-color: #ffffff;
+}
+
+.second-form-wrapper {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 50px #555;
+    margin: auto auto auto 10vh;
     background-color: #ffffff;
 }
 
@@ -67,9 +76,6 @@ form {
 
 h3 {
     text-align: center;
-    width: 100%;
-    color: #111;
-    font-weight: lighter;
 }
 
 label {
@@ -156,6 +162,6 @@ input.error {
 }
 
 .createAccount small {
-    color: #999;
+    color: black;
     font-weight: lighter;
 }
