@@ -49,7 +49,7 @@ const Styles = styled.div`
 export const NavigationBar = () => (
   <Styles>
     <Navbar expand="lg" fixed="top">
-      <Navbar.Brand href="/home">MovieSurfer</Navbar.Brand>
+      <Navbar.Brand href="/">MovieSurfer</Navbar.Brand>
       <Navbar.Toggle area-controls="basic-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">

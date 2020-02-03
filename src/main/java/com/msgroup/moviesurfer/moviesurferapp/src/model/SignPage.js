@@ -3,6 +3,7 @@ import Form from "../components/From";
 import validateSig from "../components/ValidateSigning";
 import validateReg from "../components/ValidateRegistration";
 import styled from "styled-components";
+import axios from "axios";
 
 const Styles = styled.div`
   * {
@@ -38,6 +39,19 @@ export const SignPage = () => {
 
   function submitReg() {
     console.log("Submitted Registration Successfully");
+    axios
+      .post("http://localhost:8080/api/create-user")
+      .then(res => {
+        if (res.status === 200) {
+          window.location = "/";
+        } else {
+          window.location = "/signpage";
+        }
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   return (
