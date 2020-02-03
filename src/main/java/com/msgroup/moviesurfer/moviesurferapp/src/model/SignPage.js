@@ -33,6 +33,13 @@ export const SignPage = () => {
     registerError
   } = Form(submitSig, submitReg, validateSig, validateReg);
 
+  const newUser = {
+    firstName: register.firstName,
+    lastName: register.lastName,
+    email: register.email2,
+    password: register.password2
+  };
+
   function submitSig() {
     console.log("Submitted Singing Successfully");
   }
@@ -40,9 +47,9 @@ export const SignPage = () => {
   function submitReg() {
     console.log("Submitted Registration Successfully");
     axios
-      .post("http://localhost:8080/api/create-user")
+      .post("http://localhost:8080/api/create-user", newUser)
       .then(res => {
-        if (res.status === 200) {
+        if (res.status === 201) {
           window.location = "/";
         } else {
           window.location = "/signpage";
