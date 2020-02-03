@@ -49,11 +49,11 @@ export const SignPage = () => {
     axios
       .post("http://localhost:8080/api/users/register", newUser)
       .then(res => {
-        console.log("post register response ", res);
+        console.log("###registerUserResponse ", res);
         if (res.status === 201) {
-          window.location = "/";
+         // window.location = "/";
         } else {
-          window.location = "/signpage";
+         // window.location = "/signpage";
         }
         console.log(res);
       })
