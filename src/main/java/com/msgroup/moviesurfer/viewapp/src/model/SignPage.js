@@ -47,8 +47,9 @@ export const SignPage = () => {
   function submitReg() {
     console.log("Submitted Registration Successfully");
     axios
-      .post("http://localhost:8080/api/create-user", newUser)
+      .post("http://localhost:8080/api/users/register", newUser)
       .then(res => {
+        console.log("post register response ", res);
         if (res.status === 201) {
           window.location = "/";
         } else {

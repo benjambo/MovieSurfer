@@ -12,8 +12,9 @@ package com.msgroup.moviesurfer.repositories;
 
 import com.msgroup.moviesurfer.model.User;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-
+@Repository
 public interface UserRepository extends CrudRepository<User, Long> { // Long refers to the type of User object's Id
 
 

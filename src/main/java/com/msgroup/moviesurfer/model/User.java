@@ -2,6 +2,10 @@ package com.msgroup.moviesurfer.model;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+import javax.validation.constraints.Size;
 
 @Entity
 public class User {
@@ -10,9 +14,20 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // @NotNull does not work for an empty firstName, so we have to use @NotBlank
+   @NotBlank(message = "first name is required")
     private String firstName;
+
+    @NotBlank(message = "Last name is required")
     private String lastName;
+
+    @Email(message = "input valid email")
+    @NotBlank(message = "email is required")
+    @Column(unique = true)
     private String email;
+
+    @NotBlank
+    @Size(min = 6, message = "password has to be at least 6 characters")
     private String password;
 
 
