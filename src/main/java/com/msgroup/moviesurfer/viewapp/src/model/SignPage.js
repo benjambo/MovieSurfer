@@ -51,9 +51,9 @@ export const SignPage = () => {
       .then(res => {
         console.log("###registerUserResponse ", res);
         if (res.status === 201) {
-         // window.location = "/";
+          window.location = "/";
         } else {
-         // window.location = "/signpage";
+          window.location = "/signpage";
         }
         console.log(res);
       })
