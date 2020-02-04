@@ -7,7 +7,7 @@ import { Reservation } from "./model/Reservation";
 import { About } from "./model/About";
 import { Footer } from "./components/Footer";
 import { NavigationBar } from "./components/NavigationBar";
-
+import 'bootstrap/dist/css/bootstrap.css'
 const App = () => {
   return (
     <Router>
