@@ -22,4 +22,6 @@ public interface UserRepository extends CrudRepository<User, Long> { // Long ref
 
    // @Override
    // List<User> findAll();
+
+    User findByEmail(String email);
 }

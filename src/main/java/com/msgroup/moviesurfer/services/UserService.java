@@ -1,22 +1,27 @@
 package com.msgroup.moviesurfer.services;
 
+import com.msgroup.moviesurfer.exceptions.UniqueEmailException;
 import com.msgroup.moviesurfer.model.User;
 import com.msgroup.moviesurfer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService {
 
-   @Autowired
+
+
+    @Autowired
     private UserRepository userRepository;
 
     public User saveUser(User user){
 
-       return userRepository.save(user);
+            if(userRepository.findByEmail(user.getEmail())!= null){
+                throw new UniqueEmailException("The email '" + user.getEmail() + "' is already registered!");
+            }
+            return userRepository.save(user);
 
     }
 
@@ -25,6 +30,7 @@ public class UserService {
     }
 
     public User getUserById(Long id){
+
         return userRepository.findById(id).get();
     }
 }

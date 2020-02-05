@@ -14,7 +14,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // @NotNull does not work for an empty firstName, so use @NotBlank
+    // @NotNull constraint on the database level, it will not work for validation on the server side
+    //@NorBlank constraint on the server level
    @NotBlank(message = "first name is required")
     private String firstName;
 
@@ -26,7 +27,7 @@ public class User {
     @Column(unique = true) // constraint on the database level
     private String email;
 
-    @NotBlank(message = "password must not be blank")
+    @NotBlank(message = "password is required")
     @Size(min = 6, message = "password has to be at least 6 characters")// constraint on the server level
     private String password;
 

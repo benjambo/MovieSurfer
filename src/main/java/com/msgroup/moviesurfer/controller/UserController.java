@@ -17,7 +17,7 @@ import java.util.List;
 
 //@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping(value = "/api/users",method = {RequestMethod.POST, RequestMethod.GET})
+@RequestMapping(value = "/api/users")
 public class UserController {
 
 
@@ -43,16 +43,24 @@ public class UserController {
 
     }
 
+
+    @GetMapping(value ="/register")
+    public ResponseEntity<String> responseToGetRegister(){
+
+        return new ResponseEntity<String>("You have to use POST METHOD with register endpoint!", HttpStatus.BAD_REQUEST);
+
+    }
+
     // To get all users
     @GetMapping(value ="")
-    @ResponseBody List<User> getUsers(){
+    public @ResponseBody List<User> getUsers(){
         return userService.getUsers();
 
     }
 
     // To get a user by id
     @GetMapping(value ="/{id}")
-    @ResponseBody User getUserById(@PathVariable("id") Long id){
+    public @ResponseBody User getUserById(@PathVariable Long id){
         return userService.getUserById(id);
 
     }
