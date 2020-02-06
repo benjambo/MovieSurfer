@@ -25,7 +25,7 @@ export const About = () => {
           <img className="kuva" alt="walter" src={walter}/>
             <div className="container">
               <div className="carousel-caption">
-                <h1 className="text captionText"> Walter Ruoppa</h1>
+                <h1 className="text captionText">Walter Ruoppa</h1>
               </div>
             </div>
         </div>
@@ -44,7 +44,7 @@ export const About = () => {
                alt="bennn"/>
             <div className="container">
               <div className="carousel-caption">
-                <h1 className="text captionText">Benjamin Bowo</h1>
+                <h1  className="text captionText">Benjamin Bowo</h1>
               </div>
             </div>
         </div>

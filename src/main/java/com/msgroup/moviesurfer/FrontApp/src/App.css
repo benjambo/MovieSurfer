@@ -175,25 +175,28 @@ input.error {
     text-align: right;
 }
 .kuva {
-    height: 80vh;
-    width: 80vh;
+   float: left;
 }
 .carousel-caption {
-    background-color: #4b0e1d !important;
-    width: 40vh;
+    background: transparent;
+    margin: auto;
 
 
 }
 .captionText {
-    background-color: #4b0e1d;
-    width: 40vh;
+    background: transparent;
+    width: 80vh;
+    
 
 
 }
 .carousel-indicators {
-    background-color: #4b0e1d !important;
-    width: 60vh;
-    justify-items: center !important;
-    justify-content: center !important;
+    background: transparent;
+    width: 45vh;
+    padding: 10px;
+    margin: auto !important;
+}
+.carousel-item {
+    overflow: auto;
 
 }
