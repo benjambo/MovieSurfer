@@ -186,7 +186,6 @@ input.error {
 .captionText {
     background: transparent;
     float: left;
-    margin: auto 40vh 40vh auto;
     width: 20vh;
     text-align: center;
     word-wrap: break-spaces;
@@ -202,5 +201,6 @@ input.error {
     margin: auto !important;
 }
 .carousel-item {
+    margin-top: 20vh !important;
 
 }
