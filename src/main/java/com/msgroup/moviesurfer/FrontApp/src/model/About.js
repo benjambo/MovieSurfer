@@ -35,7 +35,7 @@ export const About = () => {
                alt="abdullah" src={abdullah}/>
           <div className="container" >
             <div className="carousel-caption">
-              <h1 className="text">Abdullah</h1>
+              <h1 className="text">Abdullah Hinnawi</h1>
             </div>
           </div>
         </div>
