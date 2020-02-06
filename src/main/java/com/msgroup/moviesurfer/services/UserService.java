@@ -18,9 +18,12 @@ public class UserService {
 
     public User saveUser(User user){
 
-            if(userRepository.findByEmail(user.getEmail())!= null){
+            // check if user email is already registered in the database.
+            if(userRepository.findByEmail(user.getEmail().toLowerCase())!= null){
                 throw new UniqueEmailException("The email '" + user.getEmail() + "' is already registered!");
             }
+            // set the email to lower case before saving it to the database.
+            user.setEmail(user.getEmail().toLowerCase());
             return userRepository.save(user);
 
     }

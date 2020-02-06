@@ -13,7 +13,9 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -35,10 +37,18 @@ public class UserController {
 
             // Validation for @NotBlank, @Size and @Email annotations
             if(result.hasErrors()){
-                return new ResponseEntity<List<FieldError>>(result.getFieldErrors(), HttpStatus.BAD_REQUEST);
+                // Map<K,V> Key value pair
+                Map<String, String> errorMap = new HashMap<>();
+                for(FieldError error: result.getFieldErrors()){
+                    // key:field , value:default message
+                    // add/put the key value pair error to the errorMap object
+                    errorMap.put(error.getField(), error.getDefaultMessage());
+                }
+                return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
+                //return new ResponseEntity<List<FieldError>>(result.getFieldErrors(), HttpStatus.BAD_REQUEST);
             }else {
                 User newUser = userService.saveUser(user);
-                return new ResponseEntity<User>(newUser, HttpStatus.CREATED);
+                return new ResponseEntity<String>("Registered Successfully!", HttpStatus.CREATED);
             }
 
     }
