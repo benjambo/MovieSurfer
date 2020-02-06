@@ -137,8 +137,22 @@
             <version>0.9.0</version>
         </dependency>
 
+        <!-- JUnit 5 (junit-jupiter-api) -->
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.5.2</version>
+            <scope>test</scope>
+        </dependency>
 
-
+        <!-- junit-jupiter-params dependency -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>5.5.2</version>
+            <scope>test</scope>
+        </dependency>
 
 
     </dependencies>
@@ -160,6 +174,15 @@
                     <target>11</target>
                 </configuration>
             </plugin>
+            <!-- Surefire plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M4</version>
+            </plugin>
+
+
+
         </plugins>
     </build>
 
