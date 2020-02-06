@@ -1,5 +1,8 @@
 import React from "react";
-
+//src/main/java/com/msgroup/moviesurfer/FrontApp/src/assets/jere.jpg
+import jere from "../assets/jere.jpg"
+import walter from "../assets/walter.jpg"
+import abdullah from "../assets/abdullah.jpg"
 export const About = () => {
   return <div>
   <div id="myCarousel" className="carousel slide" data-ride="carousel">
@@ -11,50 +14,38 @@ export const About = () => {
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img className="first-slide"
-               src="https://images.squarespace-cdn.com/content/v1/59d2bea58a02c78793a95114/1524518669406-2D0YA93DDYGDKYHXOZUU/ke17ZwdGBToddI8pDm48kKFYOtK8W4VIIm-D7unIF7lZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpwC26LRMJwK8bCYeHqiJdGGAY7jUqG9Ai63KPiOW2tVcFehCc4d35tVad10Z5dYSro/Screen+Shot+2018-04-23+at+5.23.41+PM.png?format=2500w"
-               alt="First slide"/>
+          <img className="kuva" alt="jere" src={jere}/>
             <div className="container">
               <div className="carousel-caption">
-                <h1>Walter Ruoppa</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
-                  eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <h1 className="text">Jere Saarelma</h1>
               </div>
             </div>
         </div>
         <div className="carousel-item">
-          <img className="second-slide"
-               src="https://images.squarespace-cdn.com/content/v1/59d2bea58a02c78793a95114/1524518669406-2D0YA93DDYGDKYHXOZUU/ke17ZwdGBToddI8pDm48kKFYOtK8W4VIIm-D7unIF7lZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpwC26LRMJwK8bCYeHqiJdGGAY7jUqG9Ai63KPiOW2tVcFehCc4d35tVad10Z5dYSro/Screen+Shot+2018-04-23+at+5.23.41+PM.png?format=2500w"
-               alt="Second slide"/>
+          <img className="second-slide profile"
+               className="kuva" alt="jere" src={walter}/>
             <div className="container">
               <div className="carousel-caption">
-                <h1>Abdullah Hinnawi</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
-                  eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <h1 className="text"> Walter Ruoppa</h1>
               </div>
             </div>
         </div>
         <div className="carousel-item">
-          <img className="fourth-slide"
-               src="https://images.squarespace-cdn.com/content/v1/59d2bea58a02c78793a95114/1524518669406-2D0YA93DDYGDKYHXOZUU/ke17ZwdGBToddI8pDm48kKFYOtK8W4VIIm-D7unIF7lZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpwC26LRMJwK8bCYeHqiJdGGAY7jUqG9Ai63KPiOW2tVcFehCc4d35tVad10Z5dYSro/Screen+Shot+2018-04-23+at+5.23.41+PM.png?format=2500w"
-               alt="Second slide"/>
-          <div className="container">
+          <img className="second-slide profile"
+               className="kuva" alt="abdullah" src={abdullah}/>
+          <div className="container" >
             <div className="carousel-caption">
-              <h1>Benjamin Bowo</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
-                eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <h1 className="text">Benjamin Bowo</h1>
             </div>
           </div>
         </div>
         <div className="carousel-item">
-          <img className="third-slide"
-               src="https://images.squarespace-cdn.com/content/v1/59d2bea58a02c78793a95114/1524518669406-2D0YA93DDYGDKYHXOZUU/ke17ZwdGBToddI8pDm48kKFYOtK8W4VIIm-D7unIF7lZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpwC26LRMJwK8bCYeHqiJdGGAY7jUqG9Ai63KPiOW2tVcFehCc4d35tVad10Z5dYSro/Screen+Shot+2018-04-23+at+5.23.41+PM.png?format=2500w"
+          <img className="third-slide profile"
+               src="https://cdn.discordapp.com/attachments/669861606221545478/674941265296752641/SPOILER_B885DA30-C2B4-45E2-8EB1-11A88019D4E4_1_105_c.jpeg"
                alt="Third slide"/>
             <div className="container">
               <div className="carousel-caption">
-                <h1>Jere Saarelma</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at
-                  eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <h1 className="text">Jere Saarelma</h1>
               </div>
             </div>
         </div>
@@ -68,5 +59,6 @@ export const About = () => {
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="sr-only">Next</span>
       </a>
-    </div></div>;
+    </div>
+  </div>;
 };
