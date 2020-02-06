@@ -17,35 +17,34 @@ export const About = () => {
           <img className="kuva" alt="jere" src={jere}/>
             <div className="container">
               <div className="carousel-caption">
-                <h1 className="text">Jere Saarelma</h1>
+                <h1 className="text captionText">Jere Saarelma</h1>
               </div>
             </div>
         </div>
         <div className="carousel-item">
-          <img className="second-slide profile kuva"
-               className="kuva" alt="walter" src={walter}/>
+          <img className="kuva" alt="walter" src={walter}/>
             <div className="container">
               <div className="carousel-caption">
-                <h1 className="text"> Walter Ruoppa</h1>
+                <h1 className="text captionText"> Walter Ruoppa</h1>
               </div>
             </div>
         </div>
         <div className="carousel-item">
-          <img className="second-slide profile kuva"
+          <img className="kuva"
                alt="abdullah" src={abdullah}/>
           <div className="container" >
             <div className="carousel-caption">
-              <h1 className="text">Abdullah Hinnawi</h1>
+              <h1 className="text captionText">Abdullah Hinnawi</h1>
             </div>
           </div>
         </div>
         <div className="carousel-item">
-          <img className="third-slide profile kuva"
+          <img className="kuva"
                src="https://cdn.discordapp.com/attachments/669861606221545478/674941265296752641/SPOILER_B885DA30-C2B4-45E2-8EB1-11A88019D4E4_1_105_c.jpeg"
                alt="bennn"/>
             <div className="container">
               <div className="carousel-caption">
-                <h1 className="text">Benjamin Bowo</h1>
+                <h1 className="text captionText">Benjamin Bowo</h1>
               </div>
             </div>
         </div>

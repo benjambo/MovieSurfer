@@ -174,3 +174,26 @@ input.error {
 .text {
     text-align: right;
 }
+.kuva {
+    height: 80vh;
+    width: 80vh;
+}
+.carousel-caption {
+    background-color: #4b0e1d !important;
+    width: 40vh;
+
+
+}
+.captionText {
+    background-color: #4b0e1d;
+    width: 40vh;
+
+
+}
+.carousel-indicators {
+    background-color: #4b0e1d !important;
+    width: 60vh;
+    justify-items: center !important;
+    justify-content: center !important;
+
+}
