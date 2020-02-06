@@ -22,8 +22,8 @@ export const About = () => {
             </div>
         </div>
         <div className="carousel-item">
-          <img className="second-slide profile"
-               className="kuva" alt="jere" src={walter}/>
+          <img className="second-slide profile kuva"
+               className="kuva" alt="walter" src={walter}/>
             <div className="container">
               <div className="carousel-caption">
                 <h1 className="text"> Walter Ruoppa</h1>
@@ -31,21 +31,21 @@ export const About = () => {
             </div>
         </div>
         <div className="carousel-item">
-          <img className="second-slide profile"
-               className="kuva" alt="abdullah" src={abdullah}/>
+          <img className="second-slide profile kuva"
+               alt="abdullah" src={abdullah}/>
           <div className="container" >
             <div className="carousel-caption">
-              <h1 className="text">Benjamin Bowo</h1>
+              <h1 className="text">Abdullah</h1>
             </div>
           </div>
         </div>
         <div className="carousel-item">
-          <img className="third-slide profile"
+          <img className="third-slide profile kuva"
                src="https://cdn.discordapp.com/attachments/669861606221545478/674941265296752641/SPOILER_B885DA30-C2B4-45E2-8EB1-11A88019D4E4_1_105_c.jpeg"
-               alt="Third slide"/>
+               alt="bennn"/>
             <div className="container">
               <div className="carousel-caption">
-                <h1 className="text">Jere Saarelma</h1>
+                <h1 className="text">Benjamin Bowo</h1>
               </div>
             </div>
         </div>
