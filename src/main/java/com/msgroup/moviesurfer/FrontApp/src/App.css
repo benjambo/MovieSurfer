@@ -175,7 +175,7 @@ input.error {
     text-align: right;
 }
 .kuva {
-   float: left;
+   float: right;
 }
 .carousel-caption {
     background: transparent;
@@ -185,8 +185,13 @@ input.error {
 }
 .captionText {
     background: transparent;
-    width: 80vh;
-    
+    float: left;
+    margin: auto 40vh 40vh auto;
+    width: 20vh;
+    text-align: center;
+    word-wrap: break-spaces;
+
+
 
 
 }
@@ -197,6 +202,5 @@ input.error {
     margin: auto !important;
 }
 .carousel-item {
-    overflow: auto;
 
 }
