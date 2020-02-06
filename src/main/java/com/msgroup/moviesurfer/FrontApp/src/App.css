@@ -180,15 +180,16 @@ input.error {
 .carousel-caption {
     background: transparent;
     margin: auto;
+    position: relative !important;
 
 
 }
 .captionText {
     background: transparent;
     float: left;
-    width: 20vh;
     text-align: center;
     word-wrap: break-spaces;
+    margin: auto auto auto auto;
 
 
 
@@ -202,5 +203,11 @@ input.error {
 }
 .carousel-item {
     margin-top: 20vh !important;
+
+}
+.quotes {
+    color: blue;
+    text-align: center;
+    background: transparent;
 
 }
