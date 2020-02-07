@@ -1,5 +1,4 @@
 package com.msgroup.moviesurfer.model;
-
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -7,8 +6,9 @@ import javax.validation.constraints.NotBlank;
 
 import javax.validation.constraints.Size;
 
+
 @Entity
-public class User {
+public class User{
     // generate automatically an id for every User object
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -74,4 +74,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

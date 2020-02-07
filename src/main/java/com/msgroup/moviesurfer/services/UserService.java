@@ -4,12 +4,16 @@ import com.msgroup.moviesurfer.exceptions.UniqueEmailException;
 import com.msgroup.moviesurfer.model.User;
 import com.msgroup.moviesurfer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UserService {
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
 
@@ -24,11 +28,14 @@ public class UserService {
             }
             // set the email to lower case before saving it to the database.
             user.setEmail(user.getEmail().toLowerCase());
+            // Encrypt the user password
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             return userRepository.save(user);
 
     }
 
     public List<User> getUsers(){
+
         return (List<User>) userRepository.findAll();
     }
 
@@ -36,4 +43,6 @@ public class UserService {
 
         return userRepository.findById(id).get();
     }
+
+
 }

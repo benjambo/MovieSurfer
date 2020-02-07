@@ -4,8 +4,6 @@ package com.msgroup.moviesurfer.controller;
 import com.msgroup.moviesurfer.model.User;
 import com.msgroup.moviesurfer.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.error.ErrorController;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -48,6 +46,7 @@ public class UserController {
                 //return new ResponseEntity<List<FieldError>>(result.getFieldErrors(), HttpStatus.BAD_REQUEST);
             }else {
                 User newUser = userService.saveUser(user);
+                System.out.println("New USER Registered Successfully!");
                 return new ResponseEntity<String>("Registered Successfully!", HttpStatus.CREATED);
             }
 
@@ -74,6 +73,7 @@ public class UserController {
         return userService.getUserById(id);
 
     }
+
 
 
 

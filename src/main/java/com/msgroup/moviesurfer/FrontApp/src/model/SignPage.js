@@ -5,6 +5,7 @@ import validateReg from "../components/ValidateRegistration";
 import styled from "styled-components";
 import axios from "axios";
 
+
 const Styles = styled.div`
   * {
     background-color: white;
@@ -50,10 +51,13 @@ export const SignPage = () => {
       .post("http://localhost:8080/api/users/register", newUser)
       .then(res => {
         console.log("###registerUserResponse ", res);
+
         if (res.status === 201) {
           window.location = "/";
+
         } else {
           window.location = "/signpage";
+
         }
 
       })
@@ -172,6 +176,7 @@ export const SignPage = () => {
           </form>
         </div>
       </div>
+
     </Styles>
   );
 };
