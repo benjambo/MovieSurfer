@@ -20,6 +20,7 @@ export const About = () => {
             <div className="container">
               <div className="carousel-caption">
                 <h1 className="text captionText">Jere Saarelma</h1>
+                <h2 className="quotes"> Before you judge a man, walk a mile in his shoes. After that who cares?... He’s a mile away and you’ve got his shoes! </h2>
               </div>
             </div>
         </div>
@@ -39,6 +40,7 @@ export const About = () => {
           <div className="container" >
             <div className="carousel-caption">
               <h1 className="text captionText">Abdullah Hinnawi</h1>
+              <h2 className="quotes"> Before you judge a man, walk a mile in his shoes. After that who cares?... He’s a mile away and you’ve got his shoes! </h2>
             </div>
           </div>
         </div>
@@ -49,6 +51,7 @@ export const About = () => {
             <div className="container">
               <div className="carousel-caption">
                 <h1  className="text captionText">Benjamin Bowo</h1>
+                <h2 className="quotes"> Before you judge a man, walk a mile in his shoes. After that who cares?... He’s a mile away and you’ve got his shoes! </h2>
               </div>
             </div>
         </div>

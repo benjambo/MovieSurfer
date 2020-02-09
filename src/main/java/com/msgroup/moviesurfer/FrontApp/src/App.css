@@ -206,7 +206,8 @@ input.error {
 
 }
 .quotes {
-    color: blue;
+    color: grey;
+    width: 30vh;
     text-align: center;
     background: transparent;
 
