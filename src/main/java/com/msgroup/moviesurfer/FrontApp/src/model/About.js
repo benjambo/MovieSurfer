@@ -19,8 +19,7 @@ export const About = () => {
           <img className="kuva" alt="jere" src={jere}/>
             <div className="container">
               <div className="carousel-caption">
-                <h1 className="text captionText">Jere Saarelma</h1>
-                <h2 className="quotes"> Before you judge a man, walk a mile in his shoes. After that who cares?... He’s a mile away and you’ve got his shoes! </h2>
+                <h2 className="quotes"><strong>Jere Saarelma</strong> Before you judge a man, walk a mile in his shoes. After that who cares?... He’s a mile away and you’ve got his shoes! </h2>
               </div>
             </div>
         </div>
@@ -28,8 +27,7 @@ export const About = () => {
           <img className="kuva" alt="walter" src={walter}/>
             <div className="container">
               <div className="carousel-caption">
-                <h1 className="text captionText">Walter Ruoppa </h1>
-                <h2 className="quotes"> Before you judge a man, walk a mile in his shoes. After that who cares?... He’s a mile away and you’ve got his shoes! </h2>
+                <h2 className="quotes"><strong>Walter Ruoppa</strong> Before you judge a man, walk a mile in his shoes. After that who cares?... He’s a mile away and you’ve got his shoes! </h2>
               </div>
 
             </div>
@@ -39,8 +37,7 @@ export const About = () => {
                alt="abdullah" src={abdullah}/>
           <div className="container" >
             <div className="carousel-caption">
-              <h1 className="text captionText">Abdullah Hinnawi</h1>
-              <h2 className="quotes"> Before you judge a man, walk a mile in his shoes. After that who cares?... He’s a mile away and you’ve got his shoes! </h2>
+              <h2 className="quotes"> <strong>Abdullah <br/>Hinnawi <br/></strong>Before you judge a man, walk a mile in his shoes. After that who cares?... He’s a mile away and you’ve got his shoes! </h2>
             </div>
           </div>
         </div>
@@ -50,8 +47,7 @@ export const About = () => {
                alt="bennn"/>
             <div className="container">
               <div className="carousel-caption">
-                <h1  className="text captionText">Benjamin Bowo</h1>
-                <h2 className="quotes"> Before you judge a man, walk a mile in his shoes. After that who cares?... He’s a mile away and you’ve got his shoes! </h2>
+                <h2 className="quotes"><strong>Benjamin Bowo</strong> Before you judge a man, walk a mile in his shoes. After that who cares?... He’s a mile away and you’ve got his shoes! </h2>
               </div>
             </div>
         </div>
