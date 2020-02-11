@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * database test will not work if you are not connected
- * to metropolia VPN
+ * to metropolia network
  */
 public class DatabaseTest {
 
@@ -22,7 +22,7 @@ public class DatabaseTest {
 
     @BeforeAll
     static void before() {
-        // setup the session factory
+        // setup the session factory and configure hibernate
         Configuration configuration = new Configuration();
         configuration.addAnnotatedClass(User.class);
         configuration.setProperty("hibernate.dialect",
