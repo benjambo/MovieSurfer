@@ -5,7 +5,6 @@ import validateReg from "../components/ValidateRegistration";
 import styled from "styled-components";
 import axios from "axios";
 
-
 const Styles = styled.div`
   * {
     background-color: white;
@@ -54,12 +53,9 @@ export const SignPage = () => {
 
         if (res.status === 201) {
           window.location = "/";
-
         } else {
           window.location = "/signpage";
-
         }
-
       })
       .catch(err => {
         console.log(err);
@@ -176,7 +172,6 @@ export const SignPage = () => {
           </form>
         </div>
       </div>
-
     </Styles>
   );
 };
