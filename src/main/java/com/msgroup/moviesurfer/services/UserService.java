@@ -22,6 +22,8 @@ public class UserService {
 
     public User saveUser(User user){
 
+
+             /*
             // check if user email is already registered in the database.
             if(userRepository.findByEmail(user.getEmail().toLowerCase())!= null){
                 throw new UniqueEmailException("The email '" + user.getEmail() + "' is already registered!");
@@ -32,6 +34,23 @@ public class UserService {
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             return userRepository.save(user);
 
+              */
+
+            // Another way using try catch
+            // During setting the user email, if it already exists, it will throw an exception
+            try{
+                // set the email to lower case before saving it to the database.
+                // if the user email is already exists, it will throw an exception
+                user.setEmail(user.getEmail().toLowerCase());
+                // Encrypt the user password
+                user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+                return userRepository.save(user);
+
+            }catch(Exception e){
+                throw new UniqueEmailException("The email '" + user.getEmail() + "' is already registered!");
+            }
+
+
     }
 
     public List<User> getUsers(){
@@ -41,7 +60,7 @@ public class UserService {
 
     public User getUserById(Long id){
 
-        return userRepository.findById(id).get();
+        return userRepository.getById(id);
     }
 
 

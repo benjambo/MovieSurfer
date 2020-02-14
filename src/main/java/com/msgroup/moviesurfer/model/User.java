@@ -1,14 +1,24 @@
 package com.msgroup.moviesurfer.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import javax.validation.constraints.Size;
+import java.util.Collection;
 
+/**
+ * User Entity implements UserDetails interface because
+ * UserDetailsService's method loadUserByUsername(String userEmail) returns
+ * a User object of type UserDetails
+ */
 
 @Entity
-public class User{
+public class User implements UserDetails {
     // generate automatically an id for every User object
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -74,5 +84,45 @@ public class User{
     public void setPassword(String password) {
         this.password = password;
     }
+
+
+    //  UserDetails Interface Methods
+
+    @Override
+    @JsonIgnore
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    @JsonIgnore
+    public String getUsername() {
+        return this.email;
+    }
+
+    @Override
+    @JsonIgnore
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    @JsonIgnore
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    @JsonIgnore
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    @JsonIgnore
+    public boolean isEnabled() {
+        return true;
+    }
+
 
 }

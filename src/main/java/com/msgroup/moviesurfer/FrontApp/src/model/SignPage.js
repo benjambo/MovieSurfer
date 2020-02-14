@@ -6,6 +6,10 @@ import styled from "styled-components";
 import axios from "axios";
 
 
+//import * as LazyInput from "lazy-input";
+
+
+
 const Styles = styled.div`
   * {
     background-color: white;
@@ -40,9 +44,33 @@ export const SignPage = () => {
     email: register.email2,
     password: register.password2
   };
+  const loginRequest ={
+    email:sign.email1,
+    password:sign.password1
+  };
+
 
   function submitSig() {
     console.log("Submitted Singing Successfully");
+    axios
+        .post("http://localhost:8080/api/users/login", loginRequest)
+        .then(res => {
+          console.log("###Loging In Response ", res);
+
+          if (res.status === 200) {
+            window.location = "/";
+            sign.email="";
+            sign.password="";
+
+          } else {
+
+
+          }
+
+        })
+        .catch(err => {
+          console.log(err);
+        });
   }
 
   function submitReg() {
@@ -52,12 +80,10 @@ export const SignPage = () => {
       .then(res => {
         console.log("###registerUserResponse ", res);
 
-        if (res.status === 201) {
-          window.location = "/";
-
+        if (res.status === 200) {
+          //window.location = "/";
         } else {
-          window.location = "/signpage";
-
+         // window.location = "/signpage";
         }
 
       })

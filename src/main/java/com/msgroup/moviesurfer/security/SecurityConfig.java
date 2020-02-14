@@ -1,7 +1,12 @@
 package com.msgroup.moviesurfer.security;
 
+import com.msgroup.moviesurfer.services.CustomUserDetailsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.BeanIds;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -16,6 +21,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
+
     // Global Cross Origins - Cors Configuration
     @Bean
     public WebMvcConfigurer corsConfigurer() {
@@ -25,43 +31,67 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 registry.addMapping("/**");
                 //registry.addMapping("/*").allowedOrigins("*");
             }
-
         };
     }
 
     @Bean
     BCryptPasswordEncoder bCryptPasswordEncoder(){
+
         return new BCryptPasswordEncoder();
     }
 
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
+
+    @Autowired
+    private JwtAuthenticationEntryPoint unauthorizedHandler;
+
+
+
+
     //       **** Authorization  ****
-    // configure method defines which URL paths should be secured and which should not
+    /**
+     * Configure method defines which URL paths should be secured and which should not
+     * @param http
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        //super.configure(http);
-        http.cors()
-                .and().csrf().disable().exceptionHandling()
-                .and().authorizeRequests().antMatchers("/api/users/register").permitAll()
-                //.antMatchers("/api/**").permitAll()
+        // csrf means Cross Site Request Forgery
+        // csrf enabled by default to protect the application from CSRF attacks
+        http.cors().and().csrf().disable()
+                //authenticationEntryPoint handles what exceptions need to be thrown when user is not authenticated
+                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+                .authorizeRequests().antMatchers("/api/users/register").permitAll()
+                .antMatchers("/api/users/login").permitAll()
                 .anyRequest().authenticated();
 
     }
 
-    /*
+    /**
+     * AuthenticationManagerBuilder takes the userDetailsService and the passwordEncoder
+     * to build the authenticationManager, which used to authenticate the user
+     * when he tying to log in.
+     *
+     * @param authenticationManagerBuilder
+     * @throws Exception
+     */
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        //super.configure(http);
-        http
-                .authorizeRequests()
-                .antMatchers("/css/**", "/index","/api/**").permitAll();
-                //.antMatchers("/user/**").hasRole("USER")
-                //.and()
-               //.formLogin()
-                //.loginPage("/sign").failureUrl("/login-error");
-
-
+    protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+        authenticationManagerBuilder.userDetailsService(customUserDetailsService).passwordEncoder(bCryptPasswordEncoder());
     }
 
+    /**
+     * The AuthenticationManager used to authenticate the user when he tying to log in.
+     * It is built using the AuthenticationManagerBuilder.
+     * @return super.authenticationManager()
+     * @throws Exception
      */
+    @Override
+    @Bean(BeanIds.AUTHENTICATION_MANAGER)
+    protected AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManager();
+    }
+
+
 }
