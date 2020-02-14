@@ -5,11 +5,14 @@ import validateReg from "../components/ValidateRegistration";
 import styled from "styled-components";
 import axios from "axios";
 
+<<<<<<< HEAD
 
 //import * as LazyInput from "lazy-input";
 
 
 
+=======
+>>>>>>> 091d04cc0c859c247023a78554f04e21efa01cd9
 const Styles = styled.div`
   * {
     background-color: white;
@@ -80,12 +83,18 @@ export const SignPage = () => {
       .then(res => {
         console.log("###registerUserResponse ", res);
 
+<<<<<<< HEAD
         if (res.status === 200) {
           //window.location = "/";
         } else {
          // window.location = "/signpage";
+=======
+        if (res.status === 201) {
+          window.location = "/";
+        } else {
+          window.location = "/signpage";
+>>>>>>> 091d04cc0c859c247023a78554f04e21efa01cd9
         }
-
       })
       .catch(err => {
         console.log(err);
@@ -202,7 +211,6 @@ export const SignPage = () => {
           </form>
         </div>
       </div>
-
     </Styles>
   );
 };
