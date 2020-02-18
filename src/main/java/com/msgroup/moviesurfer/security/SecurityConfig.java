@@ -20,8 +20,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 //@EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true, prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-
-
     // Global Cross Origins - Cors Configuration
     @Bean
     public WebMvcConfigurer corsConfigurer() {
@@ -62,8 +60,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable()
                 //authenticationEntryPoint handles what exceptions need to be thrown when user is not authenticated
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-                .authorizeRequests().antMatchers("/api/users/register").permitAll()
-                .antMatchers("/api/users/login").permitAll()
+                .authorizeRequests().antMatchers("/api/register", "/api/login").permitAll()
+                .antMatchers("/api/admin/login").permitAll()
                 .anyRequest().authenticated();
 
     }

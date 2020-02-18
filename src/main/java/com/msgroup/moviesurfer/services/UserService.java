@@ -4,6 +4,7 @@ import com.msgroup.moviesurfer.exceptions.UniqueEmailException;
 import com.msgroup.moviesurfer.model.User;
 import com.msgroup.moviesurfer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -52,6 +53,25 @@ public class UserService {
 
 
     }
+
+    @Bean
+    public void setAndSaveAdmin() {
+
+        User admin = userRepository.findByRole("ADMIN");
+     if(admin != null) {
+         System.out.println("Admin " + admin.getEmail() + " found");
+     }else{
+            User newAdmin = new User();
+            newAdmin.setRole("ADMIN");
+            newAdmin.setFirstName("null");
+            newAdmin.setLastName("null");
+            newAdmin.setEmail("admin@moviesurfer.com");
+            newAdmin.setPassword(bCryptPasswordEncoder.encode("moviesurfer"));
+            userRepository.save(newAdmin);
+            System.out.println("Admin Saved Successfully!");
+        }
+
+     }
 
     public List<User> getUsers(){
 

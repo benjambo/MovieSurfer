@@ -6,6 +6,7 @@ import validateReg from "../components/ValidateRegistration";
 import styled from "styled-components";
 import axios from "axios";
 
+
 const Styles = styled.div`
   * {
     background-color: white;
@@ -41,7 +42,7 @@ export const SignPage = (props) => {
   // Also calls values sign and register from useState
   const {
     handleChange,
-    // handleSubmitRegister,
+    //handleSubmitRegister,
     //handleSubmitSign,
     sign,
     register,
@@ -55,7 +56,7 @@ export const SignPage = (props) => {
     email: register.email2,
     password: register.password2
   };
-  const loginRequest ={
+  const loginRequest={
     email:sign.email1,
     password:sign.password1
   };
@@ -64,51 +65,53 @@ export const SignPage = (props) => {
     // to prevent submitting the form during user input
     e.preventDefault();
 
-    console.log("Submitted Singing Successfully");
-    axios
-        .post("http://localhost:8080/api/users/login", loginRequest)
-        .then(res => {
-          console.log("###Loging In Response ", res);
+      console.log("Submitted Singing Successfully");
+      axios
+          .post("http://localhost:8080/api/login", loginRequest)
+          .then(res => {
+            console.log("###Loging In Response ", res);
 
-          if (res.status === 200) {
-            hideSignFailed();
-            //showSignSuccess();
-            sign.email="";
-            sign.password="";
-            window.location = "/";
-          }
-        })
-        .catch(err => {
-          console.log("Sing In Error: ", err);
-          hideSignSuccess();
-          showSignFailed();
-        });
+            if (res.status === 200) {
+              hideSignFailed();
+              //showSignSuccess();
+              sign.email = "";
+              sign.password = "";
+              window.location = "/";
+            }
+          })
+          .catch(err => {
+            console.log("Sing In Error: ", err);
+            hideSignSuccess();
+            showSignFailed();
+          });
+
   }
 
   function submitReg(e) {
     // to prevent submitting the form during user input
     e.preventDefault();
 
-    console.log("Submitted Registration Successfully");
-    axios
-        .post("http://localhost:8080/api/users/register", newUser)
-        .then(res => {
-          console.log("###registerUserResponse ", res);
+      console.log("Submitted Registration Successfully");
+      axios
+          .post("http://localhost:8080/api/register", newUser)
+          .then(res => {
+            console.log("###registerUserResponse ", res);
 
-          if (res.status === 200) {
-            //window.location = "/";
-            hideRegisterFailed();
-            showRegisterSuccess();
+            if (res.status === 200) {
+              //window.location = "/";
+              hideRegisterFailed();
+              showRegisterSuccess();
 
-          } else {
-            // window.location = "/signpage";
-            hideRegisterSuccess();
-            showRegisterFailed();
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        });
+            } else {
+              // window.location = "/signpage";
+              hideRegisterSuccess();
+              showRegisterFailed();
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+
   }
 
   return (

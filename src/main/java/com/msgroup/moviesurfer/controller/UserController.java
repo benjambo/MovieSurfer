@@ -3,8 +3,10 @@ package com.msgroup.moviesurfer.controller;
 
 import com.msgroup.moviesurfer.model.LoginRequest;
 import com.msgroup.moviesurfer.model.User;
+import com.msgroup.moviesurfer.repositories.UserRepository;
 import com.msgroup.moviesurfer.security.JwtLoginSuccessResponse;
 import com.msgroup.moviesurfer.security.JwtProvider;
+import com.msgroup.moviesurfer.services.CustomUserDetailsService;
 import com.msgroup.moviesurfer.services.UserService;
 import jdk.jshell.spi.ExecutionControl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +27,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.msgroup.moviesurfer.services.CustomUserDetailsService.userRole;
+
 //@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping(value = "/api/users")
+@RequestMapping(value = "/api")
 public class UserController {
 
     @Autowired
@@ -76,17 +80,19 @@ public class UserController {
 
         return new ResponseEntity<String>("You have to use POST METHOD with register endpoint!", HttpStatus.BAD_REQUEST);
 
+
+
     }
 
     // To get all users
-    @GetMapping(value ="")
+    @GetMapping(value ="/users")
     public @ResponseBody List<User> getUsers(){
         return userService.getUsers();
 
     }
 
     // To get a user by id
-    @GetMapping(value ="/{id}")
+    @GetMapping(value ="/users/{id}")
     public ResponseEntity<?> getUserById(@PathVariable Long id){
         User user = userService.getUserById(id);
         if(user == null) return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
@@ -127,7 +133,50 @@ public class UserController {
 
 
         }
+
     }
+
+
+    @PostMapping("/admin/login")
+    public ResponseEntity<?> authenticateAdmin(@Valid @RequestBody LoginRequest loginrequest, BindingResult result){
+
+        System.out.println("######### userRole: " + userRole);
+
+        // Validation for @NotBlank, @Size and @Email annotations
+        if(result.hasErrors()){
+            for(FieldError error: result.getFieldErrors()){
+                // key:field , value:default message
+                // add the key value pair error to the errorMap object
+                errorMap.put(error.getField(), error.getDefaultMessage());
+            }
+            return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
+            //return new ResponseEntity<List<FieldError>>(result.getFieldErrors(), HttpStatus.BAD_REQUEST);
+        }else {
+                System.out.println("Admin " + loginrequest.getEmail() + " asks for authentication");
+                // this is the authentication that passes to the
+                // jwtProvider's generateToken(Authentication authentication) method
+                Authentication authentication = authenticationManager.authenticate(
+                        new UsernamePasswordAuthenticationToken(
+                                loginrequest.getEmail(), loginrequest.getPassword()
+                        )
+                );
+            if(!userRole.equals("ADMIN")){
+               // throw new UsernameNotFoundException("Admin" + loginrequest.getEmail() +" not found");
+                System.out.println("Admin not found");
+                return new ResponseEntity<String>("Admin " + loginrequest.getEmail() + " not found", HttpStatus.UNAUTHORIZED);
+
+            };
+                System.out.println("The Admin " + loginrequest.getEmail() + " authenticated successfully");
+                SecurityContextHolder.getContext().setAuthentication(authentication);
+                // Generate TOKEN
+                String jwt = JwtProvider.TOKEN_PREFIX + jwtProvider.generateToken(authentication);
+                System.out.println("Jwt generated successfully");
+                //return new ResponseEntity<String>(jwt, HttpStatus.OK);
+                return ResponseEntity.ok(new JwtLoginSuccessResponse(true, jwt));
+            }
+
+    }
+
 
 
 

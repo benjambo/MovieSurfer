@@ -41,8 +41,10 @@ public class User implements UserDetails {
     @Size(min = 6, message = "password has to be at least 6 characters")// constraint on the server level
     private String password;
 
+    private String role;
 
     public User() {
+        this.role = "USER";
     }
 
     public Long getId() {
@@ -83,6 +85,14 @@ public class User implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
 
