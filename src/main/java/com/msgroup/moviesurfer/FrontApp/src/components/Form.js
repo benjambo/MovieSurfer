@@ -37,7 +37,7 @@ const Form = (callbackSig, callbackReg, validateSig, validateReg) => {
     setIsSubmittingSig(true);
   };
 
- const handleSubmitRegister = event => {
+  const handleSubmitRegister = event => {
     event.preventDefault();
     // Handling errors for registration
     setRegisterError(validateReg(register));
