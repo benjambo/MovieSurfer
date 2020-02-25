@@ -22,22 +22,27 @@ const Form = (callbackSig, callbackReg, validateSig, validateReg) => {
 
   const handleChange = event => {
     const { name, value } = event.target;
+    //this.setState({ [event.target.name]: event.target.value });
 
     //console.log(name);
     //console.log(value);
 
-    setSign({ ...sign, [name]: value });
+   setSign({ ...sign, [name]: value });
     setRegister({ ...register, [name]: value });
   };
 
-  const handleSubmitSign = event => {
+  const handleSubmitSign = (event) => {
     event.preventDefault();
     // Handling errors for signing
     setSignError(validateSig(sign));
     setIsSubmittingSig(true);
   };
 
+<<<<<<< HEAD:src/main/java/com/msgroup/moviesurfer/FrontApp/src/components/Form.js
   const handleSubmitRegister = event => {
+=======
+ const handleSubmitRegister = (event) => {
+>>>>>>> 423eebb395b009bef4ed42570fa760bfbffed123:src/main/java/com/msgroup/moviesurfer/FrontApp/src/components/Form.js
     event.preventDefault();
     // Handling errors for registration
     setRegisterError(validateReg(register));

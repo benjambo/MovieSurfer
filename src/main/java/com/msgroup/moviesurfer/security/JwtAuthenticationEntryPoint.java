@@ -1,7 +1,6 @@
 package com.msgroup.moviesurfer.security;
 
 import com.google.gson.Gson;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -38,9 +37,10 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
         System.out.println("AuthenticationEntryPoint interface implemented with overwritten message: Invalid email or password!");
 
-        String InvalidLoginResponse = "Invalid email or password!";
+        String invalidLoginResponse = "Invalid Email OR Password!";
+
         httpServletResponse.setStatus(401);
-        httpServletResponse.getWriter().print(InvalidLoginResponse);
+        httpServletResponse.getWriter().print(invalidLoginResponse);
 
 
 

@@ -8,15 +8,20 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
+    "cloudinary-react": "^1.3.0",
+    "email-validator": "^2.0.4",
+    "formik": "^2.1.4",
     "lazy-input": "^2.0.0",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-cookie": "^4.0.3",
     "react-dom": "^16.12.0",
+    "react-hook-form": "^4.9.8",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "reactstrap": "^8.4.1",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.0.0",
+    "yup": "^0.28.1"
   },
   "scripts": {
     "start": "react-scripts start",

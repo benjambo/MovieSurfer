@@ -66,7 +66,7 @@ public class UserService {
             newAdmin.setFirstName("null");
             newAdmin.setLastName("null");
             newAdmin.setEmail("admin@moviesurfer.com");
-            newAdmin.setPassword(bCryptPasswordEncoder.encode("moviesurfer"));
+            newAdmin.setPassword(bCryptPasswordEncoder.encode("Moviesurfer2020"));
             userRepository.save(newAdmin);
             System.out.println("Admin Saved Successfully!");
         }

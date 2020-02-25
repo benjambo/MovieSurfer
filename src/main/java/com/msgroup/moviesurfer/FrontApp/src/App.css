@@ -1,4 +1,4 @@
-* {
+*{
     font-family: "Courier New", Avenir, sans-serif;
     background-color: black;
 }
@@ -134,6 +134,8 @@ input.error {
 .password {
     width: 100%;
 }
+
+
 
 .createAccount {
     width: 100%;
