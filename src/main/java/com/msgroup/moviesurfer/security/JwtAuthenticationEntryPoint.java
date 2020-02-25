@@ -1,6 +1,6 @@
 package com.msgroup.moviesurfer.security;
 
-import com.google.gson.Gson;
+
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;

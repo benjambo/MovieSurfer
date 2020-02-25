@@ -3,12 +3,12 @@ package com.msgroup.moviesurfer.controller;
 
 import com.msgroup.moviesurfer.model.LoginRequest;
 import com.msgroup.moviesurfer.model.User;
-import com.msgroup.moviesurfer.repositories.UserRepository;
+
 import com.msgroup.moviesurfer.security.JwtLoginSuccessResponse;
 import com.msgroup.moviesurfer.security.JwtProvider;
-import com.msgroup.moviesurfer.services.CustomUserDetailsService;
+
 import com.msgroup.moviesurfer.services.UserService;
-import jdk.jshell.spi.ExecutionControl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,12 +16,9 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;

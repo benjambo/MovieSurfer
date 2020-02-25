@@ -3,8 +3,7 @@ package com.msgroup.moviesurfer.repositories;
 import com.msgroup.moviesurfer.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import java.util.List;
-import java.util.Optional;
+
 
 /**
  * UserRepository interface manages the User entity, extends the CrudRepository and uses
