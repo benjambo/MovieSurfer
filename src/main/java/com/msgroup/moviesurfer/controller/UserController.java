@@ -81,7 +81,6 @@ public class UserController {
         return new ResponseEntity<String>("You have to use POST METHOD with register endpoint!", HttpStatus.BAD_REQUEST);
 
 
-
     }
 
     // To get all users
@@ -176,24 +175,6 @@ public class UserController {
             }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

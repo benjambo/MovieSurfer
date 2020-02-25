@@ -184,6 +184,7 @@
             <!--to fix Intellij – Maven projects – Java release Version is not supported
             and Java language level errors -->
             <plugin>
+                <inherited>true</inherited>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
@@ -198,8 +199,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M4</version>
             </plugin>
-
-
 
         </plugins>
     </build>
