@@ -8,29 +8,25 @@ import { About } from "./model/About";
 import { Footer } from "./components/Footer";
 import { NavigationBar } from "./components/NavigationBar";
 import "bootstrap/dist/css/bootstrap.css";
-<<<<<<< HEAD
-import { AdminLogin } from "./model/AdminLogin";
-=======
 import AdminLogin from "./model/AdminLogin";
->>>>>>> 423eebb395b009bef4ed42570fa760bfbffed123
 import AddMovie from "./model/AddMovie";
 
 const App = () => {
   return (
-    <Router>
-      <div>
-        <NavigationBar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/sign" component={SignPage} />
-          <Route path="/reservation" component={Reservation} />
-          <Route path="/about" component={About} />
-          <Route path="/admin/login" component={AdminLogin} />
-          <Route path="/admin/addMovie" component={AddMovie} />
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+      <Router>
+        <div>
+          <NavigationBar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/sign" component={SignPage} />
+            <Route path="/reservation" component={Reservation} />
+            <Route path="/about" component={About} />
+            <Route path="/admin/login" component={AdminLogin} />
+            <Route path="/admin/addMovie" component={AddMovie} />
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
   );
 };
 
