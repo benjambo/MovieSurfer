@@ -22,22 +22,23 @@ const Form = (callbackSig, callbackReg, validateSig, validateReg) => {
 
   const handleChange = event => {
     const { name, value } = event.target;
+    //this.setState({ [event.target.name]: event.target.value });
 
     //console.log(name);
     //console.log(value);
 
-    setSign({ ...sign, [name]: value });
+   setSign({ ...sign, [name]: value });
     setRegister({ ...register, [name]: value });
   };
 
-  const handleSubmitSign = event => {
+  const handleSubmitSign = (event) => {
     event.preventDefault();
     // Handling errors for signing
     setSignError(validateSig(sign));
     setIsSubmittingSig(true);
   };
 
- const handleSubmitRegister = event => {
+ const handleSubmitRegister = (event) => {
     event.preventDefault();
     // Handling errors for registration
     setRegisterError(validateReg(register));
