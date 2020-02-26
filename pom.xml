@@ -171,16 +171,14 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/net.sourceforge.cobertura/cobertura -->
+        <!--
         <dependency>
             <groupId>net.sourceforge.cobertura</groupId>
             <artifactId>cobertura</artifactId>
-            <version>2.1.1</version>
+            <version>1.9.4.1</version>
             <scope>test</scope>
         </dependency>
-
-
-
+        -->
 
     </dependencies>
 
@@ -207,6 +205,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M4</version>
             </plugin>
+
             <!--to generate Cobertura coverage reports-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -231,7 +230,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.1</version>
+                <version>0.8.4</version>
                 <executions>
                     <execution>
                         <goals>
