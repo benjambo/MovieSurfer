@@ -5,8 +5,8 @@ import axios from "axios";
 
 
 class AddMovie extends Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.image ={
             url:''
         };
@@ -79,17 +79,6 @@ class AddMovie extends Component{
                                         placeholder="Genre"
                                         name="genre"
                                         value={this.state.genre}
-                                        onChange={this.onChange}
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <h5>Year</h5>
-                                    <input
-                                        type="text"
-                                        className="form-control form-control-lg"
-                                        placeholder="Year"
-                                        name="year"
-                                        value={this.state.year}
                                         onChange={this.onChange}
                                     />
                                 </div>
