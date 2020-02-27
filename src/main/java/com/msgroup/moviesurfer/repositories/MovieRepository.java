@@ -9,7 +9,10 @@ import java.util.List;
 
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Long> {
+
     @Override
     List<Movie> findAll();
+
+
 
 }
