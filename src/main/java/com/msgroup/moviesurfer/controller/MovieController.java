@@ -43,6 +43,14 @@ public class MovieController {
         return movieService.getMovies();
 
     }
-
+    @DeleteMapping(value="/movies/{id}")
+    public ResponseEntity<?>deleteMovie(@PathVariable Long id) {
+        Movie movie = movieService.getMovieById(id);
+        if(movie == null) {
+            return new ResponseEntity<String>("Movie not found",HttpStatus.BAD_REQUEST);
+        }
+        movieService.deleteMovie(movie.getId());
+        return new ResponseEntity<String>("Movie deleted successfully",HttpStatus.OK);
+    }
 
 }
