@@ -1,91 +1,79 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import {Alert} from "reactstrap";
-
+import { Alert } from "reactstrap";
 
 class SignPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loginForm: {
-        emailSig: '',
-        passwordSig: ''
+        emailSig: "",
+        passwordSig: ""
       },
-      registerForm:{
-        firstName:'',
-        lastName:'',
-        emailReg:'',
-        passwordReg:''
+      registerForm: {
+        firstName: "",
+        lastName: "",
+        emailReg: "",
+        passwordReg: ""
       },
-      loginErrors:{},
-      registerErrors:{},
-      serverMessageReg:'',
-      serverMessageSig:'',
-      visibleSuccessReg:false,
-      visibleErrorReg:false,
-      visibleSuccessSig:false,
-      visibleErrorSig:false
+      loginErrors: {},
+      registerErrors: {},
+      serverMessageReg: "",
+      serverMessageSig: "",
+      visibleSuccessReg: false,
+      visibleErrorReg: false,
+      visibleSuccessSig: false,
+      visibleErrorSig: false
     };
 
     this.onChangeSignIn = this.onChangeSignIn.bind(this);
     this.onSubmitSignIn = this.onSubmitSignIn.bind(this);
 
-    this.onChangeRegister= this.onChangeRegister.bind(this);
-    this.onSubmitRegister= this.onSubmitRegister.bind(this);
-
-
-
+    this.onChangeRegister = this.onChangeRegister.bind(this);
+    this.onSubmitRegister = this.onSubmitRegister.bind(this);
   }
 
-
-  toggleSuccessReg(){
+  toggleSuccessReg() {
     this.setState({
-      visibleSuccessReg: !this.state.visibleSuccessReg,
-    })
+      visibleSuccessReg: !this.state.visibleSuccessReg
+    });
   }
-  toggleErrorReg(){
+  toggleErrorReg() {
     this.setState({
-      visibleErrorReg: !this.state.visibleErrorReg,
-    })
+      visibleErrorReg: !this.state.visibleErrorReg
+    });
   }
-  toggleSuccessSig(){
+  toggleSuccessSig() {
     this.setState({
       visibleSuccessSig: !this.state.visibleSuccessSig
-    })
+    });
   }
-  toggleErrorSig(){
+  toggleErrorSig() {
     this.setState({
       visibleErrorSig: !this.state.visibleErrorSig
-    })
+    });
   }
-
 
   onChangeSignIn(e) {
     //this.setState({ [e.target.name]: e.target.value });
 
     let loginForm = this.state.loginForm;
     loginForm[e.target.name] = e.target.value;
-    this.setState({loginForm});
-
+    this.setState({ loginForm });
   }
   onChangeRegister(e) {
     //this.setState({ [e.target.name]: e.target.value });
 
     let registerForm = this.state.registerForm;
     registerForm[e.target.name] = e.target.value;
-    this.setState({registerForm});
-
+    this.setState({ registerForm });
   }
 
-
-
   validateSignInForm() {
-
-    let loginForm = this.state.loginForm ;
+    let loginForm = this.state.loginForm;
     let loginErrors = {};
     let LoginFormIsValid = true;
-
 
     if (!loginForm["emailSig"]) {
       LoginFormIsValid = false;
@@ -94,7 +82,9 @@ class SignPage extends Component {
 
     if (typeof loginForm["emailSig"] !== "undefined") {
       //regular expression for email validation
-      let pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+      let pattern = new RegExp(
+        /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+      );
       if (!pattern.test(loginForm["emailSig"])) {
         LoginFormIsValid = false;
         loginErrors["emailSig"] = "Email address is required";
@@ -107,31 +97,20 @@ class SignPage extends Component {
     }
 
     if (typeof loginForm["passwordSig"] === "undefined") {
-
-
       LoginFormIsValid = false;
       loginErrors["passwordSig"] = "Password is required";
-
     }
 
     this.setState({
       loginErrors: loginErrors
     });
     return LoginFormIsValid;
-
-
-
   }
 
-
-
-
-
-  validateRegisterForm(){
-
+  validateRegisterForm() {
     let registerForm = this.state.registerForm;
     let registerErrors = {};
-    let registerFormIsValid= true;
+    let registerFormIsValid = true;
 
     if (!registerForm["firstName"]) {
       registerFormIsValid = false;
@@ -157,7 +136,6 @@ class SignPage extends Component {
       }
     }
 
-
     if (!registerForm["emailReg"]) {
       registerFormIsValid = false;
       registerErrors["emailReg"] = "Email address is required";
@@ -165,7 +143,9 @@ class SignPage extends Component {
 
     if (typeof registerForm["emailReg"] !== "undefined") {
       //regular expression for email validation
-      let pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+      let pattern = new RegExp(
+        /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
+      );
       if (!pattern.test(registerForm["emailReg"])) {
         registerFormIsValid = false;
         registerErrors["emailReg"] = "Enter valid email address";
@@ -180,9 +160,14 @@ class SignPage extends Component {
     if (typeof registerForm["passwordReg"] !== "undefined") {
       // password: uppercase, lowercase and number min 6 characters
       // if (!form["password"].match(/^.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/)) {
-      if (!registerForm["passwordReg"].match(/(?=^.{6,}$)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/)) {
+      if (
+        !registerForm["passwordReg"].match(
+          /(?=^.{6,}$)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/
+        )
+      ) {
         registerFormIsValid = false;
-        registerErrors["passwordReg"] = "Password must contain at least one number, one uppercase and 6 characters";
+        registerErrors["passwordReg"] =
+          "Password must contain at least one number, one uppercase and 6 characters";
       }
     }
 
@@ -190,227 +175,237 @@ class SignPage extends Component {
       registerErrors: registerErrors
     });
     return registerFormIsValid;
-
-
   }
-
 
   onSubmitSignIn(e) {
     // to prevent submitting the form during user input
     e.preventDefault();
 
-    if(this.validateSignInForm()) {
-
+    if (this.validateSignInForm()) {
       let loginRequest = {
         email: this.state.loginForm.emailSig,
-        password: this.state.loginForm.passwordSig,
+        password: this.state.loginForm.passwordSig
       };
 
       console.log("Submitted Singing Successfully");
       axios
-          .post("http://localhost:8080/api/login", loginRequest)
-          .then(res => {
-            console.log("###Loging In Response ", res);
+        .post("http://localhost:8080/api/login", loginRequest)
+        .then(res => {
+          console.log("###Loging In Response ", res);
 
-            if (res.status === 200) {
-
-              this.setState({serverMessageSig: "Logged in Successfully!"});
-              this.setState({visibleErrorSig: false});
-              // this.setState({visibleSuccessSig:true});
-              window.location = "/";
-            }
-          })
-          .catch(err => {
-            console.log("Sing In Error: ", err);
-            this.setState({serverMessageSig: "Invalid Email Or Password!"});
-            this.setState({visibleSuccessSig: false});
-            this.setState({visibleErrorSig: true});
-          });
+          if (res.status === 200) {
+            this.setState({ serverMessageSig: "Logged in Successfully!" });
+            this.setState({ visibleErrorSig: false });
+            // this.setState({visibleSuccessSig:true});
+            window.location = "/";
+          }
+        })
+        .catch(err => {
+          console.log("Sing In Error: ", err);
+          this.setState({ serverMessageSig: "Invalid Email Or Password!" });
+          this.setState({ visibleSuccessSig: false });
+          this.setState({ visibleErrorSig: true });
+        });
     }
-
   }
 
   onSubmitRegister(e) {
     // to prevent submitting the form during user input
     e.preventDefault();
 
-    if(this.validateRegisterForm()) {
-
+    if (this.validateRegisterForm()) {
       let registerRequest = {
         firstName: this.state.registerForm.firstName,
         lastName: this.state.registerForm.lastName,
         email: this.state.registerForm.emailReg,
-        password: this.state.registerForm.passwordReg,
+        password: this.state.registerForm.passwordReg
       };
 
       console.log("Submitted Registration Successfully");
       axios
-          .post("http://localhost:8080/api/register", registerRequest)
-          .then(res => {
-            console.log(res);
-            if (res.status === 200) {
-              this.setState({
-                registerForm:{
-                  firstName:'',
-                  lastName:'',
-                  emailReg:'',
-                  passwordReg:''
-                },
-                serverMessageReg:res.data,
-                visibleSuccessReg: true,
-                visibleErrorReg: false});
-            } else {
-              this.setState({
-                serverMessageReg: res.data,
-                visibleSuccessReg: false,
-                visibleErrorReg: true});
-            }
-          })
-          .catch(err => {
-            console.log(err);
-          });
+        .post("http://localhost:8080/api/register", registerRequest)
+        .then(res => {
+          console.log(res);
+          if (res.status === 200) {
+            this.setState({
+              registerForm: {
+                firstName: "",
+                lastName: "",
+                emailReg: "",
+                passwordReg: ""
+              },
+              serverMessageReg: res.data,
+              visibleSuccessReg: true,
+              visibleErrorReg: false
+            });
+          } else {
+            this.setState({
+              serverMessageReg: res.data,
+              visibleSuccessReg: false,
+              visibleErrorReg: true
+            });
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
-
   }
 
-  render(){
-
+  render() {
     return (
-        <Styles>
-          <div className="wrapper">
-            <div className="first-form-wrapper">
-              <h3>Sign In</h3>
-              <form onSubmit={this.onSubmitSignIn}>
-                <div className="email">
-                  <label htmlFor="emailSig">Email</label>
-                  <input
-                      className={this.state.loginErrors.emailSig && "error"}
-                      type="text"
-                      placeholder="Email"
-                      name="emailSig"
-                      value={this.state.loginForm.emailSig}
-                      onChange={this.onChangeSignIn}
-
-                  />
-                  <span className="errorMessage">{this.state.loginErrors.emailSig}</span>
-                </div>
-
-                <div className="password">
-                  <label htmlFor="passwordSig">Password</label>
-                  <input
-                      className={this.state.loginErrors.passwordSig && "error"}
-                      type="password"
-                      placeholder="Password"
-                      name="passwordSig"
-                      value={this.state.loginForm.passwordSig}
-                      onChange={this.onChangeSignIn}
-
-                  />
-                  <span className="errorMessage">{this.state.loginErrors.passwordSig}</span>
-                </div>
-
-                <div className="createAccount">
-                  <button type="submit">Log In</button>
-                </div>
-              </form>
-              <div>
-                <Alert isOpen={this.state.visibleSuccessSig} toggle={this.toggleSuccessSig.bind(this)} className="mt-3" color="success">
-                  {this.state.serverMessageSig}
-                </Alert>
-                <Alert isOpen={this.state.visibleErrorSig} toggle={this.toggleErrorSig.bind(this)} className="mt-3" color="danger">
-                  {this.state.serverMessageSig}
-                </Alert>
-
+      <Styles>
+        <div className="wrapper">
+          <div className="first-form-wrapper">
+            <h3>Sign In</h3>
+            <form onSubmit={this.onSubmitSignIn}>
+              <div className="email">
+                <label htmlFor="emailSig">Email</label>
+                <input
+                  className={this.state.loginErrors.emailSig && "error"}
+                  type="text"
+                  placeholder="Email"
+                  name="emailSig"
+                  value={this.state.loginForm.emailSig}
+                  onChange={this.onChangeSignIn}
+                />
+                <span className="errorMessage">
+                  {this.state.loginErrors.emailSig}
+                </span>
               </div>
 
-            </div>
-
-            <div className="second-form-wrapper">
-              <h3>Create Account</h3>
-              <form onSubmit={this.onSubmitRegister}>
-                <div className="firstName">
-                  <label htmlFor="firstName">First Name</label>
-                  <input
-                      className={this.state.registerErrors.firstName && "error"}
-                      type="text"
-                      placeholder="First Name"
-                      name="firstName"
-                      value={this.state.registerForm.firstName}
-                      onChange={this.onChangeRegister}
-                  />
-                  <span className="errorMessage">{this.state.registerErrors.firstName}</span>
-                </div>
-
-
-                <div className="lastName">
-                  <label htmlFor="email">Last Name</label>
-                  <input
-                      className={this.state.registerErrors.lastName && "error"}
-                      type="text"
-                      placeholder="Last Name"
-                      name="lastName"
-                      value={this.state.registerForm.lastName}
-                      onChange={this.onChangeRegister}
-                  />
-                  <span className="errorMessage mr-2">{this.state.registerErrors.lastName}</span>
-                </div>
-
-
-                <div className="email">
-                  <label htmlFor="email">Email</label>
-                  <input
-                      className={this.state.registerErrors.emailReg && "error"}
-                      type="text"
-                      placeholder="Email"
-                      name="emailReg"
-                      value={this.state.registerForm.emailReg}
-                      onChange={this.onChangeRegister}
-
-                  />
-                  <span className="errorMessage">{this.state.registerErrors.emailReg}</span>
-                </div>
-
-
-
-                <div className="password">
-                  <label htmlFor="password">Password</label>
-                  <input
-                      className={this.state.registerErrors.passwordReg && "error"}
-                      type="password"
-                      placeholder="Password"
-                      name="passwordReg"
-                      value={this.state.registerForm.passwordReg}
-                      onChange={this.onChangeRegister}
-                  />
-                  <span className="errorMessage">{this.state.registerErrors.passwordReg}</span>
-                </div>
-
-
-                <div className="createAccount">
-                  <button type="submit">Create Account</button>
-                </div>
-              </form>
-              <div>
-                <Alert isOpen={this.state.visibleSuccessReg} toggle={this.toggleSuccessReg.bind(this)} className="mt-3" color="success">
-                  {this.state.serverMessageReg}
-                </Alert>
-                <Alert isOpen={this.state.visibleErrorReg} toggle={this.toggleErrorReg.bind(this)} className="mt-3" color="danger">
-                  {this.state.serverMessageReg}
-                </Alert>
-
+              <div className="password">
+                <label htmlFor="passwordSig">Password</label>
+                <input
+                  className={this.state.loginErrors.passwordSig && "error"}
+                  type="password"
+                  placeholder="Password"
+                  name="passwordSig"
+                  value={this.state.loginForm.passwordSig}
+                  onChange={this.onChangeSignIn}
+                />
+                <span className="errorMessage">
+                  {this.state.loginErrors.passwordSig}
+                </span>
               </div>
 
+              <div className="createAccount">
+                <button type="submit">Log In</button>
+              </div>
+            </form>
+            <div>
+              <Alert
+                isOpen={this.state.visibleSuccessSig}
+                toggle={this.toggleSuccessSig.bind(this)}
+                className="mt-3"
+                color="success"
+              >
+                {this.state.serverMessageSig}
+              </Alert>
+              <Alert
+                isOpen={this.state.visibleErrorSig}
+                toggle={this.toggleErrorSig.bind(this)}
+                className="mt-3"
+                color="danger"
+              >
+                {this.state.serverMessageSig}
+              </Alert>
             </div>
-
           </div>
-        </Styles>
+
+          <div className="second-form-wrapper">
+            <h3>Create Account</h3>
+            <form onSubmit={this.onSubmitRegister}>
+              <div className="firstName">
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  className={this.state.registerErrors.firstName && "error"}
+                  type="text"
+                  placeholder="First Name"
+                  name="firstName"
+                  value={this.state.registerForm.firstName}
+                  onChange={this.onChangeRegister}
+                />
+                <span className="errorMessage">
+                  {this.state.registerErrors.firstName}
+                </span>
+              </div>
+
+              <div className="lastName">
+                <label htmlFor="email">Last Name</label>
+                <input
+                  className={this.state.registerErrors.lastName && "error"}
+                  type="text"
+                  placeholder="Last Name"
+                  name="lastName"
+                  value={this.state.registerForm.lastName}
+                  onChange={this.onChangeRegister}
+                />
+                <span className="errorMessage mr-2">
+                  {this.state.registerErrors.lastName}
+                </span>
+              </div>
+
+              <div className="email">
+                <label htmlFor="email">Email</label>
+                <input
+                  className={this.state.registerErrors.emailReg && "error"}
+                  type="text"
+                  placeholder="Email"
+                  name="emailReg"
+                  value={this.state.registerForm.emailReg}
+                  onChange={this.onChangeRegister}
+                />
+                <span className="errorMessage">
+                  {this.state.registerErrors.emailReg}
+                </span>
+              </div>
+
+              <div className="password">
+                <label htmlFor="password">Password</label>
+                <input
+                  className={this.state.registerErrors.passwordReg && "error"}
+                  type="password"
+                  placeholder="Password"
+                  name="passwordReg"
+                  value={this.state.registerForm.passwordReg}
+                  onChange={this.onChangeRegister}
+                />
+                <span className="errorMessage">
+                  {this.state.registerErrors.passwordReg}
+                </span>
+              </div>
+
+              <div className="createAccount">
+                <button type="submit">Create Account</button>
+              </div>
+            </form>
+            <div>
+              <Alert
+                isOpen={this.state.visibleSuccessReg}
+                toggle={this.toggleSuccessReg.bind(this)}
+                className="mt-3"
+                color="success"
+              >
+                {this.state.serverMessageReg}
+              </Alert>
+              <Alert
+                isOpen={this.state.visibleErrorReg}
+                toggle={this.toggleErrorReg.bind(this)}
+                className="mt-3"
+                color="danger"
+              >
+                {this.state.serverMessageReg}
+              </Alert>
+            </div>
+          </div>
+        </div>
+      </Styles>
     );
   }
-
 }
 
 export default SignPage;
-
 
 const Styles = styled.div`
   * {
@@ -426,7 +421,6 @@ const Styles = styled.div`
     background-color: #4b0e1d;
   }
 `;
-
 
 /*
 import React, { useState } from 'react';

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import styled from "styled-components";
 
@@ -46,24 +46,39 @@ const Styles = styled.div`
   }
 `;
 
-export const NavigationBar = () => (
-  <Styles>
-    <Navbar expand="lg" fixed="top">
-      <Navbar.Brand href="/">MovieSurfer</Navbar.Brand>
-      <Navbar.Toggle area-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/reservation">Reservation</Nav.Link>
-          <Nav.Link href="/about">About</Nav.Link>
-          <Nav.Link href="/sign">Sign</Nav.Link>
-          <Nav.Link>Logout </Nav.Link>
-        </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-dark">Search</Button>
-        </Form>
-      </Navbar.Collapse>
-    </Navbar>
-  </Styles>
-);
+export const NavigationBar = () => {
+  const [newFilter, setNewFilter] = useState("");
+
+  const handleFilterChange = event => {
+    setNewFilter(event.target.value);
+    console.log(event.target.value);
+  };
+
+  return (
+    <Styles>
+      <Navbar expand="lg" fixed="top">
+        <Navbar.Brand href="/">MovieSurfer</Navbar.Brand>
+        <Navbar.Toggle area-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/reservation">Reservation</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/sign">Sign</Nav.Link>
+            <Nav.Link>Logout </Nav.Link>
+          </Nav>
+          <Form inline>
+            <FormControl
+              type="text"
+              placeholder="Search"
+              className="mr-sm-2"
+              value={newFilter}
+              onChange={handleFilterChange}
+            />
+            <Button variant="outline-dark">Search</Button>
+          </Form>
+        </Navbar.Collapse>
+      </Navbar>
+    </Styles>
+  );
+};

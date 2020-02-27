@@ -1,4 +1,3 @@
-
 export default function ValidateForm(sign) {
   let signError = {};
 
@@ -16,4 +15,3 @@ export default function ValidateForm(sign) {
 
   return signError;
 }
-
