@@ -46,7 +46,7 @@ const Styles = styled.div`
   }
 `;
 
-export const NavigationBar = () => {
+const NavigationBar = () => {
   const [newFilter, setNewFilter] = useState("");
 
   const handleFilterChange = event => {
@@ -82,3 +82,5 @@ export const NavigationBar = () => {
     </Styles>
   );
 };
+
+export default NavigationBar;

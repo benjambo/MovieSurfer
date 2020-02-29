@@ -29,6 +29,13 @@
     font-weight: lighter;
 }
 
+/* Home Page */
+
+.grid-container {
+    margin: 20vh 5vh 20vh 5vh;
+    color: white;
+}
+
 /* Signing Page */
 
 /* Colors */
@@ -135,8 +142,6 @@ input.error {
     width: 100%;
 }
 
-
-
 .createAccount {
     width: 100%;
     display: flex;
@@ -167,36 +172,37 @@ input.error {
     color: black;
     font-weight: lighter;
 }
-.third-slide {
 
-}
+/* END Of SIGN UP PAGE */
+
+/* About Page */
+
 .profile {
     height: 90vh !important;
 }
+
 .text {
     text-align: right;
 }
+
 .kuva {
    float: right;
 }
+
 .carousel-caption {
     background: transparent;
     margin: auto;
     position: relative !important;
-
-
 }
+
 .captionText {
     background: transparent;
     float: left;
     text-align: center;
     word-wrap: break-spaces;
     margin: auto auto auto auto;
-
-
-
-
 }
+
 .carousel-indicators {
     background: transparent;
     width: 45vh;
@@ -205,12 +211,11 @@ input.error {
 }
 .carousel-item {
     margin-top: 20vh !important;
-
 }
+
 .quotes {
     color: grey;
     width: 30vh;
     text-align: center;
     background: transparent ;
-
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import accounts from "../services/accounts";
 import IndividualMovie from "./IndividualMovie";
+import newFilter from "./NavigationBar";
 
 /**
  * Get movies from the database
@@ -11,6 +12,9 @@ import IndividualMovie from "./IndividualMovie";
  * @returns {*}
  * @constructor
  */
+
+const Movie = props => <div>{props.rows}</div>;
+
 const MovieCatalog = () => {
   const [movie, setMovie] = useState([]);
 
@@ -23,50 +27,29 @@ const MovieCatalog = () => {
 
   console.log(movie);
 
+  const rows = () =>
+    movie
+      .filter(movieName =>
+        movieName.title.toLowerCase().includes(newFilter.toLowerCase())
+      )
+      .map(individualMovie => {
+        return (
+          <p key={individualMovie.id}>
+            {individualMovie.title} {individualMovie.genre}
+          </p>
+        );
+      });
+
   const Catalog = ({ movies }) => {
     const mapMovies = () =>
-      movies.map(movie => (
-        <IndividualMovie key={movie.id} movie={movie}></IndividualMovie>
-      ));
+      movies.map(movie => <IndividualMovie key={movie.id} movie={movie} />);
     return <div className="grid-container">{mapMovies()}</div>;
   };
 
   return (
     <div>
-      <Catalog movies={movie}></Catalog>
+      <Catalog movies={movie} movies={rows()} />
     </div>
   );
 };
-/*
-const Movie = props => <div>{props.rows}</div>;
-
-const Mapping = ({ movies }) => {
-  const title = [...movies]
-    .filter(
-      movie =>
-        movie.name.toLowerCase().includes(newFilter.toLowerCase()) &&
-        newFilter.length > 0
-    )
-    .map(state => state.title);
-
-  const URL = "movie.com";
-
-  useEffect(() => {
-    axios.get(URL).then(response => {
-      setMovie(response.data);
-    });
-  }, [URL]);
-
-  return movies.map(value => {
-    return <p key={value.name}>{value.name}</p>;
-  });
-};
-
-const rows = () => {
-  const list = movie.filter(title =>
-    title.name.toLowerCase().includes(newFilter.toLowerCase(), 0)
-  );
-  return <Mapping countries={list} />;
-};
- */
 export default MovieCatalog;
