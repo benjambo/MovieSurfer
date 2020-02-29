@@ -48,7 +48,8 @@ const MovieCatalog = () => {
 
   return (
     <div>
-      <Catalog movies={movie} movies={rows()} />
+      <Catalog movies={movie} />
+      <Movie movies={rows()} />
     </div>
   );
 };
