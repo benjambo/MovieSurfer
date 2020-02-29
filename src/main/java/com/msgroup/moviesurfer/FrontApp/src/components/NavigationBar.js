@@ -46,7 +46,7 @@ const Styles = styled.div`
   }
 `;
 
-const NavigationBar = () => {
+export const NavigationBar = () => {
   const [newFilter, setNewFilter] = useState("");
 
   const handleFilterChange = event => {
