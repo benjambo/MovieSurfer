@@ -12,29 +12,30 @@ import IndividualMovie from "./IndividualMovie";
  * @constructor
  */
 const MovieCatalog = () => {
-
   const [movie, setMovie] = useState([]);
 
   //get movies from the database
-  useEffect(()=>{
-    accounts.getAll().then(result => {setMovie(result)
-    })
-  },[]);
+  useEffect(() => {
+    accounts.getAll().then(result => {
+      setMovie(result);
+    });
+  }, []);
 
   console.log(movie);
 
-  const Catalog = ({movies}) =>{
-    const mapMovies = () => movies.map(movie => <IndividualMovie key={movie.id} movie={movie}></IndividualMovie>)
-      return(
-          <div className="grid-container">{mapMovies()}</div>
-      )
+  const Catalog = ({ movies }) => {
+    const mapMovies = () =>
+      movies.map(movie => (
+        <IndividualMovie key={movie.id} movie={movie}></IndividualMovie>
+      ));
+    return <div className="grid-container">{mapMovies()}</div>;
   };
 
-  return(
-      <div>
-        <Catalog movies={movie}></Catalog>
-      </div>
-  )
+  return (
+    <div>
+      <Catalog movies={movie}></Catalog>
+    </div>
+  );
 };
 /*
 const Movie = props => <div>{props.rows}</div>;
@@ -68,4 +69,4 @@ const rows = () => {
   return <Mapping countries={list} />;
 };
  */
-export default MovieCatalog
+export default MovieCatalog;
