@@ -1,11 +1,14 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 const IndividualMovie = ({ movie }) => {
   //TODO kuvat ja ulkoasu kuntoon
   return (
     <div>
-      <h1>{movie.title}</h1>
-      <p>{movie.genre}</p>
+        <h2>{movie.title}</h2>
+        <img src={movie.image} alt="description"></img>
+        <p>{movie.genre}</p>
+        <Button>Reserve</Button>
     </div>
   );
 };
