@@ -37,10 +37,10 @@ public class MovieTest {
     @Test
     public void TestmovieId(){
         Movie movie = new Movie();
-        String TestmovieId = "12345";
+        long TestmovieId = 12345;
 
-        movie.setTitle(TestmovieId);
-        assertEquals(TestmovieId, movie.getTitle(), "wrong name");
+        movie.setId(TestmovieId);
+        assertEquals(TestmovieId, movie.getTitle(), "wrong id");
     }
 
 }

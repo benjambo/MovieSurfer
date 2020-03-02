@@ -32,7 +32,7 @@ public class DatabaseTest {
         configuration.setProperty("hibernate.connection.url", "jdbc:mysql://10.114.32.11:3306/moviesurfer");
         configuration.setProperty("hibernate.connection.username", "abdullah");
         configuration.setProperty("hibernate.connection.password", "moviesurfer");
-        configuration.setProperty("hibernate.hbm2ddl.auto", "create");
+        configuration.setProperty("hibernate.hbm2ddl.auto", "create-drop");
         sessionFactory = configuration.buildSessionFactory();
         session = sessionFactory.openSession();
 
