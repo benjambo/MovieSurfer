@@ -3,16 +3,15 @@ import styled from "styled-components";
 import axios from "axios";
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.image = {
       url: ""
     };
     this.state = {
       title: "",
       genre: "",
-      year: "",
-      imageUrl: "",
+      image: "",
       description: ""
     };
 
@@ -47,11 +46,22 @@ class AddMovie extends Component {
       title: this.state.title,
       genre: this.state.genre,
       description: this.state.description,
-      year: this.state.year,
-      imageUrl: this.image.url
+      image: this.image.url
     };
 
-    console.log(newMovie);
+    console.log("NEW MOVIE OBJECT: ", newMovie);
+    axios
+      .post("http://localhost:8080/api/addmovie", newMovie)
+      .then(res => {
+        console.log("#### Add movie response ", res);
+
+        if (res.status === 200) {
+          window.location = "/";
+        }
+      })
+      .catch(err => {
+        console.log("Error: ", err);
+      });
   }
   render() {
     return (
@@ -80,17 +90,6 @@ class AddMovie extends Component {
                     placeholder="Genre"
                     name="genre"
                     value={this.state.genre}
-                    onChange={this.onChange}
-                  />
-                </div>
-                <div className="form-group">
-                  <h5>Year</h5>
-                  <input
-                    type="text"
-                    className="form-control form-control-lg"
-                    placeholder="Year"
-                    name="year"
-                    value={this.state.year}
                     onChange={this.onChange}
                   />
                 </div>

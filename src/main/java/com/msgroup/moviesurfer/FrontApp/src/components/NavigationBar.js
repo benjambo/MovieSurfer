@@ -65,6 +65,7 @@ export const NavigationBar = () => {
             <Nav.Link href="/reservation">Reservation</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/sign">Sign</Nav.Link>
+            <Nav.Link href="/admin/login">Admin Sign In</Nav.Link>
             <Nav.Link>Logout </Nav.Link>
           </Nav>
           <Form inline>
