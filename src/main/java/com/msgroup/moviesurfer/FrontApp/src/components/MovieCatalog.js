@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import accounts from "../services/accounts";
 import IndividualMovie from "./IndividualMovie";
-import newFilter from "./NavigationBar";
 
 /**
  * Get movies from the database
@@ -12,8 +11,6 @@ import newFilter from "./NavigationBar";
  * @returns {*}
  * @constructor
  */
-
-const Movie = props => <div>{props.rows}</div>;
 
 const MovieCatalog = () => {
   const [movie, setMovie] = useState([]);
@@ -27,18 +24,7 @@ const MovieCatalog = () => {
 
   console.log(movie);
 
-  const rows = () =>
-    movie
-      .filter(movieName =>
-        movieName.title.toLowerCase().includes(newFilter.toLowerCase())
-      )
-      .map(individualMovie => {
-        return (
-          <p key={individualMovie.id}>
-            {individualMovie.title} {individualMovie.genre}
-          </p>
-        );
-      });
+  //.filter(movieName => movieName.title.includes(newFilter))
 
   const Catalog = ({ movies }) => {
     const mapMovies = () =>
@@ -49,7 +35,6 @@ const MovieCatalog = () => {
   return (
     <div>
       <Catalog movies={movie} />
-      <Movie rows={rows()} />
     </div>
   );
 };
