@@ -1,18 +1,65 @@
 import React, { useEffect, useState } from "react";
 import accounts from "../services/accounts";
 import IndividualMovie from "./IndividualMovie";
+import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
+import styled from "styled-components";
 
-/**
- * Get movies from the database
- * map data to individual movie items
- *
- * TODO filter, kuvat ja ulkoasu
- *
- * @returns {*}
- * @constructor
- */
+const Styles = styled.div`
+  form {
+    width: auto;
+  }
 
-const MovieCatalog = () => {
+  button {
+    margin: 1vh;
+  }
+
+  .navbar {
+    background-color: black;
+  }
+  .navbar-default,
+  .collapsed {
+    border-color: white;
+    background-color: white;
+  }
+
+  .navbar-default,
+  .toggle {
+    background-color: white;
+  }
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: white;
+    margin: 2vh 2vw 2vh 2vw;
+    &:hover {
+      color: #690505;
+    }
+  }
+  .navbar-light .navbar-nav .nav-link {
+    color: white;
+    &:hover {
+      color: #690505;
+    }
+  }
+  .navbar-light .navbar-brand {
+    color: white;
+    &:hover {
+      color: #690505;
+    }
+  }
+`;
+
+export const MovieCatalog = () => {
+  const [newFilter, setNewFilter] = useState("");
+  /**
+   * Get movies from the database
+   * map data to individual movie items
+   *
+   * TODO filter, kuvat ja ulkoasu
+   *
+   * @returns {*}
+   * @constructor
+   */
+
   const [movie, setMovie] = useState([]);
 
   //get movies from the database
@@ -24,18 +71,50 @@ const MovieCatalog = () => {
 
   console.log(movie);
 
-  //.filter(movieName => movieName.title.includes(newFilter))
-
   const Catalog = ({ movies }) => {
     const mapMovies = () =>
-      movies.map(movie => <IndividualMovie key={movie.id} movie={movie} />);
+      movies
+        .filter(movieName =>
+          movieName.title.toLowerCase().includes(newFilter.toLowerCase())
+        )
+        .map(movie => <IndividualMovie key={movie.id} movie={movie} />);
     return <div className="grid-container">{mapMovies()}</div>;
   };
 
+  const handleFilterChange = event => {
+    setNewFilter(event.target.value);
+    console.log(event.target.value);
+  };
+
   return (
-    <div>
+    <Styles>
+      <Navbar expand="lg" fixed="top">
+        <Navbar.Brand href="/">MovieSurfer</Navbar.Brand>
+        <Navbar.Toggle area-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/reservation">Reservation</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/sign">Sign</Nav.Link>
+            <Nav.Link href="/admin/login">Admin Sign In</Nav.Link>
+            <Nav.Link>Logout </Nav.Link>
+          </Nav>
+          <Form inline>
+            <FormControl
+              type="text"
+              placeholder="Search"
+              className="mr-sm-2"
+              value={newFilter}
+              onChange={handleFilterChange}
+            />
+            <Button variant="outline-dark">Search</Button>
+          </Form>
+        </Navbar.Collapse>
+      </Navbar>
       <Catalog movies={movie} />
-    </div>
+    </Styles>
   );
 };
+
 export default MovieCatalog;

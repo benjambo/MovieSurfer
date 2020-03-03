@@ -32,13 +32,32 @@
 /* Home Page */
 
 .grid-container {
-    margin: 20vh 5vh 20vh 5vh;
+    margin: 15vh 5vh 5vh 5vh;
     color: white;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    /*grid-template-rows: repeat(4, 1fr);*/
 }
 
+.grid-container img {
+    height: 35vh;
+    width: 30vh;
+}
+
+.grid-container h2 {
+ text-align: center;
+}
+
+.grid-container p {
+    text-align: center;
+}
+
+.grid-container button {
+    margin:0 auto !important;
+    display:block;
+    text-align:center;
+}
 /* Signing Page */
 
 /* Colors */
@@ -217,7 +236,7 @@ input.error {
 }
 
 .quotes {
-    color: grey;
+    color: white;
     width: 30vh;
     text-align: center;
     background: transparent ;
