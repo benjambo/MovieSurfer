@@ -1,9 +1,15 @@
 import React, {useState} from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import MovieSeats from "./MovieSeats";
 
-
-const MovieReservationModal = () => {
+/**
+ * display popup window on button click
+ *
+ * @returns {*}
+ * @constructor
+ */
+const MovieReservationModal = ({movie}) => {
     const [show, setShow] = useState(false);
 
     //handel modal opening and closing
@@ -18,14 +24,17 @@ const MovieReservationModal = () => {
 
             <Modal show={show} onHide={handleClose} animation={true}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Reserve movie</Modal.Title>
+                    <Modal.Title>Reserve {movie.title}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div>
-                        content
+                        <MovieSeats movie={movie}/>
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
+                    <Button>
+                        Reserve
+                    </Button>
                     <Button onClick={handleClose}>
                         Close
                     </Button>
