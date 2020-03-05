@@ -9,22 +9,20 @@ import React from "react";
  * @returns {*}
  * @constructor
  */
-const Seat = ({seat, movie}) => {
+const Seat = ({ seat, movie }) => {
+  const IsReserved = () => {
+    if (seat.reserved === true && seat.movieId === movie.id) {
+      return <p>R</p>;
+    } else if (seat.reserved === false && seat.movieId === movie.id) {
+      return <p>F</p>;
+    } else return null;
+  };
 
-    const IsReserved = () =>{
-        if(seat.reserved === true && seat.movieId === movie.id){
-            return <p>R</p>
-        }else if (seat.reserved === false && seat.movieId === movie.id){
-            return <p>F</p>
-        }else return null;
-    };
-
-    return(
-        <div>
-            <IsReserved seat={seat}/>
-        </div>
-    )
-
+  return (
+    <div>
+      <IsReserved seat={seat} />
+    </div>
+  );
 };
 
 export default Seat;
