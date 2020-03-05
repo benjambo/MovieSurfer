@@ -90,16 +90,9 @@ export const MovieCatalog = () => {
     <Styles>
       <Navbar expand="lg" fixed="top">
         <Navbar.Brand href="/">MovieSurfer</Navbar.Brand>
+
         <Navbar.Toggle area-controls="basic-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/reservation">Reservation</Nav.Link>
-            <Nav.Link href="/about">About</Nav.Link>
-            <Nav.Link href="/sign">Sign</Nav.Link>
-            <Nav.Link href="/admin/login">Admin Sign In</Nav.Link>
-            <Nav.Link>Logout </Nav.Link>
-          </Nav>
           <Form inline>
             <FormControl
               type="text"
@@ -110,6 +103,14 @@ export const MovieCatalog = () => {
             />
             <Button variant="outline-dark">Search</Button>
           </Form>
+          <Nav className="ml-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/reservation">Gallery</Nav.Link>
+            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/sign">Sign</Nav.Link>
+            <Nav.Link href="/admin/login">Admin</Nav.Link>
+            <Nav.Link>Logout </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Navbar>
       <Catalog movies={movie} />
