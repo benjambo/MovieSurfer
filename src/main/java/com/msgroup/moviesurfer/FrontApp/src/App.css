@@ -57,6 +57,10 @@ span {
     color: black;
 }
 
+.seats input {
+    height: 5vh;
+}
+
 .reservation-grid {
     color: white;
     background-color: white;
