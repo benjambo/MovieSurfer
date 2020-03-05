@@ -54,15 +54,15 @@ span {
 
 .seats {
     background-color: white;
-    color: black;
 }
 
 .seats input {
     height: 5vh;
+    border: none;
 }
 
 .reservation-grid {
-    color: white;
+    color: black;
     background-color: white;
     display: grid;
     justify-items: center;

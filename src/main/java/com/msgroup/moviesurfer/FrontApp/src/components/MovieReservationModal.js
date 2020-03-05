@@ -29,7 +29,7 @@ const MovieReservationModal = ({ movie }) => {
         animation={true}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Reserve for {movie.title}</Modal.Title>
+          <Modal.Title>Seats for {movie.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
@@ -37,8 +37,8 @@ const MovieReservationModal = ({ movie }) => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="dark">Reserve</Button>
-          <Button variant="dark" onClick={handleClose}>
+          <Button variant="outline-success">Reserve</Button>
+          <Button variant="outline-danger" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
