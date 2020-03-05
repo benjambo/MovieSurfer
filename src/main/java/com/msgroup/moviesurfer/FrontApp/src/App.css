@@ -76,6 +76,16 @@ wine red: #4b0e1d;
     background-color: #4b0e1d;
 }
 
+.form-wrapper {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 50px #555;
+    background-color: #ffffff;
+}
+
 .first-form-wrapper {
     width: 400px;
     display: flex;
@@ -204,26 +214,18 @@ input.error {
     height: 90vh !important;
 }
 
-.text {
-    text-align: right;
-}
-
-.kuva {
+.profilePicture {
     float: right;
 }
 
 .carousel-caption {
     background: transparent;
-    margin: auto;
     position: relative !important;
 }
 
 .captionText {
     background: transparent;
-    float: left;
-    text-align: center;
     word-wrap: break-spaces;
-    margin: auto auto auto auto;
 }
 
 .carousel-indicators {
@@ -238,7 +240,7 @@ input.error {
 
 .quotes {
     color: white;
-    width: 30vh;
+    width: 40vh;
     text-align: center;
     background: transparent ;
     margin-top: 10vh;
