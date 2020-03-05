@@ -1,4 +1,6 @@
 import React from "react";
+import greenSeat from "../assets/greenseat.png";
+import redSeat from "../assets/redseat.png";
 
 /**
  * compare movie id to seat movieid. return r if reserved
@@ -12,21 +14,9 @@ import React from "react";
 const Seat = ({ seat, movie }) => {
   const IsReserved = () => {
     if (seat.reserved === true && seat.movieId === movie.id) {
-      return (
-        <input
-          type="image"
-          src="https://image.flaticon.com/icons/svg/1683/1683809.svg"
-          className="seats"
-        />
-      );
+      return <input type="image" src={redSeat} className="seats" />;
     } else if (seat.reserved === false && seat.movieId === movie.id) {
-      return (
-        <input
-          type="image"
-          src="https://image.flaticon.com/icons/svg/1683/1683707.svg"
-          className="seats"
-        />
-      );
+      return <input type="image" src={greenSeat} className="seats" />;
     } else return null;
   };
 
