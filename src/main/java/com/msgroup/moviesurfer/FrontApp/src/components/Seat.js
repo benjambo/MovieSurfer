@@ -12,14 +12,26 @@ import React from "react";
 const Seat = ({ seat, movie }) => {
   const IsReserved = () => {
     if (seat.reserved === true && seat.movieId === movie.id) {
-      return <p>R</p>;
+      return (
+        <input
+          type="image"
+          src="https://image.flaticon.com/icons/svg/1683/1683809.svg"
+          className="seats"
+        />
+      );
     } else if (seat.reserved === false && seat.movieId === movie.id) {
-      return <p>F</p>;
+      return (
+        <input
+          type="image"
+          src="https://image.flaticon.com/icons/svg/1683/1683707.svg"
+          className="seats"
+        />
+      );
     } else return null;
   };
 
   return (
-    <div>
+    <div className="seats">
       <IsReserved seat={seat} />
     </div>
   );

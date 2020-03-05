@@ -1,6 +1,6 @@
 import React from "react";
-import jere from "../assets/jere.jpg";
-import walter from "../assets/walter.jpg";
+import jere from "../assets/jere.jpeg";
+import walter from "../assets/walter.jpeg";
 import abdullah from "../assets/abdullah.jpg";
 import benjamin from "../assets/benjamin.jpeg";
 
@@ -36,7 +36,7 @@ export const About = () => {
                   <strong>Walter Ruoppa</strong>
                   <br />
                   I'm 24 y.o. programming student from Metropolia
-                  Ammattikorkeakoulu. I have a lot of interest in Anime and
+                  Ammattikorkeakoulu. My interests are languages and
                   Java-framework-development{" "}
                 </h2>
               </div>

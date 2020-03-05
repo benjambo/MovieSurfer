@@ -21,11 +21,11 @@ const MovieSeats = ({ movie }) => {
   const MapSeats = ({ seats }) => {
     const mapMovies = () =>
       seats.map(seat => <Seat key={seat.id} seat={seat} movie={movie} />);
-    return <div className="grid-container">{mapMovies()}</div>;
+    return <div className="reservation-grid">{mapMovies()}</div>;
   };
   return (
     <div>
-      <MapSeats seats={seats}></MapSeats>
+      <MapSeats seats={seats} />
     </div>
   );
 };

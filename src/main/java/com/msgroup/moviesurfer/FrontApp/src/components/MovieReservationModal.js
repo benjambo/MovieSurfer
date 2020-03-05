@@ -18,11 +18,18 @@ const MovieReservationModal = ({ movie }) => {
 
   return (
     <div>
-      <Button onClick={handleShow}>Reserve</Button>
+      <Button variant="dark" onClick={handleShow}>
+        Reserve
+      </Button>
 
-      <Modal show={show} onHide={handleClose} animation={true}>
+      <Modal
+        className="reservation-modal"
+        show={show}
+        onHide={handleClose}
+        animation={true}
+      >
         <Modal.Header closeButton>
-          <Modal.Title>Reserve {movie.title}</Modal.Title>
+          <Modal.Title>Seats for {movie.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
@@ -30,8 +37,10 @@ const MovieReservationModal = ({ movie }) => {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button>Reserve</Button>
-          <Button onClick={handleClose}>Close</Button>
+          <Button variant="outline-success">Reserve</Button>
+          <Button variant="outline-danger" onClick={handleClose}>
+            Close
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>
