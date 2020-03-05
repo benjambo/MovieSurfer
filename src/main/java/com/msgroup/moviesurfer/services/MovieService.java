@@ -19,8 +19,6 @@ public class MovieService {
     private SeatRepository seatRepository;
 
 
-
-
     public Movie save(Movie movie) {
 
         Movie newMovie = movieRepository.save(movie);
@@ -44,9 +42,11 @@ public class MovieService {
         return movieRepository.findAll();
     }
     public void deleteMovie(Long id) {
+        seatRepository.deleteByMovieId(id);
         movieRepository.deleteById(id);
     }
     public Movie getMovieById(Long id) {
+
         return movieRepository.getOne(id);
     }
 

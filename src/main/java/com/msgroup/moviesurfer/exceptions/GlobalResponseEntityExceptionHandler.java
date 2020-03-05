@@ -1,12 +1,12 @@
 package com.msgroup.moviesurfer.exceptions;
-
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+import javax.persistence.EntityNotFoundException;
 
 // Global exception handling for controllers / services.
 // When the controller/service throws the exception which is wired up in this class, it
@@ -23,5 +23,14 @@ public class GlobalResponseEntityExceptionHandler extends ResponseEntityExceptio
 
 
     }
+    // EntityNotFoundException is a spring built-in exception
+    @ExceptionHandler
+    public final ResponseEntity<Object> HandleEntityNotFoundException(EntityNotFoundException ex){
+
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        //return new ResponseEntity<>("Movie not found!", HttpStatus.BAD_REQUEST);
+
+    }
+
 
 }

@@ -1,7 +1,9 @@
 package com.msgroup.moviesurfer.controller;
 
 import com.msgroup.moviesurfer.model.Movie;
+import com.msgroup.moviesurfer.repositories.SeatRepository;
 import com.msgroup.moviesurfer.services.MovieService;
+import com.msgroup.moviesurfer.services.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +23,8 @@ public class MovieController {
 
     @Autowired
     private MovieService movieService;
+
+
 
     @PostMapping(value="/addmovie")
     public ResponseEntity<?> addMovie(@Valid @RequestBody Movie movie, BindingResult result) {
@@ -43,14 +48,19 @@ public class MovieController {
         return movieService.getMovies();
 
     }
-    @DeleteMapping(value="/movies/{id}")
+    @DeleteMapping(value="/movies/delete/{id}")
     public ResponseEntity<?>deleteMovie(@PathVariable Long id) {
+        System.out.println("movie to be deleted "+ id);
+
         Movie movie = movieService.getMovieById(id);
         if(movie == null) {
-            return new ResponseEntity<String>("Movie not found",HttpStatus.BAD_REQUEST);
+
+            throw new EntityNotFoundException();
+            //return new ResponseEntity<String>("Movie not found",HttpStatus.BAD_REQUEST);
+        }else {
+            movieService.deleteMovie(movie.getId());
+            return new ResponseEntity<String>("Movie deleted successfully!", HttpStatus.OK);
         }
-        movieService.deleteMovie(movie.getId());
-        return new ResponseEntity<String>("Movie deleted successfully",HttpStatus.OK);
     }
 
 

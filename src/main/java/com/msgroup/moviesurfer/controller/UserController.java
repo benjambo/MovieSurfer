@@ -54,9 +54,6 @@ public class UserController {
 
             // Validation for @NotBlank, @Size and @Email annotations
             if(result.hasErrors()){
-
-                // Map<K,V> Key value pair
-                Map<String, String> errorMap = new HashMap<>();
                 for(FieldError error: result.getFieldErrors()){
                     // key:field , value:default message
                     // add the key value pair error to the errorMap object
@@ -67,7 +64,7 @@ public class UserController {
             }else {
                 User newUser = userService.saveUser(user);
                 System.out.println("New USER Registered Successfully!");
-                return new ResponseEntity<String>("Registered Successfully!", HttpStatus.OK);
+                return new ResponseEntity<String>("Account Created Successfully!", HttpStatus.OK);
             }
 
     }

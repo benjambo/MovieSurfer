@@ -28,6 +28,14 @@ public class SeatService {
         return seatRepository.findAllByReserved(true);
     }
 
+    public List<Seat> getSeatsByMovieId(Long movieId){
+        return seatRepository.findAllByMovieId(movieId);
+    }
+
+    public List<Seat> deleteSeatsByMovieId(Long movieId){
+        return seatRepository.deleteByMovieId(movieId);
+    }
+
 
     public Seat getSeatById(Long id){
         return seatRepository.getById(id);

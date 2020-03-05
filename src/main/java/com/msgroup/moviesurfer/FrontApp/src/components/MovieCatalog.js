@@ -3,6 +3,7 @@ import accounts from "../services/accounts";
 import IndividualMovie from "./IndividualMovie";
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import styled from "styled-components";
+import logo from "../assets/logo.png";
 
 const Styles = styled.div`
   form {

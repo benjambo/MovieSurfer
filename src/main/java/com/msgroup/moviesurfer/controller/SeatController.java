@@ -1,17 +1,12 @@
 package com.msgroup.moviesurfer.controller;
-
-
 import com.msgroup.moviesurfer.model.Seat;
-
 import com.msgroup.moviesurfer.services.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
@@ -23,9 +18,6 @@ public class SeatController {
 
     @Autowired
     private SeatService seatService;
-
-
-
 
     Map<String, String> errorMap = new HashMap<>();
 
@@ -65,9 +57,13 @@ public class SeatController {
 
                  return new ResponseEntity<String>("Seat not found!", HttpStatus.BAD_REQUEST);
 
-            } else {
-                seatService.updateSeat(seat);
-                return new ResponseEntity<String>("Seat reserved successfully!", HttpStatus.OK);
+            }else if(reservableSeat.isReserved()){
+                return new ResponseEntity<String>("Seat is already reserved!", HttpStatus.BAD_REQUEST);
+            }
+            else {
+                reservableSeat.setReserved(true);
+                seatService.updateSeat(reservableSeat);
+                return new ResponseEntity<String>("Seat reserved successfully! ", HttpStatus.OK);
             }
 
         }
