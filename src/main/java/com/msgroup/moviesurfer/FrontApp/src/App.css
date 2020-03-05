@@ -256,10 +256,6 @@ input.error {
 
 /* About Page */
 
-.profile {
-    height: 90vh !important;
-}
-
 .profilePicture {
     float: right;
 }
@@ -267,6 +263,7 @@ input.error {
 .carousel-caption {
     background: transparent;
     position: relative !important;
+    padding: 0 !important;
 }
 
 .captionText {
@@ -280,8 +277,8 @@ input.error {
     padding: 10px;
     margin: auto !important;
 }
-.carousel-item {
-    margin-top: 20vh !important;
+.carousel {
+    margin: 8vh auto 8vh auto !important;
 }
 
 .quotes {
@@ -289,5 +286,5 @@ input.error {
     width: 40vh;
     text-align: center;
     background: transparent ;
-    margin-top: 10vh;
+    margin-top: 20vh;
 }
