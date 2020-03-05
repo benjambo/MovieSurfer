@@ -29,6 +29,47 @@
     font-weight: lighter;
 }
 
+/* Reservation */
+
+span {
+    background-color: white;
+}
+
+.modal-title {
+    background-color: white;
+    color: black;
+}
+
+.modal-header {
+     background-color: white;
+}
+
+.modal-body {
+    background-color: white;
+}
+
+.modal-footer {
+    background-color: white;
+}
+
+.seats {
+    background-color: white;
+    color: black;
+}
+
+.reservation-grid {
+    color: white;
+    background-color: white;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.reservation-modal {
+    color: white;
+    background-color: transparent;
+}
+
 /* Home Page */
 
 .grid-container {

@@ -12,14 +12,14 @@ import React from "react";
 const Seat = ({ seat, movie }) => {
   const IsReserved = () => {
     if (seat.reserved === true && seat.movieId === movie.id) {
-      return <p>R</p>;
+      return <p className="seats">R</p>;
     } else if (seat.reserved === false && seat.movieId === movie.id) {
-      return <p>F</p>;
+      return <p className="seats">F</p>;
     } else return null;
   };
 
   return (
-    <div>
+    <div className="seats">
       <IsReserved seat={seat} />
     </div>
   );
