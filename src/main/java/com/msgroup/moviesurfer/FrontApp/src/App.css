@@ -44,6 +44,7 @@
 .grid-container img {
     height: 40vh;
     width: 30vh;
+    border-radius: 5px;
 }
 
 .grid-container h2 {
