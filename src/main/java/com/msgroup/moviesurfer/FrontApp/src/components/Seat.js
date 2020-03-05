@@ -12,9 +12,9 @@ import React from "react";
 const Seat = ({ seat, movie }) => {
   const IsReserved = () => {
     if (seat.reserved === true && seat.movieId === movie.id) {
-      return <p className="seats">R</p>;
+      return <p className="seats">🪑</p>;
     } else if (seat.reserved === false && seat.movieId === movie.id) {
-      return <p className="seats">F</p>;
+      return <p className="seats">💺</p>;
     } else return null;
   };
 
