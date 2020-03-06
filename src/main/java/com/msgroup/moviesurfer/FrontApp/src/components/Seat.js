@@ -8,9 +8,11 @@ import redSeat from "../assets/redseat.png";
  *
  * @param seat
  * @param movie
+ * @param setReserve
  * @returns {*}
  * @constructor
  */
+
 const Seat = ({ seat, movie, setReserve }) => {
   const GetSeats = () => {
     if (seat.reserved === true && seat.movieId === movie.id) {
@@ -30,7 +32,7 @@ const Seat = ({ seat, movie, setReserve }) => {
         <input
           type="image"
           src={greenSeat}
-          onClick={() => setReserve("Reserve seat number " + seat.number)}
+          onClick={() => setReserve("Picked seat number " + seat.number)}
           className="seats"
           alt="Free seat"
         />

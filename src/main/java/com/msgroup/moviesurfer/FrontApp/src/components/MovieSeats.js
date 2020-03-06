@@ -28,7 +28,7 @@ const MovieSeats = ({ movie }) => {
     return <div className="reservation-grid">{mapMovies()}</div>;
   };
   return (
-    <div>
+    <div className="background-modal">
       <MapSeats seats={seats} />
       {reserve}
     </div>

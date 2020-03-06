@@ -37,6 +37,12 @@ span {
     background-color: white;
 }
 
+.background-modal {
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
 .modal-title {
     background-color: white;
     color: black;
@@ -61,6 +67,15 @@ span {
 .seats input {
     height: 5.5vh;
     border: none;
+}
+
+.seats input:focus, input:hover {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    box-shadow:0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
 }
 
 .reservation-grid {
