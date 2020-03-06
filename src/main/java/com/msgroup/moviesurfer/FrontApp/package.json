@@ -17,6 +17,7 @@
     "react-cookie": "^4.0.3",
     "react-dom": "^16.12.0",
     "react-hook-form": "^4.9.8",
+    "react-images": "^1.1.0-beta.3",
     "react-photo-gallery": "^8.0.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",

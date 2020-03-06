@@ -129,6 +129,32 @@ span {
     margin-top: 10vh;
 }
 
+/* Arrow buttons in Gallery */
+.css-8wgz7g {
+    background-color: transparent;
+}
+
+/* Exit and Fullscreen button in Gallery */
+.css-9s8aw7 {
+    background-color: white;
+    color: black;
+}
+
+/* Page indicator in Gallery */
+.css-w6xjhe {
+    background-color: transparent;
+    color: white;
+}
+
+/* Top and bottom bars in Gallery */
+.css-1ycyyax {
+    background-color: black;
+}
+
+.css-m6j0xf {
+    color: black;
+}
+
 /* Signing Page */
 
 /* Colors */
