@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import greenSeat from "../assets/greenseat.png";
 import redSeat from "../assets/redseat.png";
 
@@ -12,14 +12,29 @@ import redSeat from "../assets/redseat.png";
  * @constructor
  */
 const Seat = ({ seat, movie, setReserve }) => {
-
   const GetSeats = () => {
     if (seat.reserved === true && seat.movieId === movie.id) {
       return (
-        <input type="image" src={redSeat} onClick={()=>setReserve("Seat number " + seat.number + " is not available")} className="seats" alt="movie image" />
+        <input
+          type="image"
+          src={redSeat}
+          onClick={() =>
+            setReserve("Seat number " + seat.number + " is not available")
+          }
+          className="seats"
+          alt="Reserved seat"
+        />
       );
     } else if (seat.reserved === false && seat.movieId === movie.id) {
-      return <input type="image" src={greenSeat} onClick={()=>setReserve("Reserve seat number " + seat.number)} className="seats" />;
+      return (
+        <input
+          type="image"
+          src={greenSeat}
+          onClick={() => setReserve("Reserve seat number " + seat.number)}
+          className="seats"
+          alt="Free seat"
+        />
+      );
     } else return null;
   };
 
