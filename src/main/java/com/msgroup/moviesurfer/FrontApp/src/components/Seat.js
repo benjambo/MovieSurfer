@@ -14,7 +14,9 @@ import redSeat from "../assets/redseat.png";
 const Seat = ({ seat, movie }) => {
   const IsReserved = () => {
     if (seat.reserved === true && seat.movieId === movie.id) {
-      return <input type="image" src={redSeat} className="seats" />;
+      return (
+        <input type="image" src={redSeat} className="seats" alt="movie image" />
+      );
     } else if (seat.reserved === false && seat.movieId === movie.id) {
       return <input type="image" src={greenSeat} className="seats" />;
     } else return null;

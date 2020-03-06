@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.TransactionRequiredException;
 
 // Global exception handling for controllers / services.
 // When the controller/service throws the exception which is wired up in this class, it
@@ -27,10 +28,18 @@ public class GlobalResponseEntityExceptionHandler extends ResponseEntityExceptio
     @ExceptionHandler
     public final ResponseEntity<Object> HandleEntityNotFoundException(EntityNotFoundException ex){
 
-        return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
-        //return new ResponseEntity<>("Movie not found!", HttpStatus.BAD_REQUEST);
+        //return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Movie not found!", HttpStatus.BAD_REQUEST);
 
     }
+    @ExceptionHandler
+    public final ResponseEntity<Object> HandleTransactionRequiredException(TransactionRequiredException ex){
+
+        //return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Transaction Required Exception thrown", HttpStatus.BAD_REQUEST);
+
+    }
+
 
 
 }

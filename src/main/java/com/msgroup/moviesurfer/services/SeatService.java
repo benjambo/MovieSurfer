@@ -6,9 +6,11 @@ import com.msgroup.moviesurfer.model.Seat;
 import com.msgroup.moviesurfer.repositories.SeatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 @Service
 public class SeatService {
 
@@ -32,8 +34,9 @@ public class SeatService {
         return seatRepository.findAllByMovieId(movieId);
     }
 
-    public List<Seat> deleteSeatsByMovieId(Long movieId){
-        return seatRepository.deleteByMovieId(movieId);
+    public void deleteSeatsByMovieId(Long movieId){
+         seatRepository.deleteAllByMovieId(movieId);
+         System.out.println("Seats of movie " + movieId + " deleted successfully");
     }
 
 

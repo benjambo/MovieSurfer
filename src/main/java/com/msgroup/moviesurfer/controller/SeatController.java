@@ -59,6 +59,13 @@ public class SeatController {
 
             }else if(reservableSeat.isReserved()){
                 return new ResponseEntity<String>("Seat is already reserved!", HttpStatus.BAD_REQUEST);
+            }else if(!seat.isReserved()){
+                return new ResponseEntity<String>("reserved value must be true!", HttpStatus.BAD_REQUEST);
+            }
+            else if(seat.getNumber() != reservableSeat.getNumber()){
+                return new ResponseEntity<String>("Seat number not match", HttpStatus.BAD_REQUEST);
+            }else if(seat.getMovieId() != reservableSeat.getMovieId()){
+                return new ResponseEntity<String>("Seat's movieId not match'", HttpStatus.BAD_REQUEST);
             }
             else {
                 reservableSeat.setReserved(true);

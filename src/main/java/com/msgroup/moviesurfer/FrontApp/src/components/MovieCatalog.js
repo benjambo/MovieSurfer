@@ -3,17 +3,14 @@ import accounts from "../services/accounts";
 import IndividualMovie from "./IndividualMovie";
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import styled from "styled-components";
-import logo from "../assets/logo.png";
 
 const Styles = styled.div`
   form {
     width: auto;
   }
-
   button {
     margin: 1vh;
   }
-
   .navbar {
     background-color: black;
   }
@@ -22,7 +19,6 @@ const Styles = styled.div`
     border-color: white;
     background-color: white;
   }
-
   .navbar-default,
   .toggle {
     background-color: white;
