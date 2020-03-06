@@ -105,6 +105,7 @@ span {
     display:block;
     text-align:center;
 }
+
 /* Signing Page */
 
 /* Colors */
@@ -112,6 +113,7 @@ span {
 pitch black #000000
 wine red: #4b0e1d;
 */
+
 .wrapper {
     height: 78.2vh;
     width: 100%;
@@ -191,7 +193,6 @@ input.error {
 .errorMessage {
     color: red;
     font-size: 0.75em;
-    display: relative;
 }
 
 .firstName {
@@ -252,8 +253,6 @@ input.error {
     font-weight: lighter;
 }
 
-/* END Of SIGN UP PAGE */
-
 /* About Page */
 
 .profilePicture {
@@ -277,6 +276,7 @@ input.error {
     padding: 10px;
     margin: auto !important;
 }
+
 .carousel {
     margin: 8vh auto 8vh auto !important;
 }
@@ -287,4 +287,86 @@ input.error {
     text-align: center;
     background: transparent ;
     margin-top: 20vh;
+}
+
+/* Media for Smaller Screens */
+
+@media screen and (max-width: 1000px) {
+
+    /* Home Page */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 15vh auto auto auto;
+    }
+
+    /* Footer */
+    .footer {
+        flex-direction: column;
+        align-content: center;
+        text-align: center;
+        background-color: black;
+        color: white;
+    }
+
+    /* About Page */
+
+    .carousel {
+        margin: 8vh auto 8vh auto !important;
+    }
+
+    .quotes {
+        width: auto !important;
+        margin: 90vh 20vh auto 0 !important;
+    }
+
+    /* Sign Up Page */
+    .column {
+        padding: 5vh 0 5vh 0;
+        width: auto;
+    }
+
+    .wrapper {
+        height: auto !important;
+        margin: auto;
+        width: 100%;
+        flex-direction: column !important;
+    }
+
+    .form-wrapper {
+        width: 42vh !important;
+        margin: 15vh auto 5vh auto !important;
+        box-shadow: none !important;
+    }
+
+    .first-form-wrapper {
+        width: 42vh !important;
+        margin: 15vh auto 1vh auto !important;
+        box-shadow: none !important;
+    }
+
+    .second-form-wrapper {
+        width: 42vh !important;
+        flex-direction: column !important;
+        margin: 1vh auto 4vh auto !important;
+        box-shadow: none !important;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        margin: 15vh auto auto auto;
+    }
+
+    /* About Page */
+    .profilePicture {
+        height: 60vh;
+        width: 50vh;
+        float: right !important;
+     }
+
+    .quotes {
+        width: auto !important;
+        margin: 65vh 12vh auto 0 !important;
+    }
 }

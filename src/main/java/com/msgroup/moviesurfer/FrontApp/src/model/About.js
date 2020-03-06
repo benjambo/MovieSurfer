@@ -22,8 +22,8 @@ export const About = () => {
                 <h2 className="quotes">
                   <strong>Jere Saarelma</strong>
                   <br />
-                  I'm 25 y.o. programmer from Metropolia Ammattikorkeakoulu. I
-                  have a lot of interest in Java and Backend-development{" "}
+                  I'm 25 y.o. programmer from Metropolia. I have a lot of
+                  interest in Java and Backend-development{" "}
                 </h2>
               </div>
             </div>
@@ -35,9 +35,8 @@ export const About = () => {
                 <h2 className="quotes">
                   <strong>Walter Ruoppa</strong>
                   <br />
-                  I'm 24 y.o. programming student from Metropolia
-                  Ammattikorkeakoulu. My interests are languages and
-                  Java-framework-development{" "}
+                  I'm 24 y.o. programming student from Metropolia. My interests
+                  are languages and Java-framework-development{" "}
                 </h2>
               </div>
             </div>
@@ -52,9 +51,8 @@ export const About = () => {
                     Abdullah <br />
                     Hinnawi <br />
                   </strong>
-                  I'm 31 y.o. programming student from Metropolia
-                  Ammattikorkeakoulu. I have a lot of interest in Java and
-                  Backend-development{" "}
+                  I'm 31 y.o. programming student from Metropolia. I have a lot
+                  of interest in Java and Backend-development{" "}
                 </h2>
               </div>
             </div>
@@ -66,9 +64,8 @@ export const About = () => {
                 <h2 className="quotes">
                   <strong>Benjamin Bowo</strong>
                   <br />
-                  I'm 23 y.o. programming student from Metropolia
-                  Ammattikorkeakoulu. I have a lot of interest in React and
-                  Frontend-development{" "}
+                  I'm 23 y.o. programming student from Metropolia. I have a lot
+                  of interest in React and Frontend-development{" "}
                 </h2>
               </div>
             </div>
