@@ -141,16 +141,6 @@ wine red: #4b0e1d;
     background-color: #4b0e1d;
 }
 
-.form-wrapper {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0px 10px 50px #555;
-    background-color: #ffffff;
-}
-
 .first-form-wrapper {
     width: 400px;
     display: flex;
@@ -160,6 +150,7 @@ wine red: #4b0e1d;
     box-shadow: 0px 10px 50px #555;
     margin: auto 10vh auto auto;
     background-color: #ffffff;
+    z-index: 2;
 }
 
 .second-form-wrapper {
@@ -171,6 +162,7 @@ wine red: #4b0e1d;
     box-shadow: 0px 10px 50px #555;
     margin: auto auto auto 10vh;
     background-color: #ffffff;
+    z-index: 1;
 }
 
 form {
@@ -268,6 +260,18 @@ input.error {
 .createAccount small {
     color: black;
     font-weight: lighter;
+}
+
+/* Admin Login */
+
+.form-wrapper {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 50px #555;
+    background-color: #ffffff;
 }
 
 /* About Page */

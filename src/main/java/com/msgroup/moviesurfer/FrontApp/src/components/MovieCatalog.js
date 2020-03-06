@@ -74,6 +74,7 @@ export const MovieCatalog = () => {
         .filter(movieName =>
           movieName.title.toLowerCase().includes(newFilter.toLowerCase())
         )
+        .reverse()
         .map(movie => <IndividualMovie key={movie.id} movie={movie} />);
     return <div className="grid-container">{mapMovies()}</div>;
   };
