@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import greenSeat from "../assets/greenseat.png";
 import redSeat from "../assets/redseat.png";
 
