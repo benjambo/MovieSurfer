@@ -9,7 +9,11 @@ import MovieSeats from "./MovieSeats";
  * @returns {*}
  * @constructor
  */
-const MovieReservationModal = ({movie, setShowConfirmation, setReservedSeat}) => {
+const MovieReservationModal = ({
+  movie,
+  setShowConfirmation,
+  setReservedSeat
+}) => {
   const [show, setShow] = useState(false);
   const [freeSeat, setFreeSeat] = useState(false);
 
@@ -18,9 +22,9 @@ const MovieReservationModal = ({movie, setShowConfirmation, setReservedSeat}) =>
   const handleShow = () => setShow(true);
 
   const handleReserve = () => {
-    if(!freeSeat){
+    if (!freeSeat) {
       alert("this seat is not available! pick another seat.");
-    }else{
+    } else {
       handleClose();
     }
   };
@@ -43,14 +47,17 @@ const MovieReservationModal = ({movie, setShowConfirmation, setReservedSeat}) =>
         </Modal.Header>
         <Modal.Body>
           <div>
-            <MovieSeats movie={movie}
-                        setFreeSeat={setFreeSeat}
-                        setReservedSeat={setReservedSeat}/>
+            <MovieSeats
+              movie={movie}
+              setFreeSeat={setFreeSeat}
+              setReservedSeat={setReservedSeat}
+            />
           </div>
-
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="outline-success" onClick={handleReserve}>Reserve</Button>
+          <Button variant="outline-success" onClick={handleReserve}>
+            Reserve
+          </Button>
           <Button variant="outline-danger" onClick={handleClose}>
             Close
           </Button>
