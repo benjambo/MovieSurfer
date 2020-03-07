@@ -23,11 +23,13 @@ const MovieSeats = ({ movie, setFreeSeat, setReservedSeat }) => {
   const MapSeats = ({ seats }) => {
     const mapMovies = () =>
       seats.map(seat => (
-        <Seat key={seat.id}
-              seat={seat} movie={movie}
-              setReserve={setReserve}
-              setFreeSeat={setFreeSeat}
-              setReservedSeat={setReservedSeat}
+        <Seat
+          key={seat.id}
+          seat={seat}
+          movie={movie}
+          setReserve={setReserve}
+          setFreeSeat={setFreeSeat}
+          setReservedSeat={setReservedSeat}
         />
       ));
     return <div className="reservation-grid">{mapMovies()}</div>;

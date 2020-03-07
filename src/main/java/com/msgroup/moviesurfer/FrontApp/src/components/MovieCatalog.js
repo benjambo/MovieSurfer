@@ -3,6 +3,7 @@ import accounts from "../services/accounts";
 import IndividualMovie from "./IndividualMovie";
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import styled from "styled-components";
+import * as auth from "../services/AuthService";
 
 const Styles = styled.div`
   form {
@@ -107,7 +108,10 @@ export const MovieCatalog = () => {
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/sign">Sign</Nav.Link>
             <Nav.Link href="/admin/login">Admin</Nav.Link>
-            <Nav.Link>Logout </Nav.Link>
+            <Nav.Link href="/sign" onClick={auth.logout}>
+              Logout
+            </Nav.Link>
+            <Nav.Link>{auth.getUserFirstName()}</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

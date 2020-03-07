@@ -1,10 +1,10 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import MovieReservationModal from "./MovieReservationModal";
 import ConfirmationModal from "./ConfirmationModal";
 
 const IndividualMovie = ({ movie }) => {
-    const[showConfirmation, setShowConfirmation] = useState(false);
-    const[reservedSeat, setReservedSeat] = useState(0);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [reservedSeat, setReservedSeat] = useState(0);
 
   return (
     <div>
@@ -12,15 +12,15 @@ const IndividualMovie = ({ movie }) => {
       <img src={movie.image} alt="description" />
       <p>{movie.genre}</p>
       <MovieReservationModal
-          movie={movie}
-          setShowConfirmation={setShowConfirmation}
-          setReservedSeat={setReservedSeat}
+        movie={movie}
+        setShowConfirmation={setShowConfirmation}
+        setReservedSeat={setReservedSeat}
       />
       <ConfirmationModal
-          showConfirmation={showConfirmation}
-          setShowConfirmation={setShowConfirmation}
-          movie={movie}
-          reservedSeat={reservedSeat}
+        showConfirmation={showConfirmation}
+        setShowConfirmation={setShowConfirmation}
+        movie={movie}
+        reservedSeat={reservedSeat}
       ></ConfirmationModal>
     </div>
   );
