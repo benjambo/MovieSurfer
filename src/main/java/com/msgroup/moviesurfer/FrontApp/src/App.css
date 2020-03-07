@@ -326,6 +326,10 @@ input.error {
     background-color: #ffffff;
 }
 
+.component-container {
+    background-color: #4b0e1d;
+}
+
 /* About Page */
 
 .profilePicture {
