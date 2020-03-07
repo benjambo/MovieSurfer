@@ -56,6 +56,10 @@
     background-color: white;
 }
 
+.modal-open .modal {
+    background-color: transparent;
+}
+
 .seats {
     background-color: white;
 }
