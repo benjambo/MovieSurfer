@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Alert } from "reactstrap";
+import * as auth from "../services/AuthService";
 
 class SignPage extends Component {
   constructor(props) {
@@ -197,6 +198,9 @@ class SignPage extends Component {
             this.setState({ serverMessageSig: "Logged in Successfully!" });
             this.setState({ visibleErrorSig: false });
             // this.setState({visibleSuccessSig:true});
+
+            auth.setToken(res.data.token);
+            console.log("## Token " + auth.getToken());
             window.location = "/";
           }
         })

@@ -18,7 +18,11 @@ const ConfirmationModal = ({
           <Modal.Title>Reservation successful</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+<<<<<<< HEAD
+          <div>
+=======
           <div className="seats">
+>>>>>>> 6148497946650bbd30fe3a135bc138b71343f098
             Seat number {reservedSeat} reserved for movie {movie.title}.
           </div>
         </Modal.Body>
