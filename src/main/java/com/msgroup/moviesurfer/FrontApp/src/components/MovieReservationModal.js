@@ -9,12 +9,21 @@ import MovieSeats from "./MovieSeats";
  * @returns {*}
  * @constructor
  */
-const MovieReservationModal = ({ movie }) => {
+const MovieReservationModal = ({movie, setShowConfirmation, setReservedSeat}) => {
   const [show, setShow] = useState(false);
+  const [freeSeat, setFreeSeat] = useState(false);
 
   //handel modal opening and closing
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleReserve = () => {
+    if(!freeSeat){
+      alert("this seat is not available! pick another seat.");
+    }else{
+      handleClose();
+    }
+  };
 
   return (
     <div>
@@ -26,6 +35,7 @@ const MovieReservationModal = ({ movie }) => {
         className="reservation-modal"
         show={show}
         onHide={handleClose}
+        onExited={() => setShowConfirmation(true)}
         animation={true}
       >
         <Modal.Header closeButton>
@@ -33,11 +43,14 @@ const MovieReservationModal = ({ movie }) => {
         </Modal.Header>
         <Modal.Body>
           <div>
-            <MovieSeats movie={movie} />
+            <MovieSeats movie={movie}
+                        setFreeSeat={setFreeSeat}
+                        setReservedSeat={setReservedSeat}/>
           </div>
+
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="outline-success">Reserve</Button>
+          <Button variant="outline-success" onClick={handleReserve}>Reserve</Button>
           <Button variant="outline-danger" onClick={handleClose}>
             Close
           </Button>

@@ -13,16 +13,26 @@ import redSeat from "../assets/redseat.png";
  * @constructor
  */
 
-const Seat = ({ seat, movie, setReserve }) => {
+const Seat = ({ seat, movie, setReserve, setFreeSeat,setReservedSeat }) => {
+
+  const greenSeatClickHandler = () =>{
+    setReserve("Picked seat number " + seat.number);
+    setFreeSeat(true);
+    setReservedSeat(seat.number);
+  };
+
+  const redSeatClickHandler = () =>{
+    setReserve("Seat number " + seat.number + " is not available");
+    setFreeSeat(false);
+  };
+
   const GetSeats = () => {
     if (seat.reserved === true && seat.movieId === movie.id) {
       return (
         <input
           type="image"
           src={redSeat}
-          onClick={() =>
-            setReserve("Seat number " + seat.number + " is not available")
-          }
+          onClick={redSeatClickHandler}
           className="seats"
           alt="Reserved seat"
         />
@@ -32,7 +42,7 @@ const Seat = ({ seat, movie, setReserve }) => {
         <input
           type="image"
           src={greenSeat}
-          onClick={() => setReserve("Picked seat number " + seat.number)}
+          onClick={greenSeatClickHandler}
           className="seats"
           alt="Free seat"
         />
