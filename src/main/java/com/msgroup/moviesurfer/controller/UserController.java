@@ -117,7 +117,8 @@ public class UserController {
             System.out.println("The User " + loginrequest.getEmail() + " authenticated successfully");
             SecurityContextHolder.getContext().setAuthentication(authentication);
             // Generate TOKEN
-            String jwt = JwtProvider.TOKEN_PREFIX + jwtProvider.generateToken(authentication);
+            String jwt = jwtProvider.generateToken(authentication);
+            // String jwt = JwtProvider.TOKEN_PREFIX + jwtProvider.generateToken(authentication);
             System.out.println("Jwt generated successfully");
             //return new ResponseEntity<String>(jwt, HttpStatus.OK);
            return ResponseEntity.ok(new JwtLoginSuccessResponse(true, jwt));
