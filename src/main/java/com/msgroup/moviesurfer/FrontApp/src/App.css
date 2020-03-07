@@ -1,4 +1,4 @@
-*{
+* {
     font-family: "Courier New", Avenir, sans-serif;
     background-color: black;
 }
@@ -32,10 +32,6 @@
 }
 
 /* Reservation */
-
-span {
-    background-color: white;
-}
 
 .background-modal {
     background-color: white;
@@ -129,6 +125,17 @@ span {
     margin-top: 10vh;
 }
 
+
+.gallery img:hover {
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    box-shadow:0 0 5px rgba(81, 203, 238, 0);
+    border: 10px solid rgba(81, 203, 238, 0);
+    border-radius: 10px;
+}
+
 /* Arrow buttons in Gallery */
 .css-8wgz7g {
     background-color: transparent;
@@ -136,8 +143,8 @@ span {
 
 /* Exit and Fullscreen button in Gallery */
 .css-9s8aw7 {
-    background-color: white;
-    color: black;
+    background-color: transparent;
+    color: white;
 }
 
 /* Page indicator in Gallery */
@@ -148,12 +155,21 @@ span {
 
 /* Top and bottom bars in Gallery */
 .css-1ycyyax {
-    background-color: black;
+
 }
 
 .css-m6j0xf {
-    color: black;
+    background: white;
 }
+
+.css-1ycyyax {
+    background-color: black;
+}
+
+span {
+    background-color: transparent;
+}
+
 
 /* Signing Page */
 
