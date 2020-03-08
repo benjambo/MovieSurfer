@@ -18,6 +18,11 @@ public class MovieService {
     @Autowired
     private SeatRepository seatRepository;
 
+    /**
+     * To save or update a movie (the movie's id has to be passed for updating)
+     * @param movie object
+     * @return movie object
+     */
     public Movie save(Movie movie) {
 
         Movie newMovie = movieRepository.save(movie);
@@ -36,21 +41,34 @@ public class MovieService {
 
     }
 
+    /**
+     * To get all movies
+     * @return list of movies
+     */
     public List<Movie> getMovies(){
 
         return movieRepository.findAll();
     }
+
+    /**
+     * To delete a movie by it's id
+     * @param id (movie's id)
+     */
     public void deleteMovie(Long id) {
         movieRepository.deleteById(id);
         System.out.println("Movie " + id + " deleted! successfully!");
 
-
     }
+
+    /**
+     * To get a movie by it's id
+     * @param id (movie'id)
+     * @return movie object
+     */
     public Movie getMovieById(Long id) {
 
         return movieRepository.getOne(id);
     }
-
 
 
 }

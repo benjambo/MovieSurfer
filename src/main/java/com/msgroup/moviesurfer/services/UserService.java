@@ -43,7 +43,7 @@ public class UserService {
                 user.setEmail(user.getEmail().toLowerCase());
                 // Encrypt the user password
                 user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-                return userRepository.save(user);
+             return userRepository.save(user);
 
             }catch(Exception e){
                 throw new UniqueEmailException("The email '" + user.getEmail() + "' is already registered!");

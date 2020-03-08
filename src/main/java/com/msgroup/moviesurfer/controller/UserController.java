@@ -63,8 +63,13 @@ public class UserController {
                // return new ResponseEntity<List<FieldError>>(result.getFieldErrors(), HttpStatus.BAD_REQUEST);
             }else {
                 User newUser = userService.saveUser(user);
-                System.out.println("New USER Registered Successfully!");
-                return new ResponseEntity<String>("Account Created Successfully!", HttpStatus.OK);
+                if(user.getId()== null) {
+                    System.out.println("New USER Registered Successfully!");
+                    System.out.println(newUser);
+                    return new ResponseEntity<String>("Account Created Successfully!", HttpStatus.OK);
+                }else{
+                    return new ResponseEntity<String>("Account Modified Successfully!", HttpStatus.OK);
+                }
             }
 
     }

@@ -8,15 +8,14 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * MovieRepository interface manages the Movie entity, extends the JpaRepository and uses
+ * it's methods to persist and retrieve Movie objects from the database.
+ */
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
-
-
     @Override
     List<Movie> findAll();
-
-
-
 
 }
