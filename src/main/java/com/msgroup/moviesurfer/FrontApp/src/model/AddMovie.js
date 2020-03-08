@@ -11,8 +11,7 @@ class AddMovie extends Component {
     this.state = {
       title: "",
       genre: "",
-      image: "",
-      description: ""
+      image: ""
     };
 
     this.onChange = this.onChange.bind(this);
@@ -45,7 +44,6 @@ class AddMovie extends Component {
     const newMovie = {
       title: this.state.title,
       genre: this.state.genre,
-      description: this.state.description,
       image: this.image.url
     };
 
@@ -66,8 +64,8 @@ class AddMovie extends Component {
   render() {
     return (
       <Styles>
-        <div className="component-container">
-          <div className="container">
+        <div className="wrapper">
+          <div className="form-wrapper">
             <div className="form-container">
               <h1 className="text-center">Add Movie</h1>
               <form onSubmit={this.onSubmit}>
@@ -94,16 +92,6 @@ class AddMovie extends Component {
                   />
                 </div>
                 <div className="form-group">
-                  <h5>Description</h5>
-                  <textarea
-                    className="form-control form-control-lg"
-                    placeholder="Description"
-                    name="description"
-                    value={this.state.description}
-                    onChange={this.onChange}
-                  />
-                </div>
-                <div className="form-group">
                   <h5>Image</h5>
                   <input
                     id="imageInput"
@@ -114,11 +102,7 @@ class AddMovie extends Component {
                   />
                 </div>
 
-                <input
-                  type="submit"
-                  value="Add"
-                  className="btn btn-success p-2  mt-4"
-                />
+                <input type="submit" value="Add" className="btn p-2  mt-4" />
               </form>
             </div>
           </div>
@@ -130,10 +114,6 @@ class AddMovie extends Component {
 export default AddMovie;
 
 const Styles = styled.div`
-  * {
-    background-color: white;
-    color: black;
-  }
   input,
   textarea,
   btn {
@@ -146,10 +126,60 @@ const Styles = styled.div`
     display: block;
     width: 100%;
   }
-  .container {
-    margin: 6rem auto;
-    padding: 2rem 1rem 2rem 1rem;
-    /*border: 3px blue solid;*/
-    display: block;
+  * {
+    background-color: white;
+  }
+  .wrapper {
+    height: 78.2vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #4b0e1d;
+  }
+  .form-wrapper {
+    width: 50vh !important;
+    margin: 15vh auto 5vh auto !important;
+    box-shadow: none !important;
+  }
+  .errorMsg {
+    color: #cc0000;
+    margin-bottom: 12px;
+  }
+  .btn {
+    background-color: #519e8a;
+    color: #fff;
+    border: 2px solid #fff;
+    width: 100%;
+    margin-top: 1em;
+    padding: 8px 0px;
+    font-size: 1em;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin-bottom: 0.25em;
+  }
+
+  .btn:hover {
+    color: #519e8a;
+    background-color: #fff;
+    border: 2px solid #519e8a;
   }
 `;
+
+/*
+
+                <div className="form-group">
+                  <h5>Description</h5>
+                  <textarea
+                    className="form-control form-control-lg"
+                    placeholder="Description"
+                    name="description"
+                    value={this.state.description}
+                    onChange={this.onChange}
+                  />
+                </div>
+
+
+
+ */
