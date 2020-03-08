@@ -23,6 +23,7 @@ const App = () => {
           <Route path="/about" component={About} />
           <Route path="/admin/login" component={AdminLogin} />
           <Route path="/admin/addMovie" component={AddMovie} />
+          <Route path='*' exact={true} component={Home} />
         </Switch>
         <Footer />
       </div>
