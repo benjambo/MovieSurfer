@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { Alert } from "reactstrap";
+import * as auth from "../services/AuthService";
 
 class AdminLogin extends Component {
   constructor(props) {
@@ -96,6 +97,8 @@ class AdminLogin extends Component {
             this.setState({ serverMessage: "Logged in Successfully!" });
             this.setState({ visibleError: false });
             // this.setState({visibleSuccess:true});
+            auth.setToken(res.data.token);
+            console.log("## Token " + auth.getToken());
             window.location = "/admin/addmovie";
           }
         })
