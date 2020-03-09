@@ -19,8 +19,8 @@ const getById = ({ movie }) => {
 
 //not tested
 const reserveSeat = seatObject => {
-  const request = axios.put(`${reserveSeatUrl}/${seatObject.id}`, seatObject);
-  return request.then(response => response.data);
+  axios.put(`${reserveSeatUrl}/${seatObject.id}`).then(r => console.log(r));
+  //return request.then(response => response.data);
 };
 
 export default { getAll, getById, reserveSeat };

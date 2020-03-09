@@ -3,8 +3,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import MovieSeats from "./MovieSeats";
 import { isLoggedIn, logout } from "../services/AuthService";
-import SignPage from "../model/SignPage";
-import { Route } from "react-router-dom";
+import seatServiceReact from "../services/seatServiceReact";
 
 /**
  * display popup window on button click
@@ -19,9 +18,15 @@ const MovieReservationModal = ({
 }) => {
   const [show, setShow] = useState(false);
   const [freeSeat, setFreeSeat] = useState(false);
+  const [seatObject, setSeatObject] = useState(null);
 
   //handel modal opening and closing
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setFreeSeat(false);
+    setShow(false);
+    setShowConfirmation(false);
+  };
+
   const handleShow = () => {
     if (!isLoggedIn())
       return alert("You need to be logged in to reserve seats");
@@ -31,6 +36,7 @@ const MovieReservationModal = ({
     if (!freeSeat) {
       alert("this seat is not available! pick another seat.");
     } else {
+      seatServiceReact.reserveSeat(seatObject);
       handleClose();
     }
   };
@@ -57,6 +63,7 @@ const MovieReservationModal = ({
               movie={movie}
               setFreeSeat={setFreeSeat}
               setReservedSeat={setReservedSeat}
+              setSeatObject={setSeatObject}
             />
           </div>
         </Modal.Body>

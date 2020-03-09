@@ -9,7 +9,7 @@ import Seat from "./Seat";
  * @returns {*}
  * @constructor
  */
-const MovieSeats = ({ movie, setFreeSeat, setReservedSeat }) => {
+const MovieSeats = ({ movie, setFreeSeat, setReservedSeat, setSeatObject }) => {
   const [seats, setSeats] = useState([]);
 
   const [reserve, setReserve] = useState("");
@@ -30,6 +30,7 @@ const MovieSeats = ({ movie, setFreeSeat, setReservedSeat }) => {
           setReserve={setReserve}
           setFreeSeat={setFreeSeat}
           setReservedSeat={setReservedSeat}
+          setSeatObject={setSeatObject}
         />
       ));
     return <div className="reservation-grid">{mapMovies()}</div>;
