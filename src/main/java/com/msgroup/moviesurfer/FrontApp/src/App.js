@@ -10,6 +10,7 @@ import { NavigationBar } from "./components/NavigationBar";
 import "bootstrap/dist/css/bootstrap.css";
 import AdminLogin from "./model/AdminLogin";
 import AddMovie from "./model/AddMovie";
+import NotFound from "./model/NotFound";
 
 const App = () => {
   return (
@@ -23,7 +24,7 @@ const App = () => {
           <Route path="/about" component={About} />
           <Route path="/admin/login" component={AdminLogin} />
           <Route path="/admin/addMovie" component={AddMovie} />
-          <Route path="*" exact={true} component={Home} />
+          <Route path="*" exact={true} component={NotFound} />
         </Switch>
         <Footer />
       </div>
