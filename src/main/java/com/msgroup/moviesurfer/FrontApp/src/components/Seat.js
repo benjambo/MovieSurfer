@@ -13,11 +13,12 @@ import redSeat from "../assets/redseat.png";
  * @constructor
  */
 
-const Seat = ({ seat, movie, setReserve, setFreeSeat, setReservedSeat }) => {
+const Seat = ({ seat, movie, setReserve, setFreeSeat, setReservedSeat, setSeatObject }) => {
   const greenSeatClickHandler = () => {
     setReserve("Picked seat number " + seat.number);
     setFreeSeat(true);
     setReservedSeat(seat.number);
+    setSeatObject(seat);
   };
 
   const redSeatClickHandler = () => {
