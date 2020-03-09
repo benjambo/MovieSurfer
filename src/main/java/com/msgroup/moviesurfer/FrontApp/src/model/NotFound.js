@@ -9,9 +9,6 @@ class NotFound extends React.Component {
   render() {
     return (
       <div>
-        <img className="profilePicture" alt="jere" src={jere} />
-        <p style={{ color: "blue" }}>not found</p>
-
         <img className="assetsImage" alt="jere" src={page} />
       </div>
     );
