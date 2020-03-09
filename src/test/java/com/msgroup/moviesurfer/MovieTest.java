@@ -1,7 +1,7 @@
 package com.msgroup.moviesurfer;
 
 import com.msgroup.moviesurfer.model.Movie;
-import com.msgroup.moviesurfer.model.User;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

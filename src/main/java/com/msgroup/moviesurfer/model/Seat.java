@@ -3,8 +3,7 @@ package com.msgroup.moviesurfer.model;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+
 
 
 //@Embeddable

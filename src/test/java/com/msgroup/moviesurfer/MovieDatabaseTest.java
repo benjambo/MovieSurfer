@@ -1,6 +1,6 @@
 package com.msgroup.moviesurfer;
 import com.msgroup.moviesurfer.model.Movie;
-import com.msgroup.moviesurfer.model.User;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
