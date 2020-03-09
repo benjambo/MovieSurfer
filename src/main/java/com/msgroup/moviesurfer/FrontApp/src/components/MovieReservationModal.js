@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import MovieSeats from "./MovieSeats";
 import { isLoggedIn, logout } from "../services/AuthService";
 import seatServiceReact from "../services/seatServiceReact";
-import {Route, Switch, Redirect,Router,useHistory} from "react-router-dom";
+import { Route, Switch, Redirect, Router, useHistory } from "react-router-dom";
 import SignPage from "../model/SignPage";
 
 /**
@@ -27,17 +27,15 @@ const MovieReservationModal = ({
   const handleClose = () => {
     setFreeSeat(false);
     setShow(false);
-    setShowConfirmation (false);
+    setShowConfirmation(false);
   };
 
   const handleCloseNotSinged = () => {
     setShowNotSinged(false);
   };
 
-
   const handleShow = () => {
-    if (!isLoggedIn())
-      return setShowNotSinged(true);
+    if (!isLoggedIn()) return setShowNotSinged(true);
     return setShow(true);
   };
   const handleReserve = () => {
@@ -48,23 +46,29 @@ const MovieReservationModal = ({
       handleClose();
     }
   };
+  const history = useHistory();
 
-    return (
+  return (
     <div>
       <Button variant="dark" onClick={handleShow}>
         Reserve
       </Button>
       <Modal
-          className="reservation-modal"
-          show={showNotSigned}
-          onHide={handleCloseNotSinged}
-          animation={true}
+        className="reservation-modal"
+        show={showNotSigned}
+        onHide={handleCloseNotSinged}
+        animation={true}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Please sign in to reserve seats for {movie.title}.</Modal.Title>
+          <Modal.Title>
+            Please sign in to reserve seats for {movie.title}.
+          </Modal.Title>
         </Modal.Header>
         <Modal.Footer>
-          <Button variant="outline-success">
+          <Button
+            onClick={() => history.push("/sign")}
+            variant="outline-success"
+          >
             Sign in
           </Button>
           <Button variant="outline-danger" onClick={handleCloseNotSinged}>
