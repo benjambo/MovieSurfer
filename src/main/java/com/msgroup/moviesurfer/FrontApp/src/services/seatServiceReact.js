@@ -17,9 +17,9 @@ const getById = ({ movie }) => {
   return request.then(response => response.data);
 };
 
-//not tested
+// tested (works)
 const reserveSeat = seatObject => {
-  axios.put(`${reserveSeatUrl}/${seatObject.id}`).then(r => console.log(r));
+  axios.post(`${reserveSeatUrl}/${seatObject.id}`).then(r => console.log(r));
   //return request.then(response => response.data);
 };
 
