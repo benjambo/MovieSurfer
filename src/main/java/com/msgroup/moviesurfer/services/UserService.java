@@ -61,7 +61,7 @@ public class UserService {
      }else{
             User newAdmin = new User();
             newAdmin.setRole("ADMIN");
-            newAdmin.setFirstName("null");
+            newAdmin.setFirstName("Administrator");
             newAdmin.setLastName("null");
             newAdmin.setEmail("admin@moviesurfer.com");
             newAdmin.setPassword(bCryptPasswordEncoder.encode("Moviesurfer2020"));
