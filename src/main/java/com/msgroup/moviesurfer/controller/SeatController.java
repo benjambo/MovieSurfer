@@ -37,6 +37,33 @@ public class SeatController {
         return seatService.getReservedSeats();
     }
 
+
+    // To reserve single seat
+    @PostMapping(value = "/seats/reserve/{id}")
+    public ResponseEntity<?> reserveSeat(@PathVariable Long id) {
+
+
+
+            Seat reservableSeat = seatService.getSeatById(id);
+
+            if (reservableSeat == null) {
+
+                return new ResponseEntity<String>("Seat not found!", HttpStatus.BAD_REQUEST);
+
+            }
+            else {
+                reservableSeat.setReserved(true);
+                seatService.updateSeat(reservableSeat);
+                return new ResponseEntity<String>("Seat reserved successfully! ", HttpStatus.OK);
+            }
+
+        }
+
+
+
+
+
+    /*
     // To reserve single seat
     @PostMapping(value = "/seats/reserve")
     public ResponseEntity<?> reserveSeat(@Valid @RequestBody Seat seat, BindingResult result) {
@@ -77,7 +104,7 @@ public class SeatController {
 
     }
 
-
+*/
 
 
     // To reserve multiple seats
