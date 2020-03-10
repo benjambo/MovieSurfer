@@ -5,10 +5,9 @@ import MovieSeats from "./MovieSeats";
 import { isLoggedIn, logout } from "../services/AuthService";
 import seatServiceReact from "../services/seatServiceReact";
 import { Route, Switch, Redirect, Router, useHistory } from "react-router-dom";
-import SignPage from "../model/SignPage";
 
 /**
- * display popup window on button click
+ * display popup window on button click.
  *
  * @returns {*}
  * @constructor
@@ -22,12 +21,12 @@ const MovieReservationModal = ({
   const [showNotSigned, setShowNotSinged] = useState(false);
   const [freeSeat, setFreeSeat] = useState(false);
   const [seatObject, setSeatObject] = useState(null);
+  const [confirmation, setConfirmation] = useState(false);
 
   //handel modal opening and closing
   const handleClose = () => {
     setFreeSeat(false);
     setShow(false);
-    setShowConfirmation(false);
   };
 
   const handleCloseNotSinged = () => {
@@ -35,17 +34,25 @@ const MovieReservationModal = ({
   };
 
   const handleShow = () => {
-    if (!isLoggedIn()) return setShowNotSinged(true);
-    return setShow(true);
+    if (!isLoggedIn()){
+      setShowNotSinged(true);
+    }else {
+      setShow(true);
+      setShowConfirmation(false);
+      setConfirmation(false);
+    }
   };
+
   const handleReserve = () => {
     if (!freeSeat) {
       alert("this seat is not available! pick another seat.");
     } else {
       seatServiceReact.reserveSeat(seatObject);
+      setConfirmation(true);
       handleClose();
     }
   };
+
   const history = useHistory();
 
   return (
@@ -81,7 +88,7 @@ const MovieReservationModal = ({
         className="reservation-modal"
         show={show}
         onHide={handleClose}
-        onExited={() => setShowConfirmation(true)}
+        onExited={() => setShowConfirmation(confirmation)}
         animation={true}
       >
         <Modal.Header closeButton>
