@@ -18,7 +18,7 @@ const getById = ({ movie }) => {
 };
 
 /**
- * reserve seatcd sr
+ * reserve seat
  * @param seatObject
  */
 const reserveSeat = seatObject => {
