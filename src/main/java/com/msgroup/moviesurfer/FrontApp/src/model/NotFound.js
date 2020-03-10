@@ -1,7 +1,4 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import jere from "../assets/jere.jpeg";
+import React from "react";
 
 import page from "../assets/pagenotfound.jpg";
 

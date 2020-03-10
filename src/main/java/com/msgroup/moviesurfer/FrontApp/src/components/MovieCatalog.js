@@ -4,7 +4,6 @@ import IndividualMovie from "./IndividualMovie";
 import { Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import styled from "styled-components";
 import * as auth from "../services/AuthService";
-import userIcon from "../assets/userIcon.png";
 
 const Styles = styled.div`
   form {

@@ -1,8 +1,7 @@
-import React, { Component, useEffect, useState } from "react";
+import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import styled from "styled-components";
 import * as auth from "../services/AuthService";
-import userIcon from "../assets/userIcon.png";
 
 const Styles = styled.div`
   form {

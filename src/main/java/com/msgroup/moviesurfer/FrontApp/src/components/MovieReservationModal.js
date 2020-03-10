@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import MovieSeats from "./MovieSeats";
-import { isLoggedIn, logout } from "../services/AuthService";
+import { isLoggedIn } from "../services/AuthService";
 import seatServiceReact from "../services/seatServiceReact";
-import { Route, Switch, Redirect, Router, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 /**
  * display popup window on button click.
