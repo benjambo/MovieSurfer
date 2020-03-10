@@ -8,38 +8,42 @@
 
 > MovieSurfer is an application for every movie lover
 
-### ✨ [Demo](https://finnkino.fi)
+### ✨ [Demo video of project](https://drive.google.com/a/metropolia.fi/file/d/1ehcXtf-aUfPu-cBXk6XSxS9hrygYwoDw/view?usp=sharing)
 
-## Prerequisites
+## Prerequisites:
 
-- Java 8.2.1
-- Spring 1.2.3
+- Java 13.0.2
+- Spring-Boot 2.2.4
+- Axios 0.19.2
+- JS-Tokens 4.0.0
+- React-Axios 2.0.3
 
-## Install
+#How to use:
+Open folder FrontApp in src/main/java/com/msgroup/moviesurfer/FrontApp and follow the instructions down below: 
+
+## Install:
 
 ```sh
 npm install
 ```
 
-## Usage
+## Usage:
 
 ```sh
 npm start      #For scripts start
 ```
 
-## Run tests
+## Test:
+
+[Test link](http://10.114.32.11:8080)
+
+## REST-API:
 
 ```sh
-npm test        #Runs tests
+Spring-Boot
 ```
 
-## REST-API
-
-```sh
-Spring
-```
-
-## Author
+## Author:
 
 👤 **Benjamin Bowo, Abdullah Hinnawi, Walter Ruoppa & Jere Saarelma**
 
