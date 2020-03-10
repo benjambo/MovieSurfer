@@ -17,10 +17,12 @@ const getById = ({ movie }) => {
   return request.then(response => response.data);
 };
 
-// tested (works)
+/**
+ * reserve seatcd sr
+ * @param seatObject
+ */
 const reserveSeat = seatObject => {
   axios.post(`${reserveSeatUrl}/${seatObject.id}`).then(r => console.log(r));
-  //return request.then(response => response.data);
 };
 
 export default { getAll, getById, reserveSeat };
