@@ -68,7 +68,8 @@ const MovieReservationModal = ({
       >
         <Modal.Header closeButton>
           <Modal.Title>
-            Please sign in to reserve seats for {movie.title}.
+            Please Sign In or Create an Account to reserve seats for{" "}
+            {movie.title}
           </Modal.Title>
         </Modal.Header>
         <Modal.Footer>
@@ -76,7 +77,7 @@ const MovieReservationModal = ({
             onClick={() => history.push("/sign")}
             variant="outline-success"
           >
-            Sign in
+            Sign in or Create Account
           </Button>
           <Button variant="outline-danger" onClick={handleCloseNotSinged}>
             Close
