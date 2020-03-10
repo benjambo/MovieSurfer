@@ -18,16 +18,17 @@
 - JS-Tokens 4.0.0
 - React-Axios 2.0.3
 
-##How to use:
+# How to use:
+
 Open folder FrontApp in src/main/java/com/msgroup/moviesurfer/FrontApp and follow the instructions down below: 
 
-### Install:
+## Install:
 
 ```sh
 npm install
 ```
 
-### Usage:
+## Usage:
 
 ```sh
 npm start      #For scripts start
