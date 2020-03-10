@@ -336,7 +336,7 @@ class SignPage extends Component {
               </div>
 
               <div className="lastName">
-                <label htmlFor="email">Last Name</label>
+                <label htmlFor="lastName">Last Name</label>
                 <input
                   className={this.state.registerErrors.lastName && "error"}
                   type="text"

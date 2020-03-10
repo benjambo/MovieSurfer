@@ -67,13 +67,12 @@ class AddMovie extends Component {
         <div className="wrapper">
           <div className="form-wrapper">
             <div className="form-container">
-              <h1 className="text-center">Add Movie</h1>
+              <h3 className="text-center">Add Movie</h3>
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
-                  <h5>Title</h5>
+                  <label htmlFor="title">Title</label>
                   <input
                     type="text"
-                    className="form-control  form-control-lg"
                     placeholder="Title"
                     name="title"
                     value={this.state.title}
@@ -81,10 +80,9 @@ class AddMovie extends Component {
                   />
                 </div>
                 <div className="form-group">
-                  <h5>Genre</h5>
+                  <label htmlFor="genre">Genre</label>
                   <input
                     type="text"
-                    className="form-control form-control-lg"
                     placeholder="Genre"
                     name="genre"
                     value={this.state.genre}
@@ -92,7 +90,7 @@ class AddMovie extends Component {
                   />
                 </div>
                 <div className="form-group">
-                  <h5>Image</h5>
+                  <label htmlFor="image">Image</label>
                   <input
                     id="imageInput"
                     type="file"
@@ -139,9 +137,13 @@ const Styles = styled.div`
     background-color: #4b0e1d;
   }
   .form-wrapper {
-    width: 50vh !important;
-    margin: 15vh auto 5vh auto !important;
-    box-shadow: none !important;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 50px #555;
+    background-color: #ffffff;
   }
   .errorMsg {
     color: #cc0000;

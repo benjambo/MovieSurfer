@@ -9,7 +9,7 @@ class NotFound extends React.Component {
   render() {
     return (
       <div>
-        <img className="assetsImage" alt="jere" src={page} />
+        <img className="assetsImage" alt="Not Found" src={page} />
       </div>
     );
   }

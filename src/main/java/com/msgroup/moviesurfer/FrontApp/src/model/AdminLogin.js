@@ -115,7 +115,7 @@ class AdminLogin extends Component {
       <Styles>
         <div className="wrapper">
           <div className="form-wrapper">
-            <h3>Admin Sign In</h3>
+            <h3>Sign In As Admin</h3>
             <form onSubmit={this.onSubmit}>
               <div className="email">
                 <label htmlFor="email">Email</label>

@@ -34,9 +34,9 @@ const MovieReservationModal = ({
   };
 
   const handleShow = () => {
-    if (!isLoggedIn()){
+    if (!isLoggedIn()) {
       setShowNotSinged(true);
-    }else {
+    } else {
       setShow(true);
       setShowConfirmation(false);
       setConfirmation(false);
