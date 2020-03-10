@@ -64,7 +64,9 @@ export const NavigationBar = () => {
               </Nav.Link>
             ) : null}
 
-            <Nav.Link>{auth.getUserFirstName()}</Nav.Link>
+            {auth.isLoggedIn() ? (
+              <Nav.Link>{auth.getUserFirstName()}</Nav.Link>
+            ) : null}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
