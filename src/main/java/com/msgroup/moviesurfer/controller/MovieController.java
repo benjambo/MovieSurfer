@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RestController
+@RestController // Marks the class as web controller, which handles the http requests
 @RequestMapping (value="/api")
 public class MovieController {
 
@@ -38,6 +38,7 @@ public class MovieController {
      * BindingResult analyzes the Movie object and checks weather or not there are errors for example: blank title.
      * BindingResult will return a list of the detected errors List<FieldError>.
      *  ResponseEntity<?>: question mark is for a generic type.
+     *  ResponseEntity represents the whole HTTP response: status code, headers, and body. Used to fully configure the HTTP response.
      * @param movie (movie object)
      * @param result (a list of detected errors )
      * @return ResponseEntity
@@ -56,9 +57,8 @@ public class MovieController {
             return new ResponseEntity< Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
             // return new ResponseEntity<List<FieldError>>(result.getFieldErrors(), HttpStatus.BAD_REQUEST);
         }else{
-            Movie newMovie = movieService.save(movie);
+            movieService.save(movie);
             System.out.println("New movie added successfully");
-            System.out.println(newMovie);
             return new ResponseEntity<String>("Movie added successfully",HttpStatus.OK);
         }
     }

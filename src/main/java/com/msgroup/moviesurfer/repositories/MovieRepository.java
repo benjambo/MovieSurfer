@@ -12,7 +12,7 @@ import java.util.List;
  * MovieRepository interface manages the Movie entity, extends the JpaRepository and uses
  * it's methods to persist and retrieve Movie objects from the database.
  */
-@Repository
+@Repository // Indicates that an annotated class is a repository, which is an abstraction of data access and storage.
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
     @Override

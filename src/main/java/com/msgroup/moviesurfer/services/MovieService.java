@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service // Indicates that an annotated class is a service class (component)
 public class MovieService {
 
     @Autowired

@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
  * Movie Entity
  */
 
-@Entity
+@Entity // Specifies that the class is an entity and is mapped to a database table
 public class Movie {
 
     // Generate automatically an id for every movie object
