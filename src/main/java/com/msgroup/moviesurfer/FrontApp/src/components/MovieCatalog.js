@@ -52,7 +52,7 @@ export const MovieCatalog = () => {
    * Get movies from the database
    * map data to individual movie items
    *
-   * TODO filter, kuvat ja ulkoasu
+   *
    *
    * @returns {*}
    * @constructor
@@ -89,7 +89,6 @@ export const MovieCatalog = () => {
     <Styles>
       <Navbar expand="lg" fixed="top">
         <Navbar.Brand href="/">MovieSurfer</Navbar.Brand>
-
         <Navbar.Toggle area-controls="basic-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Form inline>
@@ -104,7 +103,7 @@ export const MovieCatalog = () => {
           </Form>
           <Nav className="ml-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/reservation">Gallery</Nav.Link>
+            <Nav.Link href="/gallery">Gallery</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             {!auth.isLoggedIn() ? <Nav.Link href="/sign">Sign</Nav.Link> : null}
             <Nav.Link href="/admin/login">Admin</Nav.Link>

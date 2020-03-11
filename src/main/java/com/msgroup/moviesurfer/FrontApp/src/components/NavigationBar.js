@@ -53,7 +53,7 @@ export const NavigationBar = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/reservation">Gallery</Nav.Link>
+            <Nav.Link href="/gallery">Gallery</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             {!auth.isLoggedIn() ? <Nav.Link href="/sign">Sign</Nav.Link> : null}
             <Nav.Link href="/admin/login">Admin</Nav.Link>

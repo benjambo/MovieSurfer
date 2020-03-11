@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
+import { Spring } from "react-spring/renderprops";
 
 export const GalleryPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -168,7 +169,17 @@ export const GalleryPage = () => {
 
   return (
     <div className="gallery">
-      <Gallery photos={photos} onClick={openLightbox} />
+      <Spring
+        from={{ opacity: 0 }}
+        to={{ opacity: 1 }}
+        config={{ duration: 800 }}
+      >
+        {props => (
+          <div style={props}>
+            <Gallery photos={photos} onClick={openLightbox} />
+          </div>
+        )}
+      </Spring>
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>

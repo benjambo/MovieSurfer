@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MovieReservationModal from "./MovieReservationModal";
 import ConfirmationModal from "./ConfirmationModal";
+import { Spring } from "react-spring/renderprops";
 
 const IndividualMovie = ({ movie }) => {
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -8,9 +9,19 @@ const IndividualMovie = ({ movie }) => {
 
   return (
     <div>
-      <h2>{movie.title}</h2>
-      <img src={movie.image} alt="description" />
-      <p>{movie.genre}</p>
+      <Spring
+        from={{ opacity: 0 }}
+        to={{ opacity: 1 }}
+        config={{ duration: 800 }}
+      >
+        {props => (
+          <div style={props}>
+            <h2>{movie.title}</h2>
+            <img src={movie.image} alt="description" />
+            <p>{movie.genre}</p>
+          </div>
+        )}
+      </Spring>
       <MovieReservationModal
         movie={movie}
         setShowConfirmation={setShowConfirmation}
@@ -21,7 +32,7 @@ const IndividualMovie = ({ movie }) => {
         setShowConfirmation={setShowConfirmation}
         movie={movie}
         reservedSeat={reservedSeat}
-      ></ConfirmationModal>
+      />
     </div>
   );
 };
