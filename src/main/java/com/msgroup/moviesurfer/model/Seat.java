@@ -4,7 +4,9 @@ package com.msgroup.moviesurfer.model;
 
 import javax.persistence.*;
 
-
+/**
+ * Seat Entity
+ */
 
 //@Embeddable
 @Entity
@@ -25,6 +27,8 @@ public class Seat {
 
     public Seat() {
     }
+
+    // Getters and Setters
 
     public Long getId() {
         return id;

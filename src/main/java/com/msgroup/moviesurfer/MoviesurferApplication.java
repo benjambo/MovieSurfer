@@ -3,19 +3,15 @@ package com.msgroup.moviesurfer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
+/**
+ * The main class of Spring-Boot application
+ */
 @SpringBootApplication
 //@ComponentScan(basePackages ={"com.msgroup.moviesurfer.controller", "com.msgroup.moviesurfer.services" })
 //@EnableJpaRepositories
 public class MoviesurferApplication{
-
-
     public static void main(String[] args) {
-
         SpringApplication.run(MoviesurferApplication.class, args);
-
-
-
 
     }
 

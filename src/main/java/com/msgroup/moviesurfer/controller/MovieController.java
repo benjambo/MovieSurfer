@@ -20,6 +20,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * MovieController handles the http requests to add edit or remove movies
+ *
+ */
 @RestController // Marks the class as web controller, which handles the http requests
 @RequestMapping (value="/api")
 public class MovieController {
@@ -84,9 +88,7 @@ public class MovieController {
     @DeleteMapping(value="/movies/delete/{id}")
     public ResponseEntity<?>deleteMovie(@PathVariable Long id) {
         System.out.println("movie to be deleted " + id);
-
         // Movie movie = movieService.getMovieById(id);
-
         try {
             movieService.deleteMovie(id);
             seatService.deleteSeatsByMovieId(id);
@@ -97,9 +99,4 @@ public class MovieController {
         }
 
     }
-
-
-
-
-
 }

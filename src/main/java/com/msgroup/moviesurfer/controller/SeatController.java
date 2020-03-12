@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * SeatController handles the http requests to add edit or remove seats
+ */
 @RestController
 @RequestMapping(value = "/api")
 public class SeatController {

@@ -74,28 +74,35 @@ public class UserController {
 
     }
 
-    @GetMapping(value ="/register")
-    public ResponseEntity<String> responseToGetRegister(){
-
-        return new ResponseEntity<String>("You have to use POST METHOD with register endpoint!", HttpStatus.BAD_REQUEST);
-
-
-    }
-
-    // To get all users
+    /**
+     * To get all users
+     * @return list of users
+     */
     @GetMapping(value ="/users")
     public @ResponseBody List<User> getUsers(){
         return userService.getUsers();
 
     }
 
-    // To get a user by id
+
+    /**
+     * To get a user by id
+     * @param id type(Long)
+     * @return user object
+     */
     @GetMapping(value ="/users/{id}")
     public ResponseEntity<?> getUserById(@PathVariable Long id){
         User user = userService.getUserById(id);
         if(user == null) return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+    /**
+     * To authenticate user's log in request
+     * @param loginrequest consists of user's email and password
+     * @param result list of the detected errors
+     * @return login success response object contains TOKEN
+     */
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginrequest, BindingResult result){
@@ -136,6 +143,12 @@ public class UserController {
     }
 
 
+    /**
+     * To authenticate admin's log in request
+     * @param loginrequest consists of admin's email and password
+     * @param result list of the detected errors
+     * @return login success response object contains TOKEN
+     */
     @PostMapping("/admin/login")
     public ResponseEntity<?> authenticateAdmin(@Valid @RequestBody LoginRequest loginrequest, BindingResult result){
 

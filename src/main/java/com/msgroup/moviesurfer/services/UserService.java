@@ -9,6 +9,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+/**
+ *
+ *  Acts as a service & used by UserController
+ */
+
 @Service
 public class UserService {
 
@@ -71,11 +76,21 @@ public class UserService {
 
      }
 
+    /**
+     * To get all users
+     * @return list of users
+     */
+
     public List<User> getUsers(){
 
         return (List<User>) userRepository.findAll();
     }
 
+    /**
+     * To get user by id
+     * @param id (type Long)
+     * @return User object
+     */
     public User getUserById(Long id){
 
         return userRepository.getById(id);

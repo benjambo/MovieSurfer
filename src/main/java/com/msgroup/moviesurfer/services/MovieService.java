@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Acts as a service & used by MovieController
+ *
+ */
+
 @Service // Indicates that an annotated class is a service class (component)
 public class MovieService {
 
