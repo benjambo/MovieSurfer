@@ -1,0 +1,32 @@
+typeSearchIndex = [
+  { l: "All Classes", url: "allclasses-index.html" },
+  { p: "com.msgroup.moviesurfer.services", l: "CustomUserDetailsService" },
+  { p: "com.msgroup.moviesurfer", l: "DatabaseTest" },
+  {
+    p: "com.msgroup.moviesurfer.exceptions",
+    l: "GlobalResponseEntityExceptionHandler"
+  },
+  { p: "com.msgroup.moviesurfer.security", l: "JwtAuthenticationEntryPoint" },
+  { p: "com.msgroup.moviesurfer.security", l: "JwtLoginSuccessResponse" },
+  { p: "com.msgroup.moviesurfer.security", l: "JwtProvider" },
+  { p: "com.msgroup.moviesurfer.model", l: "LoginRequest" },
+  { p: "com.msgroup.moviesurfer.model", l: "Movie" },
+  { p: "com.msgroup.moviesurfer.controller", l: "MovieController" },
+  { p: "com.msgroup.moviesurfer", l: "MovieDatabaseTest" },
+  { p: "com.msgroup.moviesurfer.repositories", l: "MovieRepository" },
+  { p: "com.msgroup.moviesurfer.services", l: "MovieService" },
+  { p: "com.msgroup.moviesurfer", l: "MoviesurferApplication" },
+  { p: "com.msgroup.moviesurfer", l: "MovieTest" },
+  { p: "com.msgroup.moviesurfer.model", l: "Seat" },
+  { p: "com.msgroup.moviesurfer.controller", l: "SeatController" },
+  { p: "com.msgroup.moviesurfer.repositories", l: "SeatRepository" },
+  { p: "com.msgroup.moviesurfer.services", l: "SeatService" },
+  { p: "com.msgroup.moviesurfer.security", l: "SecurityConfig" },
+  { p: "com.msgroup.moviesurfer.model", l: "Theater" },
+  { p: "com.msgroup.moviesurfer.exceptions", l: "UniqueEmailException" },
+  { p: "com.msgroup.moviesurfer.model", l: "User" },
+  { p: "com.msgroup.moviesurfer.controller", l: "UserController" },
+  { p: "com.msgroup.moviesurfer.repositories", l: "UserRepository" },
+  { p: "com.msgroup.moviesurfer.services", l: "UserService" },
+  { p: "com.msgroup.moviesurfer", l: "UserTest" }
+];

@@ -1,0 +1,7 @@
+com.msgroup.moviesurfer
+com.msgroup.moviesurfer.controller
+com.msgroup.moviesurfer.exceptions
+com.msgroup.moviesurfer.model
+com.msgroup.moviesurfer.repositories
+com.msgroup.moviesurfer.security
+com.msgroup.moviesurfer.services
