@@ -46,17 +46,18 @@ const Styles = styled.div`
   }
 `;
 
+/**
+ * Get movies from the database
+ * map data to individual movie items
+ *
+ *Return every movie from database as movie items if search field is empty.
+ * If search field is not empty return every item that includes search field inputs.
+ *
+ * @returns {*}
+ * @constructor
+ */
 export const MovieCatalog = () => {
   const [newFilter, setNewFilter] = useState("");
-  /**
-   * Get movies from the database
-   * map data to individual movie items
-   *
-   *
-   *
-   * @returns {*}
-   * @constructor
-   */
 
   const [movie, setMovie] = useState([]);
 
@@ -69,6 +70,8 @@ export const MovieCatalog = () => {
 
   console.log(movie);
 
+  //Display all movies if search field is empty.
+  //if search bar is not empty, display movies that include search field inputs.
   const Catalog = ({ movies }) => {
     const mapMovies = () =>
       movies

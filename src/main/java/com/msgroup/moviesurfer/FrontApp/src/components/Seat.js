@@ -3,8 +3,10 @@ import greenSeat from "../assets/greenseat.png";
 import redSeat from "../assets/redseat.png";
 
 /**
- * compare movie id to seat movieid. return r if reserved
- * and return f if seat is free. Return null if no id match.
+ * compare movie id to seat movieid.
+ * Return red seat input if reserved.
+ * and return green seat input if seat is free.
+ * Return null if no id match.
  *
  * @param seat
  * @param movie
@@ -33,6 +35,9 @@ const Seat = ({
     setFreeSeat(false);
   };
 
+  //return red seat if seat.reserved is true
+  //return green seat if seat.reserved is false
+  //if seat.movieId and movie.id does not match return null
   const GetSeats = () => {
     if (seat.reserved === true && seat.movieId === movie.id) {
       return (

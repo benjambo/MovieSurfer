@@ -2,15 +2,26 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
+/**
+ * Returns modal window when ShowConfirmation === true.
+ *
+ * @param showConfirmation
+ * @param setShowConfirmation
+ * @param reservedSeat
+ * @param movie
+ * @returns {null|*}
+ * @constructor
+ */
 const ConfirmationModal = ({
   showConfirmation,
   setShowConfirmation,
   reservedSeat,
   movie
 }) => {
-  //handel modal closing
+  //handle modal closing
   const handleClose = () => setShowConfirmation(false);
 
+  //if showConfirmation is true show confirmation modal. else return null.
   if (showConfirmation) {
     return (
       <Modal show={showConfirmation} onHide={handleClose} animation={true}>

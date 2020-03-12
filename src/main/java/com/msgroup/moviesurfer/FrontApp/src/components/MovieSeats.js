@@ -4,6 +4,8 @@ import Seat from "./Seat";
 
 /**
  * get movie seats using seatservicereact.
+ * Returns grid of seats. Red seats are reserved seats.
+ * Green seats are free seats.
  *
  * @param movie
  * @returns {*}

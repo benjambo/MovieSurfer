@@ -3,6 +3,13 @@ import MovieReservationModal from "./MovieReservationModal";
 import ConfirmationModal from "./ConfirmationModal";
 import { Spring } from "react-spring/renderprops";
 
+/**
+ * Return movie component
+ *
+ * @param movie
+ * @returns {*}
+ * @constructor
+ */
 const IndividualMovie = ({ movie }) => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [reservedSeat, setReservedSeat] = useState(0);

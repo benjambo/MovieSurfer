@@ -7,7 +7,8 @@ import seatServiceReact from "../services/seatServiceReact";
 import { useHistory } from "react-router-dom";
 
 /**
- * display popup window on button click.
+ * Returns popup window on button click.
+ * If user is not logged in open different popup.
  *
  * @returns {*}
  * @constructor
@@ -33,6 +34,9 @@ const MovieReservationModal = ({
     setShowNotSinged(false);
   };
 
+  //check if user is logged in.
+  //if user is logged in return movie reservation modal.
+  //if user is not logged in return modal that tells user to log in and can redirect user to login page on button click.
   const handleShow = () => {
     if (!isLoggedIn()) {
       setShowNotSinged(true);
@@ -43,6 +47,7 @@ const MovieReservationModal = ({
     }
   };
 
+  //if seat is not available alert user. Else reserve seat.
   const handleReserve = () => {
     if (!freeSeat) {
       alert("this seat is not available! pick another seat.");
