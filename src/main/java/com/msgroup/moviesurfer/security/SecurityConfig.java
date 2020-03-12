@@ -15,12 +15,19 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+/**
+ *  This class sets the security configuration for the whole app
+ */
 @Configuration
 @EnableWebSecurity // To enable Spring security's web security support and provide the Spring MVC integration
 //@EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true, prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    // Global Cross Origins - Cors Configuration
+
+    /**
+     * Global Cross Origins - Cors Configuration
+     * @return web mvc configurer adapter
+     */
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurerAdapter() {
@@ -32,6 +39,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         };
     }
 
+    /**
+     * Used to encrypt passwords
+     * @return BCrypt password encoder object
+     */
     @Bean
     BCryptPasswordEncoder bCryptPasswordEncoder(){
 
@@ -43,8 +54,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private JwtAuthenticationEntryPoint unauthorizedHandler;
-
-
 
 
     //       **** Authorization  ****

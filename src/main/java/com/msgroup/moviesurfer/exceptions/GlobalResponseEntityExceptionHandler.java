@@ -17,6 +17,11 @@ import javax.persistence.TransactionRequiredException;
 public class GlobalResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
 
+    /**
+     * TO handle unique email exceptions
+     * @param ex
+     * @return response entity
+     */
     @ExceptionHandler
     public final ResponseEntity<Object> handleUniqueEmailException(UniqueEmailException ex){
 
@@ -24,6 +29,12 @@ public class GlobalResponseEntityExceptionHandler extends ResponseEntityExceptio
 
 
     }
+
+    /**
+     * To handle entity not found exceptions
+     * @param ex
+     * @return response entity
+     */
     // EntityNotFoundException is a spring built-in exception
     @ExceptionHandler
     public final ResponseEntity<Object> HandleEntityNotFoundException(EntityNotFoundException ex){
@@ -32,6 +43,12 @@ public class GlobalResponseEntityExceptionHandler extends ResponseEntityExceptio
         return new ResponseEntity<>("Movie not found!", HttpStatus.BAD_REQUEST);
 
     }
+
+    /**
+     * To handle transaction required exceptions
+     * @param ex
+     * @return response entity
+     */
     @ExceptionHandler
     public final ResponseEntity<Object> HandleTransactionRequiredException(TransactionRequiredException ex){
 

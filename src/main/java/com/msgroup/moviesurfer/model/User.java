@@ -43,9 +43,13 @@ public class User implements UserDetails {
 
     private String role;
 
+    // Constructor
+
     public User() {
         this.role = "USER";
     }
+
+    // Getters and setters
 
     public Long getId() {
         return id;

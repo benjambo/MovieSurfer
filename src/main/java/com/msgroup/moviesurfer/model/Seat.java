@@ -25,6 +25,7 @@ public class Seat {
 
     private Long movieId;
 
+    // Empty constructor
     public Seat() {
     }
 

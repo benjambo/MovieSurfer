@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Tests for movie entities
+ */
+
 public class MovieTest {
     Movie movie = new Movie();
     @Test

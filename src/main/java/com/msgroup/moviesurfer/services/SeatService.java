@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Acts as a service & used by SeatController
+ * Acts as a service for seat entities & used by SeatController
  */
 @Transactional
 @Service

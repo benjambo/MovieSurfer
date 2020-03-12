@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- *  Acts as a service & used by UserController
+ *  Acts as a service for user objects & used by UserController
  */
 
 @Service
@@ -57,6 +57,9 @@ public class UserService {
 
     }
 
+    /**
+     * This Bean will be managed and implemented by Spring to set and save an Admin object to the database
+     */
     @Bean
     public void setAndSaveAdmin() {
 

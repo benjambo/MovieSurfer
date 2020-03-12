@@ -37,9 +37,12 @@ public class Movie {
 
 */
 
+    // Empty constructor
     public Movie() {
 
     }
+
+    // Getters and setters
 
     public Long getId() {
         return id;

@@ -22,7 +22,7 @@ public interface SeatRepository extends JpaRepository<Seat,Long> {
     Seat getById(Long id);
     List<Seat> findAllByReserved(boolean b);
     List<Seat> findAllByMovieId(Long movieId);
-    List<Seat> deleteAllByMovieId(Long movieId);
+    void deleteAllByMovieId(Long movieId);
 }
 
 

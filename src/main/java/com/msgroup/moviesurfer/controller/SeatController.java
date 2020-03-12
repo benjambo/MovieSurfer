@@ -4,12 +4,9 @@ import com.msgroup.moviesurfer.services.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 /**
  * SeatController handles the http requests to add edit or remove seats
@@ -21,30 +18,37 @@ public class SeatController {
     @Autowired
     private SeatService seatService;
 
-    Map<String, String> errorMap = new HashMap<>();
 
-
-
+    /**
+     * To get all seats
+     * @return list of seats
+     */
     @GetMapping(value="/seats")
     public List<Seat> getSeats(){
-
 
         return seatService.getSeats();
     }
 
+    /**
+     * To get reserved seats
+     * @return list of reserved seats
+     */
     @GetMapping(value="/seats/reserved")
     public List<Seat> getReservedSeats(){
-
 
         return seatService.getReservedSeats();
     }
 
 
     // To reserve single seat
+
+    /**
+     * To reserve a single seat
+     * @param id the seat's id to be reserved
+     * @return response entity of type String
+     */
     @PostMapping(value = "/seats/reserve/{id}")
     public ResponseEntity<?> reserveSeat(@PathVariable Long id) {
-
-
 
             Seat reservableSeat = seatService.getSeatById(id);
 
@@ -73,6 +77,7 @@ public class SeatController {
         // Validation for @NotBlank
         if (result.hasErrors()) {
             for (FieldError error : result.getFieldErrors()) {
+                //Map<String, String> errorMap = new HashMap<>();
                 // key:field , value:default message
                 // add the key value pair error to the errorMap object
                 errorMap.put(error.getField(), error.getDefaultMessage());

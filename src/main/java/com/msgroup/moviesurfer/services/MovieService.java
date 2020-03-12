@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Acts as a service & used by MovieController
+ * Acts as a service for movie entities & used by MovieController
  *
  */
 

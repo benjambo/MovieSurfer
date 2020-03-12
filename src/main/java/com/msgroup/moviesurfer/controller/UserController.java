@@ -25,7 +25,9 @@ import java.util.List;
 import java.util.Map;
 
 import static com.msgroup.moviesurfer.services.CustomUserDetailsService.userRole;
-
+/**
+ * UserController handles the http requests for user entities
+ */
 //@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(value = "/api")

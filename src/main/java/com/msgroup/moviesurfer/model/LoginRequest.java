@@ -3,6 +3,10 @@ package com.msgroup.moviesurfer.model;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+/**
+ * Represents Log in request object which has as email and password
+ */
+
 public class LoginRequest {
 
     @NotBlank(message = "email cannot be blank")
@@ -10,6 +14,8 @@ public class LoginRequest {
     private String email;
     @NotBlank(message = "password cannot be blank")
     private String password;
+
+    // Getters and setters
 
     public String getEmail() {
         return email;

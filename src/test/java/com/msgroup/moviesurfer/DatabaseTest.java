@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
- * database test will not work if you are not connected
- * to metropolia network
+ *  Database test for user entities
+ *  Database test will not work without Metropolia's vpn activated (Cisco AnyConnect)
  */
 public class DatabaseTest {
 

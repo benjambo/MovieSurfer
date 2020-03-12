@@ -1,13 +1,19 @@
 package com.msgroup.moviesurfer.security;
 
+/**
+ * Represents log in success response object which has TOKEN
+ */
 public class JwtLoginSuccessResponse {
     private boolean success;
     private String token;
 
+    // Constructor
     public JwtLoginSuccessResponse(boolean success, String token) {
         this.success = success;
         this.token = token;
     }
+
+    // Getters and setters
 
     public boolean isSuccess() {
         return success;

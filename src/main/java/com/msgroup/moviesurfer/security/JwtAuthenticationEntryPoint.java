@@ -26,7 +26,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
      * It will override the  http response status to be 401.
      * @param httpServletRequest
      * @param httpServletResponse
-     * @param e
+     * @param e exception
      * @throws IOException
      * @throws ServletException
      */
