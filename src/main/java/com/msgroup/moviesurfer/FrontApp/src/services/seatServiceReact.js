@@ -3,7 +3,7 @@ const seatsUrl = "http://localhost:8080/api/seats";
 const reserveSeatUrl = "http://localhost:8080/api/seats/reserve";
 
 /**
- * get all movies from seats table
+ * get all seats from seats table
  * @returns {Promise<T>}
  */
 const getAll = () => {
@@ -11,7 +11,11 @@ const getAll = () => {
   return request.then(response => response.data);
 };
 
-//not tested
+/**
+ * this method has not been tested yet.
+ * @param movie
+ * @returns {Promise<T>}
+ */
 const getById = ({ movie }) => {
   const request = axios.get(`${seatsUrl}/${movie.movieId}`, movie);
   return request.then(response => response.data);
