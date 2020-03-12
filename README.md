@@ -44,6 +44,12 @@ npm start      #For scripts start
 Spring-Boot
 ```
 
+## Usage:
+
+```sh
+ mvn spring-boot:run
+```
+
 ## Author:
 
 👤 **Benjamin Bowo, Abdullah Hinnawi, Walter Ruoppa & Jere Saarelma**
