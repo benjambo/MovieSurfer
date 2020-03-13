@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Run MovieSurerApplication
+## Run MovieSurferApplication
 
 Run moviesurferapplication from your IDE.<br />
 Database calls works only if you are connected to Metropolias network via VPN.
