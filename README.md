@@ -20,6 +20,8 @@
 
 # How to use:
 
+Run MovieSurferApplication from your IDE. <br />
+For database calls to work you have to be connected to Metropolias network via VPN. <br />
 Open folder FrontApp in src/main/java/com/msgroup/moviesurfer/FrontApp and follow the instructions down below: 
 
 ## Install:
