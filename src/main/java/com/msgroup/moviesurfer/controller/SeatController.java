@@ -1,5 +1,8 @@
 package com.msgroup.moviesurfer.controller;
+import com.msgroup.moviesurfer.model.Movie;
 import com.msgroup.moviesurfer.model.Seat;
+import com.msgroup.moviesurfer.services.CustomEmailService;
+import com.msgroup.moviesurfer.services.MovieService;
 import com.msgroup.moviesurfer.services.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +20,12 @@ public class SeatController {
 
     @Autowired
     private SeatService seatService;
+
+    @Autowired
+    MovieService movieService;
+
+    @Autowired
+    private CustomEmailService customEmailService;
 
 
     /**
@@ -50,24 +59,25 @@ public class SeatController {
     @PostMapping(value = "/seats/reserve/{id}")
     public ResponseEntity<?> reserveSeat(@PathVariable Long id) {
 
-            Seat reservableSeat = seatService.getSeatById(id);
+        Seat reservableSeat = seatService.getSeatById(id);
 
-            if (reservableSeat == null) {
+        if (reservableSeat == null) {
 
-                return new ResponseEntity<String>("Seat not found!", HttpStatus.BAD_REQUEST);
-
-            }
-            else {
-                reservableSeat.setReserved(true);
-                seatService.updateSeat(reservableSeat);
-                return new ResponseEntity<String>("Seat reserved successfully! ", HttpStatus.OK);
-            }
+            return new ResponseEntity<String>("Seat not found!", HttpStatus.BAD_REQUEST);
 
         }
+        else {
+            reservableSeat.setReserved(true);
+            seatService.updateSeat(reservableSeat);
+            // when the seat is reserved, send an email to confirm seat reservation
+            Movie movie = movieService.getMovieById(reservableSeat.getMovieId());
+            String text = "Seat Number " + reservableSeat.getNumber() + " has been reserved for movie " + movie.getTitle();
+            customEmailService.sendSimpleMessage("moviesurfer2020@gmail.com", "Seat Reservation Confirmation", text);
+            System.out.println("Confirmation email sent successfully!");
+            return new ResponseEntity<String>("Seat reserved successfully! ", HttpStatus.OK);
+        }
 
-
-
-
+    }
 
     /*
     // To reserve single seat
