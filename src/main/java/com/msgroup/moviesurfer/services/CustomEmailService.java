@@ -17,13 +17,14 @@ public class CustomEmailService {
 
 
 
-    public void sendSimpleMessage(String to, String subject, String text){
+    public void sendSimpleMessage(String from,String to, String subject, String text){
         javaMailSender.setHost(emailConfiguration.getHost());
         javaMailSender.setPort(emailConfiguration.getPort());
         javaMailSender.setUsername(emailConfiguration.getUsername());
         javaMailSender.setPassword(emailConfiguration.getPassword());
 
         SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom(from);
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);
