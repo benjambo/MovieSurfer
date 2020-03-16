@@ -57,7 +57,7 @@ public class SeatController {
      * @return response entity of type String
      */
     @PostMapping(value = "/seats/reserve/{id}")
-    public ResponseEntity<?> reserveSeat(@PathVariable Long id) {
+    public ResponseEntity<?> reserveSeat(@PathVariable Long id) throws Exception {
 
         Seat reservableSeat = seatService.getSeatById(id);
 
@@ -73,7 +73,7 @@ public class SeatController {
             // when the seat is reserved, send an email to confirm seat reservation
             Movie movie = movieService.getMovieById(reservableSeat.getMovieId());
             String text = "Seat Number " + reservableSeat.getNumber() + " has been reserved for movie " + movie.getTitle();
-            customEmailService.sendSimpleMessage("moviesurfer2020@gmail.com", "moviesurfer2020@gmail.com", "Seat Reservation Confirmation", text);
+            customEmailService.sendEmailWithAttachments("moviesurfer2020@gmail.com", "moviesurfer2020@gmail.com", "Seat Reservation Confirmation", text);
             System.out.println("Confirmation email sent successfully!");
 
             return new ResponseEntity<String>("Seat reserved successfully! ", HttpStatus.OK);
