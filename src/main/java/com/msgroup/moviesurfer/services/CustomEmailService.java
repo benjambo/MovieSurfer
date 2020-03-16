@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 public class CustomEmailService {
 
     @Autowired
-    private JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
+    private JavaMailSenderImpl javaMailSender;
 
     @Autowired
-    private EmailConfiguration emailConfiguration = new EmailConfiguration();
+    private EmailConfiguration emailConfiguration;
 
 
 
