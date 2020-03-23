@@ -1,8 +1,15 @@
 package com.msgroup.moviesurfer.services;
 
+
+
+
 import com.itextpdf.text.*;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfAcroForm;
 import com.itextpdf.text.pdf.PdfWriter;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
+import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
@@ -25,7 +32,12 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
 import java.io.*;
-import java.util.Properties;
+import java.util.ArrayList;
+
+/**
+ * Acts as a service to send emails with or without attachments.
+ *
+ */
 
 @Service
 public class CustomEmailService {
@@ -37,7 +49,13 @@ public class CustomEmailService {
     private EmailConfiguration emailConfiguration;
 
 
-
+    /**
+     * To send a simple email without attachments
+     * @param from sender email
+     * @param to recipient email
+     * @param subject email title
+     * @param text email content
+     */
     public void sendSimpleMessage(String from,String to, String subject, String text){
         javaMailSender.setHost(emailConfiguration.getHost());
         javaMailSender.setPort(emailConfiguration.getPort());
@@ -53,9 +71,18 @@ public class CustomEmailService {
         javaMailSender.send(message);
     }
 
+    /**
+     * To send an email with attachments
+     * @param from sender email
+     * @param to recipient email
+     * @param subject email title
+     * @param ticket ticket information
+     * @throws Exception any
+     */
 
-    public void sendEmailWithAttachments(String from, String to, String subject, String text) throws Exception{
+    public void sendEmailWithAttachments(String from, String to, String subject, ArrayList<String> ticket) throws Exception{
 
+        // set email configuration
         javaMailSender.setHost(emailConfiguration.getHost());
         javaMailSender.setPort(emailConfiguration.getPort());
         javaMailSender.setUsername(emailConfiguration.getUsername());
@@ -70,20 +97,58 @@ public class CustomEmailService {
 
         try{
 
-            //construct the text body part
+            //construct the ticketInfo body part
             MimeBodyPart textBodyPart = new MimeBodyPart();
-            textBodyPart.setText(text);
+
+            String thanks = "\nDear Customer\nThank you for using our service!\n\n\nReservation Information: \n\n";
+
+            StringBuilder ticketInfo = new StringBuilder();
+            for(String s: ticket){
+                ticketInfo.append(s).append("\n");
+            }
+
+            String contactInfo = "\n\n\n\n\n" +
+                    "\nFeel free to contact our Customer Service at INFOmsurfer@ms.com" +
+                    " if you have any questions or concerns. They're available 24/7.\n" +
+                    "\nRegards,\nMovieSurfer Team,\n050 469342";
+            // Set body part's text
+            textBodyPart.setText(thanks + ticketInfo.toString() + contactInfo);
+
 
             //now write the PDF content to the output stream
             outputStream = new ByteArrayOutputStream();
 
+
             Document document = new Document();
             PdfWriter.getInstance(document, outputStream);
+           // PdfWriter.getInstance(document, new FileOutputStream(new File("src/main/resources/tickets/ticket.pdf")));
             document.open();
-            Paragraph paragraph = new Paragraph();
-            paragraph.add(new Chunk(text));
+            document.setPageSize(PageSize.A4.rotate());
+            document.setMargins(10,10,0,10);
+
+            Image img = Image.getInstance("src/main/resources/1.png");
+            img.setAlignment(Element.ALIGN_CENTER);
+            img.scaleToFit(PageSize.A4.getWidth(), PageSize.A4.getHeight());
+            //img.setAbsolutePosition(0,0);
+            img.setAbsolutePosition(0, PageSize.A4.getHeight() - img.getScaledHeight());
+
+
+
+
+            Font font=new Font(Font.FontFamily.COURIER,16,Font.NORMAL,BaseColor.BLACK);
+            Paragraph information = new Paragraph("Reservation Information",new Font(Font.FontFamily.COURIER,24,Font.UNDERLINE,BaseColor.BLACK));
+            information.setSpacingBefore(200f);
+            //Paragraph paragraph = new Paragraph();
+            // paragraph.add(new Chunk(ticketInfo));
+            Paragraph paragraph = new Paragraph(ticketInfo.toString()+ contactInfo,font);
+            paragraph.setSpacingBefore(20f);
+
+
+            document.add(img);
+            document.add(information);
             document.add(paragraph);
             document.close();
+
 
             byte[] bytes = outputStream.toByteArray();
 
@@ -91,7 +156,7 @@ public class CustomEmailService {
             DataSource dataSource = new ByteArrayDataSource(bytes, "application/pdf");
             MimeBodyPart pdfBodyPart = new MimeBodyPart();
             pdfBodyPart.setDataHandler(new DataHandler(dataSource));
-            pdfBodyPart.setFileName("test.pdf");
+            pdfBodyPart.setFileName("ticket.pdf");
 
             //construct the mime multi part
             MimeMultipart mimeMultipart = new MimeMultipart();
@@ -107,11 +172,8 @@ public class CustomEmailService {
 
             mimeMessage.setContent(mimeMultipart);
 
-            //send the the email
+            //send the email
             javaMailSender.send(mimeMessage);
-
-
-
 
 
         }catch(Exception e){
@@ -119,65 +181,10 @@ public class CustomEmailService {
         }
 
 
-
-
-
-
-        /*
-        MimeMessage message = javaMailSender.createMimeMessage();
-        try{
-            MimeMessageHelper helper = new MimeMessageHelper(message, true);
-
-            helper.setFrom(from);
-            helper.setTo(to);
-            helper.setSubject(subject);
-            helper.setText(text);
-
-            // FileSystemResource file = new FileSystemResource("C:\\log.txt");
-            // helper.addAttachment(file.getFilename(), file);
-
-           // File attachment = new File("iText.pdf");
-
-
-        }catch (MessagingException e) {
-            throw new MailParseException(e);
-
-        }
-        javaMailSender.send(message);
-
-         */
-
-
-
-
     }
 
 
-    public FileOutputStream generatePdf(){
 
-        Document document = new Document();
-        FileOutputStream outputStream = null;
-
-        try{
-            outputStream = new FileOutputStream("iText.pdf");
-            PdfWriter.getInstance(document, outputStream);
-
-
-        document.open();
-        Font font = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.BLACK);
-        //Chunk is a string with applied font
-        Chunk chunk = new Chunk("Hello world", font);
-
-        document.add(chunk);
-        document.close();
-        }catch(FileNotFoundException | DocumentException ex){
-            ex.getMessage();
-        }
-
-        return outputStream;
-
-
-    }
 
 
 

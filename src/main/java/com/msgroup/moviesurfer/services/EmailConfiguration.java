@@ -4,6 +4,9 @@ package com.msgroup.moviesurfer.services;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * Acts as a component to set the email configuration
+ */
 @Component
 public class EmailConfiguration {
     //@Value("${spring.mail.host}")

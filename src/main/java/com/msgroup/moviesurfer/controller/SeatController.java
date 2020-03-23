@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -71,9 +73,22 @@ public class SeatController {
             seatService.updateSeat(reservableSeat);
 
             // when the seat is reserved, send an email to confirm seat reservation
-            Movie movie = movieService.getMovieById(reservableSeat.getMovieId());
-            String text = "Seat Number " + reservableSeat.getNumber() + " has been reserved for movie " + movie.getTitle();
-            customEmailService.sendEmailWithAttachments("moviesurfer2020@gmail.com", "moviesurfer2020@gmail.com", "Seat Reservation Confirmation", text);
+            Movie m = movieService.getMovieById(reservableSeat.getMovieId());
+            // set ticket's information
+            String fullName = "Full Name: User";
+            String email = "Email: user@email.com";
+            String movie = "Movie: " + m.getTitle();
+            String seatNumber = "Seat Number: " + reservableSeat.getNumber();
+            String theater = "Theater: Theater";
+            String time = "Time: 19.00";
+            ArrayList<String> ticketInfo = new ArrayList<>();
+            ticketInfo.add(fullName);
+            ticketInfo.add(email);
+            ticketInfo.add(movie);
+            ticketInfo.add(seatNumber);
+            ticketInfo.add(theater);
+            ticketInfo.add(time);
+            customEmailService.sendEmailWithAttachments("moviesurfer2020@gmail.com", "moviesurfer2020@gmail.com", "Seat Reservation Confirmation", ticketInfo);
             System.out.println("Confirmation email sent successfully!");
 
             return new ResponseEntity<String>("Seat reserved successfully! ", HttpStatus.OK);
