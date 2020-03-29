@@ -22,6 +22,7 @@ public class Seat {
 
     private boolean reserved;
 
+    private String reservedTo;
 
     private Long movieId;
 
@@ -62,4 +63,8 @@ public class Seat {
     public void setMovieId(Long movieId) {
         this.movieId = movieId;
     }
+
+    public String getReservedTo() { return reservedTo; }
+
+    public void setReservedTo(String reservedTo) { this.reservedTo = reservedTo; }
 }
