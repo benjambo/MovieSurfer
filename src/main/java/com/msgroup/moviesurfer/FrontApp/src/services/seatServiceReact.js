@@ -26,7 +26,7 @@ const getById = ({ movie }) => {
  * @param seatObject
  */
 const reserveSeat = seatObject => {
-  axios.post(`${reserveSeatUrl}/${seatObject.id}`).then(r => console.log(r));
+  axios.post(`${reserveSeatUrl}/${seatObject.id}`, seatObject).then(r => console.log(r));
 };
 
-export default { getAll, getById, reserveSeat };
+export default { getAll, getById, reserveSeat};
