@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import MovieSeats from "./MovieSeats";
-import { isLoggedIn } from "../services/AuthService";
+import { isLoggedIn, getUserEmail } from "../services/AuthService";
 import seatServiceReact from "../services/seatServiceReact";
 import { useHistory } from "react-router-dom";
 
@@ -52,6 +52,9 @@ const MovieReservationModal = ({
     if (!freeSeat) {
       alert("this seat is not available! pick another seat.");
     } else {
+      const email = getUserEmail();
+      seatObject.reservedTo= email;
+      console.log(seatObject);
       seatServiceReact.reserveSeat(seatObject);
       setConfirmation(true);
       handleClose();
