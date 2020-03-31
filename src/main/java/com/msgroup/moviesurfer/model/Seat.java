@@ -28,6 +28,7 @@ public class Seat {
 
     // Empty constructor
     public Seat() {
+        reservedTo= null;
     }
 
     // Getters and Setters

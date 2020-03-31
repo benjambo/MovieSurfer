@@ -99,5 +99,14 @@ public class UserService {
         return userRepository.getById(id);
     }
 
+    /**
+     * To get a user by email
+     * @param email type String
+     * @return user object
+     */
+    public User getUserByEmail(String email){
+        return userRepository.findByEmail(email);
+    }
+
 
 }

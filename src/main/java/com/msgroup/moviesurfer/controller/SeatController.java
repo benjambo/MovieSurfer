@@ -1,9 +1,11 @@
 package com.msgroup.moviesurfer.controller;
 import com.msgroup.moviesurfer.model.Movie;
 import com.msgroup.moviesurfer.model.Seat;
+import com.msgroup.moviesurfer.model.User;
 import com.msgroup.moviesurfer.services.CustomEmailService;
 import com.msgroup.moviesurfer.services.MovieService;
 import com.msgroup.moviesurfer.services.SeatService;
+import com.msgroup.moviesurfer.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,9 @@ public class SeatController {
 
     @Autowired
     MovieService movieService;
+
+    @Autowired
+    UserService userService;
 
     @Autowired
     private CustomEmailService customEmailService;
@@ -59,11 +64,10 @@ public class SeatController {
      * @Param seat object to get updated reservedTo value.
      * @return response entity of type String
      */
-    @PostMapping(value = "/seats/reserve/{id}")
-    public ResponseEntity<?> reserveSeat(@PathVariable Long id, @RequestBody Seat seat) throws Exception {
+    @PostMapping(value = "/seats/reserve")
+    public ResponseEntity<?> reserveSeat(@RequestBody Seat seat) throws Exception {
 
-        Seat reservableSeat = seatService.getSeatById(id);
-        System.out.println(seat.getNumber());
+        Seat reservableSeat = seatService.getSeatById(seat.getId());
 
         if (reservableSeat == null) {
 
@@ -77,9 +81,12 @@ public class SeatController {
 
             // when the seat is reserved, send an email to confirm seat reservation
             Movie m = movieService.getMovieById(reservableSeat.getMovieId());
+
+            User user = userService.getUserByEmail(reservableSeat.getReservedTo());
+
             // set ticket's information
-            String fullName = "Full Name: User";
-            String email = seat.getReservedTo();
+            String fullName = "Full Name: " + user.getFirstName() + " " + user.getLastName();
+            String email = "Email: " + reservableSeat.getReservedTo();
             String movie = "Movie: " + m.getTitle();
             String seatNumber = "Seat Number: " + reservableSeat.getNumber();
             String theater = "Theater: Theater";
@@ -91,7 +98,11 @@ public class SeatController {
             ticketInfo.add(seatNumber);
             ticketInfo.add(theater);
             ticketInfo.add(time);
-            customEmailService.sendEmailWithAttachments("moviesurfer2020@gmail.com", email, "Seat Reservation Confirmation", ticketInfo);
+
+            String from = "moviesurfer2020@gmail.com";
+            String to = reservableSeat.getReservedTo();
+            String subject = "Seat Reservation Confirmation";
+            customEmailService.sendEmailWithAttachments(from,  to, subject, ticketInfo);
             System.out.println("Confirmation email sent successfully!");
 
             return new ResponseEntity<String>("Seat reserved successfully! ", HttpStatus.OK);

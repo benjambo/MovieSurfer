@@ -1,38 +1,20 @@
 package com.msgroup.moviesurfer.services;
 
-
-
-
 import com.itextpdf.text.*;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.pdf.PdfAcroForm;
 import com.itextpdf.text.pdf.PdfWriter;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
-import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.core.io.InputStreamSource;
-import org.springframework.http.MediaType;
-import org.springframework.mail.MailParseException;
 import org.springframework.mail.SimpleMailMessage;
-
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-
-
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.*;
 import javax.mail.util.ByteArrayDataSource;
 import java.io.*;
 import java.util.ArrayList;
+
 
 /**
  * Acts as a service to send emails with or without attachments.
@@ -89,18 +71,19 @@ public class CustomEmailService {
         javaMailSender.setPassword(emailConfiguration.getPassword());
 
         //create the sender/recipient addresses
-        InternetAddress iaSender = new InternetAddress(from);
-        InternetAddress iaRecipient = new InternetAddress(to);
-
+        InternetAddress iaSender = new InternetAddress(from,false); // use false to disable strict policy on internet address
+        InternetAddress  iaRecipient = new InternetAddress(to, false); // use false to disable strict policy on internet address
 
         ByteArrayOutputStream outputStream = null;
 
-        try{
 
+
+        try{
             //construct the ticketInfo body part
             MimeBodyPart textBodyPart = new MimeBodyPart();
 
-            String thanks = "\nDear Customer\nThank you for using our service!\n\n\nReservation Information: \n\n";
+            //String thanks = "\nDear Customer\nThank you for using our service!\n\n\nReservation Information: \n\n";
+            String thanks = "\nDear Customer,\nThank you for choosing us. We are pleased to confirm your reservation as below:\n\n";
 
             StringBuilder ticketInfo = new StringBuilder();
             for(String s: ticket){
@@ -108,9 +91,9 @@ public class CustomEmailService {
             }
 
             String contactInfo = "\n\n\n\n\n" +
-                    "\nFeel free to contact our Customer Service at INFOmsurfer@ms.com" +
+                    "\nFeel free to contact our Customer Service at info@moviesurfer.com" +
                     " if you have any questions or concerns. They're available 24/7.\n" +
-                    "\nRegards,\nMovieSurfer Team,\n050 469342";
+                    "\nRegards,\nMovieSurfer Team,\n050 469 3422";
             // Set body part's text
             textBodyPart.setText(thanks + ticketInfo.toString() + contactInfo);
 
@@ -135,8 +118,8 @@ public class CustomEmailService {
 
 
 
-            Font font=new Font(Font.FontFamily.COURIER,16,Font.NORMAL,BaseColor.BLACK);
-            Paragraph information = new Paragraph("Reservation Information",new Font(Font.FontFamily.COURIER,24,Font.UNDERLINE,BaseColor.BLACK));
+            Font font=new Font(Font.FontFamily.COURIER,12,Font.NORMAL,BaseColor.BLACK);
+            Paragraph information = new Paragraph("Ticket Information",new Font(Font.FontFamily.COURIER,16,Font.UNDERLINE,BaseColor.BLACK));
             information.setSpacingBefore(200f);
             //Paragraph paragraph = new Paragraph();
             // paragraph.add(new Chunk(ticketInfo));
@@ -176,7 +159,9 @@ public class CustomEmailService {
             javaMailSender.send(mimeMessage);
 
 
-        }catch(Exception e){
+
+
+        } catch (Exception e){
             e.getMessage();
         }
 
