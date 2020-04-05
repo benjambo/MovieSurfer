@@ -32,10 +32,10 @@ const App = () => {
                 <Route path="/about" component={About} />
                 <Route path="/admin/login" component={AdminLogin} />
                 <Route path="/admin/addMovie" component={AddMovie} />
+                <Route path="*" exact={true} component={NotFound} />
               </div>
             )}
           </Spring>
-          <Route path="*" exact={true} component={NotFound} />
         </Switch>
         <Footer />
       </div>
