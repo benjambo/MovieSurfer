@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import {Button, Form, FormControl, Nav, Navbar, NavDropdown} from "react-bootstrap";
-import { useHistory } from "react-router-dom";
 
 import styled from "styled-components";
 import * as auth from "../services/AuthService";
@@ -49,7 +48,6 @@ const Styles = styled.div`
 export const NavigationBar = () => {
   const [newFilter, setNewFilter] = useState("")
   const [lang, setLang] = useState('')
-  const history = useHistory()
 
   const changeLang = (language) => {
     //console.log(language)
@@ -62,18 +60,16 @@ export const NavigationBar = () => {
         <Navbar.Brand href="/">MovieSurfer</Navbar.Brand>
         <Navbar.Toggle area-controls="basic-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          {(history.location.pathname === '/') ?
-              <Form inline>
-                <FormControl
-                    type="text"
-                    placeholder="Search"
-                    className="mr-sm-2"
-                    value={newFilter}
-                    onChange={(e) => setNewFilter(e.target.value)}
-                />
-                <Button variant="outline-dark">Search</Button>
-              </Form>:
-              null}
+            <Form inline>
+              <FormControl
+                  type="text"
+                  placeholder="Search"
+                  className="mr-sm-2"
+                  value={newFilter}
+                  onChange={(e) => setNewFilter(e.target.value)}
+              />
+              <Button variant="outline-dark">Search</Button>
+            </Form>
           <Nav className="ml-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/gallery">Gallery</Nav.Link>
