@@ -29,4 +29,4 @@ const reserveSeat = seatObject => {
   axios.post(`${reserveSeatUrl}`, seatObject).then(r => console.log(r));
 };
 
-export default { getAll, getById, reserveSeat};
+export default { getAll, getById, reserveSeat };

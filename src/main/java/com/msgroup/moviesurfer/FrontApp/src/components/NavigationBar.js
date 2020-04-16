@@ -1,5 +1,12 @@
-import React, {useState} from "react";
-import {Button, Form, FormControl, Nav, Navbar, NavDropdown} from "react-bootstrap";
+import React, { useState } from "react";
+import {
+  Button,
+  Form,
+  FormControl,
+  Nav,
+  Navbar,
+  NavDropdown
+} from "react-bootstrap";
 
 import styled from "styled-components";
 import * as auth from "../services/AuthService";
@@ -46,13 +53,13 @@ const Styles = styled.div`
 `;
 
 export const NavigationBar = () => {
-  const [newFilter, setNewFilter] = useState("")
-  const [lang, setLang] = useState('')
+  const [newFilter, setNewFilter] = useState("");
+  const [lang, setLang] = useState("");
 
-  const changeLang = (language) => {
+  const changeLang = language => {
     //console.log(language)
-    setLang(language)
-  }
+    setLang(language);
+  };
 
   return (
     <Styles>
@@ -60,16 +67,16 @@ export const NavigationBar = () => {
         <Navbar.Brand href="/">MovieSurfer</Navbar.Brand>
         <Navbar.Toggle area-controls="basic-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-            <Form inline>
-              <FormControl
-                  type="text"
-                  placeholder="Search"
-                  className="mr-sm-2"
-                  value={newFilter}
-                  onChange={(e) => setNewFilter(e.target.value)}
-              />
-              <Button variant="outline-dark">Search</Button>
-            </Form>
+          <Form inline>
+            <FormControl
+              type="text"
+              placeholder="Search"
+              className="mr-sm-2"
+              value={newFilter}
+              onChange={e => setNewFilter(e.target.value)}
+            />
+            <Button variant="outline-dark">Search</Button>
+          </Form>
           <Nav className="ml-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/gallery">Gallery</Nav.Link>
@@ -86,9 +93,15 @@ export const NavigationBar = () => {
               <Nav.Link>{auth.getUserFirstName()}</Nav.Link>
             ) : null}
             <NavDropdown title="Language" id="basic-nav-dropdown">
-              <NavDropdown.Item onClick={() => changeLang('fi')}>Finnish</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => changeLang('en')}>English</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => changeLang('jp')}>Japanese</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => changeLang("fi")}>
+                Finnish
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => changeLang("en")}>
+                English
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => changeLang("jp")}>
+                Japanese
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

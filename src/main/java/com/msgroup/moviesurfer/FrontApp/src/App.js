@@ -12,6 +12,7 @@ import AdminLogin from "./model/AdminLogin";
 import AddMovie from "./model/AddMovie";
 import NotFound from "./model/NotFound";
 import { Spring } from "react-spring/renderprops";
+import { translate, Trans } from "react-i18next";
 
 const App = () => {
   return (
@@ -32,10 +33,10 @@ const App = () => {
                 <Route path="/about" component={About} />
                 <Route path="/admin/login" component={AdminLogin} />
                 <Route path="/admin/addMovie" component={AddMovie} />
-                <Route path="*" exact={true} component={NotFound} />
               </div>
             )}
           </Spring>
+          <Route path="*" exact={true} component={NotFound} />
         </Switch>
         <Footer />
       </div>
@@ -43,4 +44,5 @@ const App = () => {
   );
 };
 
+//export default translate("common")(App); // instead of "export default App;"
 export default App;

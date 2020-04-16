@@ -53,7 +53,7 @@ const MovieReservationModal = ({
       alert("this seat is not available! pick another seat.");
     } else {
       const email = getUserEmail();
-      seatObject.reservedTo= email;
+      seatObject.reservedTo = email;
       console.log(seatObject);
       seatServiceReact.reserveSeat(seatObject);
       setConfirmation(true);

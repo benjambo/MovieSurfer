@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import accounts from "../services/accounts";
 import IndividualMovie from "./IndividualMovie";
-import {Nav, Navbar, Form, FormControl, Button, NavDropdown} from "react-bootstrap";
+import {
+  Nav,
+  Navbar,
+  Form,
+  FormControl,
+  Button,
+  NavDropdown
+} from "react-bootstrap";
 import styled from "styled-components";
 import * as auth from "../services/AuthService";
 
@@ -60,12 +67,12 @@ export const MovieCatalog = () => {
   const [newFilter, setNewFilter] = useState("");
 
   const [movie, setMovie] = useState([]);
-  const [lang, setLang] = useState('')
+  const [lang, setLang] = useState("");
 
-  const changeLang = (language) => {
+  const changeLang = language => {
     //console.log(language)
-    setLang(language)
-  }
+    setLang(language);
+  };
 
   //get movies from the database
   useEffect(() => {
@@ -125,9 +132,15 @@ export const MovieCatalog = () => {
               <Nav.Link>{auth.getUserFirstName()}</Nav.Link>
             ) : null}
             <NavDropdown title="Language" id="basic-nav-dropdown">
-              <NavDropdown.Item onClick={() => changeLang('fi')}>Finnish</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => changeLang('en')}>English</NavDropdown.Item>
-              <NavDropdown.Item onClick={() => changeLang('jp')}>Japanese</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => changeLang("fi")}>
+                Finnish
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => changeLang("en")}>
+                English
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => changeLang("jp")}>
+                Japanese
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
