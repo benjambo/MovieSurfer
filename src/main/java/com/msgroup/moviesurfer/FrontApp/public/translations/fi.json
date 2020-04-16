@@ -1,0 +1,19 @@
+{
+  "navigation.section.search": "Etsi",
+  "navigation.section.home": "Koti",
+  "navigation.section.gallery": "Galleria",
+  "navigation.section.about": "Meistä",
+  "navigation.section.sign": "Kirjaudu sisään",
+  "navigation.section.admin": "Ylläpitäjä",
+  "navigation.section.logout": "Kirjaudu ulos",
+  "navigation.section.languages": "Kielet",
+  "navigation.section.languages.english": "Englanti",
+  "navigation.section.languages.finnish": "Suomi",
+  "footer.section.times": "Tavoiteltavissa sähköpostitse:",
+  "footer.section.hours": "ASIAKASPALVELU",
+  "footer.section.hours.service": "Asiakaspalvelu avoinna:",
+  "footer.section.hours.open": "",
+  "footer.section.hours.mon": "Ma - To 6:00 - 21:00",
+  "footer.section.hours.fri": "Perjantai 6:00 - 20:00",
+  "footer.section.hours.sat": "La - Su 10:00 - 20:00"
+}

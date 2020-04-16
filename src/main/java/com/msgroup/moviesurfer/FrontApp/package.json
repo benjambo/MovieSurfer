@@ -12,6 +12,7 @@
     "email-validator": "^2.0.4",
     "formik": "^2.1.4",
     "i18next": "^19.4.2",
+    "i18next-xhr-backend": "^3.2.2",
     "lazy-input": "^2.0.0",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",

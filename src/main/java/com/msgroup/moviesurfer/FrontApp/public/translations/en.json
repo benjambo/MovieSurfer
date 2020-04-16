@@ -1,0 +1,21 @@
+{
+  "main.header.welcome": "Welcome",
+  "main.page.title": "{{title}} English Version",
+  "navigation.section.search": "Search",
+  "navigation.section.home": "Home",
+  "navigation.section.gallery": "Gallery",
+  "navigation.section.about": "About Us",
+  "navigation.section.sign": "Sign In",
+  "navigation.section.admin": "Admins",
+  "navigation.section.logout": "Sign out",
+  "navigation.section.languages": "Languages",
+  "navigation.section.languages.english": "English",
+  "navigation.section.languages.finnish": "Finnish",
+  "footer.section.times": "Availability through email:",
+  "footer.section.hours": "SERVICE HOURS",
+  "footer.section.hours.service": "Customer service",
+  "footer.section.hours.open": "open:",
+  "footer.section.hours.mon": "Mon - Thu 6:00 - 21:00",
+  "footer.section.hours.fri": "Friday 6:00 - 20:00",
+  "footer.section.hours.sat": "Sat - Sun 10:00 - 20:00"
+}

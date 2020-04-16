@@ -12,7 +12,6 @@ import AdminLogin from "./model/AdminLogin";
 import AddMovie from "./model/AddMovie";
 import NotFound from "./model/NotFound";
 import { Spring } from "react-spring/renderprops";
-import { translate, Trans } from "react-i18next";
 
 const App = () => {
   return (
@@ -44,5 +43,4 @@ const App = () => {
   );
 };
 
-//export default translate("common")(App); // instead of "export default App;"
 export default App;

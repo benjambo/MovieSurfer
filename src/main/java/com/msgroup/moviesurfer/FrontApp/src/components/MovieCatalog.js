@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import styled from "styled-components";
 import * as auth from "../services/AuthService";
+import { useTranslation } from "react-i18next";
 
 const Styles = styled.div`
   form {
@@ -67,11 +68,11 @@ export const MovieCatalog = () => {
   const [newFilter, setNewFilter] = useState("");
 
   const [movie, setMovie] = useState([]);
-  const [lang, setLang] = useState("");
+  const { t } = useTranslation();
 
-  const changeLang = language => {
-    //console.log(language)
-    setLang(language);
+  const changeLanguage = code => e => {
+    localStorage.setItem("language", code);
+    window.location.reload();
   };
 
   //get movies from the database
@@ -110,36 +111,44 @@ export const MovieCatalog = () => {
           <Form inline>
             <FormControl
               type="text"
-              placeholder="Search"
+              placeholder={t("navigation.section.search")}
               className="mr-sm-2"
               value={newFilter}
               onChange={handleFilterChange}
             />
-            <Button variant="outline-dark">Search</Button>
+            <Button variant="outline-dark">
+              {t("navigation.section.search")}
+            </Button>
           </Form>
           <Nav className="ml-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/gallery">Gallery</Nav.Link>
-            <Nav.Link href="/about">About</Nav.Link>
-            {!auth.isLoggedIn() ? <Nav.Link href="/sign">Sign</Nav.Link> : null}
-            <Nav.Link href="/admin/login">Admin</Nav.Link>
+            <Nav.Link href="/">{t("navigation.section.home")}</Nav.Link>
+            <Nav.Link href="/gallery">
+              {t("navigation.section.gallery")}
+            </Nav.Link>
+            <Nav.Link href="/about">{t("navigation.section.about")}</Nav.Link>
+            {!auth.isLoggedIn() ? (
+              <Nav.Link href="/sign">{t("navigation.section.sign")}</Nav.Link>
+            ) : null}
+            <Nav.Link href="/admin/login">
+              {t("navigation.section.admin")}
+            </Nav.Link>
             {auth.isLoggedIn() ? (
               <Nav.Link href="/sign" onClick={auth.logout}>
-                Logout
+                {t("navigation.section.logout")}
               </Nav.Link>
             ) : null}
             {auth.isLoggedIn() ? (
               <Nav.Link>{auth.getUserFirstName()}</Nav.Link>
             ) : null}
-            <NavDropdown title="Language" id="basic-nav-dropdown">
-              <NavDropdown.Item onClick={() => changeLang("fi")}>
-                Finnish
+            <NavDropdown
+              title={t("navigation.section.languages")}
+              id="basic-nav-dropdown"
+            >
+              <NavDropdown.Item onClick={changeLanguage("en")}>
+                {t("navigation.section.languages.english")}
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => changeLang("en")}>
-                English
-              </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => changeLang("jp")}>
-                Japanese
+              <NavDropdown.Item onClick={changeLanguage("fi")}>
+                {t("navigation.section.languages.finnish")}
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

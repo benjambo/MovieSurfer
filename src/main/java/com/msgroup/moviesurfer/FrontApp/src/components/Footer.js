@@ -1,7 +1,10 @@
 import React from "react";
 import "../App.css";
+import { useTranslation } from "react-i18next";
 
 export const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="footer">
       <ul className="column">
@@ -27,18 +30,18 @@ export const Footer = () => {
         </li>
         <li>msurfer@ms.com</li>
         <li>050 469342</li>
-        <li>Availability through email:</li>
+        <li>{t("footer.section.times")}</li>
         <li>24 / 7</li>
       </ul>
       <ul className="column">
         <li>
-          <strong>SERVICE HOURS</strong>
+          <strong>{t("footer.section.hours")}</strong>
         </li>
-        <li>Customer service</li>
-        <li>open:</li>
-        <li>Mon - Thu 6:00 - 21:00</li>
-        <li>Friday 6:00 - 20:00</li>
-        <li>Sat - Sun 10:00 - 20:00</li>
+        <li>{t("footer.section.hours.service")}</li>
+        <li>{t("footer.section.hours.open")}</li>
+        <li>{t("footer.section.hours.mon")}</li>
+        <li>{t("footer.section.hours.fri")}</li>
+        <li>{t("footer.section.hours.sat")}</li>
       </ul>
     </footer>
   );
