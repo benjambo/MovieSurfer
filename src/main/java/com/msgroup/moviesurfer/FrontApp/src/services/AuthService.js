@@ -8,14 +8,18 @@ export function isLoggedIn() {
 
 export function logout() {
   if (isLoggedIn()) {
-    localStorage.clear();
+    //localStorage.clear();
+    localStorage.removeItem("token");
   }
 }
 
 // to save the token to the browsers localstorage which
 // will keep the session active
 export function setToken(token) {
-  localStorage.clear();
+  if (getToken() === token) {
+    localStorage.clear();
+    localStorage.setItem("token", token);
+  }
   localStorage.setItem("token", token);
 }
 
