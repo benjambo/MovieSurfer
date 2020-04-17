@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { Alert } from "reactstrap";
 import * as auth from "../services/AuthService";
+import { withTranslation } from "react-i18next";
 
 class SignPage extends Component {
   constructor(props) {
@@ -72,13 +73,14 @@ class SignPage extends Component {
   }
 
   validateSignInForm() {
+    const { t } = this.props;
     let loginForm = this.state.loginForm;
     let loginErrors = {};
     let LoginFormIsValid = true;
 
     if (!loginForm["emailSig"]) {
       LoginFormIsValid = false;
-      loginErrors["emailSig"] = "*Please enter your email.";
+      loginErrors["emailSig"] = t("sign.section.validation.email");
     }
 
     if (typeof loginForm["emailSig"] !== "undefined") {
@@ -88,18 +90,18 @@ class SignPage extends Component {
       );
       if (!pattern.test(loginForm["emailSig"])) {
         LoginFormIsValid = false;
-        loginErrors["emailSig"] = "Email address is required";
+        loginErrors["emailSig"] = t("sign.section.validation.email");
       }
     }
 
     if (!loginForm["passwordSig"]) {
       LoginFormIsValid = false;
-      loginErrors["passwordSig"] = "Password is required";
+      loginErrors["passwordSig"] = t("sign.section.validation.password");
     }
 
     if (typeof loginForm["passwordSig"] === "undefined") {
       LoginFormIsValid = false;
-      loginErrors["passwordSig"] = "Password is required";
+      loginErrors["passwordSig"] = t("sign.section.validation.password");
     }
 
     this.setState({
@@ -109,37 +111,38 @@ class SignPage extends Component {
   }
 
   validateRegisterForm() {
+    const { t } = this.props;
     let registerForm = this.state.registerForm;
     let registerErrors = {};
     let registerFormIsValid = true;
 
     if (!registerForm["firstName"]) {
       registerFormIsValid = false;
-      registerErrors["firstName"] = "First name is required";
+      registerErrors["firstName"] = t("sign.section.validation.first.miss");
     }
 
     if (typeof registerForm["firstName"] !== "undefined") {
       if (!registerForm["firstName"].match(/^[a-zA-Z ]*$/)) {
         registerFormIsValid = false;
-        registerErrors["firstName"] = "Enter alphabet characters only.";
+        registerErrors["firstName"] = t("sign.section.validation.alphabet");
       }
     }
 
     if (!registerForm["lastName"]) {
       registerFormIsValid = false;
-      registerErrors["lastName"] = "Last name is required";
+      registerErrors["lastName"] = t("sign.section.validation.last.miss");
     }
 
     if (typeof registerForm["lastName"] !== "undefined") {
       if (!registerForm["lastName"].match(/^[a-zA-Z ]*$/)) {
         registerFormIsValid = false;
-        registerErrors["lastName"] = "Enter alphabet characters only";
+        registerErrors["lastName"] = t("sign.section.validation.alphabet");
       }
     }
 
     if (!registerForm["emailReg"]) {
       registerFormIsValid = false;
-      registerErrors["emailReg"] = "Email address is required";
+      registerErrors["emailReg"] = t("sign.section.validation.email.miss");
     }
 
     if (typeof registerForm["emailReg"] !== "undefined") {
@@ -149,13 +152,13 @@ class SignPage extends Component {
       );
       if (!pattern.test(registerForm["emailReg"])) {
         registerFormIsValid = false;
-        registerErrors["emailReg"] = "Enter valid email address";
+        registerErrors["emailReg"] = t("sign.section.validation.email");
       }
     }
 
     if (!registerForm["passwordReg"]) {
       registerFormIsValid = false;
-      registerErrors["passwordReg"] = "Password is required";
+      registerErrors["passwordReg"] = t("sign.section.validation.password");
     }
 
     if (typeof registerForm["passwordReg"] !== "undefined") {
@@ -167,8 +170,9 @@ class SignPage extends Component {
         )
       ) {
         registerFormIsValid = false;
-        registerErrors["passwordReg"] =
-          "Password must contain at least one number, one uppercase and 6 characters";
+        registerErrors["passwordReg"] = t(
+          "sign.section.validation.password.parameters"
+        );
       }
     }
 
@@ -179,6 +183,7 @@ class SignPage extends Component {
   }
 
   onSubmitSignIn(e) {
+    const { t } = this.props;
     // to prevent submitting the form during user input
     e.preventDefault();
 
@@ -195,7 +200,9 @@ class SignPage extends Component {
           console.log("###Loging In Response ", res);
 
           if (res.status === 200) {
-            this.setState({ serverMessageSig: "Logged in Successfully!" });
+            this.setState({
+              serverMessageSig: t("sign.section.validation.success")
+            });
             this.setState({ visibleErrorSig: false });
             // this.setState({visibleSuccessSig:true});
 
@@ -206,7 +213,9 @@ class SignPage extends Component {
         })
         .catch(err => {
           console.log("Sing In Error: ", err);
-          this.setState({ serverMessageSig: "Invalid Email Or Password!" });
+          this.setState({
+            serverMessageSig: t("sign.section.validation.invalid")
+          });
           this.setState({ visibleSuccessSig: false });
           this.setState({ visibleErrorSig: true });
         });
@@ -257,18 +266,19 @@ class SignPage extends Component {
   }
 
   render() {
+    const { t } = this.props;
     return (
       <Styles>
         <div className="wrapper">
           <div className="first-form-wrapper">
-            <h3>Sign In</h3>
+            <h3>{t("sign.section.sign")}</h3>
             <form onSubmit={this.onSubmitSignIn}>
               <div className="email">
-                <label htmlFor="emailSig">Email</label>
+                <label htmlFor="emailSig">{t("sign.section.email")}</label>
                 <input
                   className={this.state.loginErrors.emailSig && "error"}
                   type="text"
-                  placeholder="Email"
+                  placeholder={t("sign.section.email")}
                   name="emailSig"
                   value={this.state.loginForm.emailSig}
                   onChange={this.onChangeSignIn}
@@ -279,11 +289,13 @@ class SignPage extends Component {
               </div>
 
               <div className="password">
-                <label htmlFor="passwordSig">Password</label>
+                <label htmlFor="passwordSig">
+                  {t("sign.section.password")}
+                </label>
                 <input
                   className={this.state.loginErrors.passwordSig && "error"}
                   type="password"
-                  placeholder="Password"
+                  placeholder={t("sign.section.password")}
                   name="passwordSig"
                   value={this.state.loginForm.passwordSig}
                   onChange={this.onChangeSignIn}
@@ -294,7 +306,7 @@ class SignPage extends Component {
               </div>
 
               <div className="createAccount">
-                <button type="submit">Log In</button>
+                <button type="submit">{t("sign.section.sign")}</button>
               </div>
             </form>
             <div>
@@ -318,14 +330,14 @@ class SignPage extends Component {
           </div>
 
           <div className="second-form-wrapper">
-            <h3>Create Account</h3>
+            <h3>{t("sign.section.create")}</h3>
             <form onSubmit={this.onSubmitRegister}>
               <div className="firstName">
-                <label htmlFor="firstName">First Name</label>
+                <label htmlFor="firstName">{t("sign.section.first")}</label>
                 <input
                   className={this.state.registerErrors.firstName && "error"}
                   type="text"
-                  placeholder="First Name"
+                  placeholder={t("sign.section.first")}
                   name="firstName"
                   value={this.state.registerForm.firstName}
                   onChange={this.onChangeRegister}
@@ -336,11 +348,11 @@ class SignPage extends Component {
               </div>
 
               <div className="lastName">
-                <label htmlFor="lastName">Last Name</label>
+                <label htmlFor="lastName">{t("sign.section.last")}</label>
                 <input
                   className={this.state.registerErrors.lastName && "error"}
                   type="text"
-                  placeholder="Last Name"
+                  placeholder={t("sign.section.last")}
                   name="lastName"
                   value={this.state.registerForm.lastName}
                   onChange={this.onChangeRegister}
@@ -351,11 +363,11 @@ class SignPage extends Component {
               </div>
 
               <div className="email">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">{t("sign.section.email")}</label>
                 <input
                   className={this.state.registerErrors.emailReg && "error"}
                   type="text"
-                  placeholder="Email"
+                  placeholder={t("sign.section.email")}
                   name="emailReg"
                   value={this.state.registerForm.emailReg}
                   onChange={this.onChangeRegister}
@@ -366,11 +378,11 @@ class SignPage extends Component {
               </div>
 
               <div className="password">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">{t("sign.section.password")}</label>
                 <input
                   className={this.state.registerErrors.passwordReg && "error"}
                   type="password"
-                  placeholder="Password"
+                  placeholder={t("sign.section.password")}
                   name="passwordReg"
                   value={this.state.registerForm.passwordReg}
                   onChange={this.onChangeRegister}
@@ -381,7 +393,7 @@ class SignPage extends Component {
               </div>
 
               <div className="createAccount">
-                <button type="submit">Create Account</button>
+                <button type="submit">{t("sign.section.create")}</button>
               </div>
             </form>
             <div>
@@ -409,7 +421,7 @@ class SignPage extends Component {
   }
 }
 
-export default SignPage;
+export default withTranslation()(SignPage);
 
 const Styles = styled.div`
   * {

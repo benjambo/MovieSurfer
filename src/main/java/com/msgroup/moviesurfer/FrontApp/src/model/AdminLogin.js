@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { Alert } from "reactstrap";
 import * as auth from "../services/AuthService";
+import { withTranslation } from "react-i18next";
 
 class AdminLogin extends Component {
   constructor(props) {
@@ -42,13 +43,14 @@ class AdminLogin extends Component {
   }
 
   validateForm() {
+    const { t } = this.props;
     let loginForm = this.state.loginForm;
     let loginErrors = {};
     let formIsValid = true;
 
     if (!loginForm["email"]) {
       formIsValid = false;
-      loginErrors["email"] = "*Please enter your email.";
+      loginErrors["email"] = t("sign.section.validation.email");
     }
 
     if (typeof loginForm["email"] !== "undefined") {
@@ -58,18 +60,18 @@ class AdminLogin extends Component {
       );
       if (!pattern.test(loginForm["email"])) {
         formIsValid = false;
-        loginErrors["email"] = "*Please enter valid email.";
+        loginErrors["email"] = t("sign.section.validation.email");
       }
     }
 
     if (!loginForm["password"]) {
       formIsValid = false;
-      loginErrors["password"] = "Password is required";
+      loginErrors["password"] = t("sign.section.validation.password");
     }
 
     if (typeof loginForm["password"] === "undefined") {
       formIsValid = false;
-      loginErrors["password"] = "Password is required";
+      loginErrors["password"] = t("sign.section.validation.password");
     }
 
     this.setState({
@@ -79,6 +81,7 @@ class AdminLogin extends Component {
   }
 
   onSubmit(e) {
+    const { t } = this.props;
     // to prevent submitting the form during user input
     e.preventDefault();
     if (this.validateForm()) {
@@ -94,7 +97,9 @@ class AdminLogin extends Component {
           console.log("###Loging In Response ", res);
 
           if (res.status === 200) {
-            this.setState({ serverMessage: "Logged in Successfully!" });
+            this.setState({
+              serverMessage: t("sign.section.validation.success")
+            });
             this.setState({ visibleError: false });
             // this.setState({visibleSuccess:true});
             auth.setToken(res.data.token);
@@ -104,24 +109,28 @@ class AdminLogin extends Component {
         })
         .catch(err => {
           console.log("Sing In Error: ", err);
-          this.setState({ serverMessage: "Invalid Email Or Password!" });
+          this.setState({
+            serverMessage: t("sign.section.validation.invalid")
+          });
           this.setState({ visibleSuccess: false });
           this.setState({ visibleError: true });
         });
     }
   }
+
   render() {
+    const { t } = this.props;
     return (
       <Styles>
         <div className="wrapper">
           <div className="form-wrapper">
-            <h3>Sign In As Admin</h3>
+            <h3>{t("sign.section.admin")}</h3>
             <form onSubmit={this.onSubmit}>
               <div className="email">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">{t("sign.section.email")}</label>
                 <input
                   type="text"
-                  placeholder="Email"
+                  placeholder={t("sign.section.email")}
                   name="email"
                   value={this.state.loginForm.email}
                   onChange={this.onChange}
@@ -131,10 +140,10 @@ class AdminLogin extends Component {
               <div className="errorMsg">{this.state.loginErrors.email}</div>
 
               <div className="password">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">{t("sign.section.password")}</label>
                 <input
                   type="password"
-                  placeholder="Password"
+                  placeholder={t("sign.section.password")}
                   name="password"
                   value={this.state.loginForm.password}
                   onChange={this.onChange}
@@ -144,7 +153,7 @@ class AdminLogin extends Component {
               <div className="errorMsg">{this.state.loginErrors.password}</div>
 
               <div className="createAccount">
-                <button type="submit">Sign In</button>
+                <button type="submit">{t("sign.section.sign")}</button>
               </div>
             </form>
             <div>
@@ -172,7 +181,7 @@ class AdminLogin extends Component {
   }
 }
 
-export default AdminLogin;
+export default withTranslation()(AdminLogin);
 
 const Styles = styled.div`
   * {

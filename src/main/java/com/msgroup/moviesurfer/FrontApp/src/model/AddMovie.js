@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { withTranslation } from "react-i18next";
 
 class AddMovie extends Component {
   constructor(props) {
@@ -62,35 +63,36 @@ class AddMovie extends Component {
       });
   }
   render() {
+    const { t } = this.props;
     return (
       <Styles>
         <div className="wrapper">
           <div className="form-wrapper">
             <div className="form-container">
-              <h3 className="text-center">Add Movie</h3>
+              <h3 className="text-center">{t("movie.section.add")}</h3>
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
-                  <label htmlFor="title">Title</label>
+                  <label htmlFor="title">{t("movie.section.title")}</label>
                   <input
                     type="text"
-                    placeholder="Title"
+                    placeholder={t("movie.section.title")}
                     name="title"
                     value={this.state.title}
                     onChange={this.onChange}
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="genre">Genre</label>
+                  <label htmlFor="genre">{t("movie.section.genre")}</label>
                   <input
                     type="text"
-                    placeholder="Genre"
+                    placeholder={t("movie.section.genre")}
                     name="genre"
                     value={this.state.genre}
                     onChange={this.onChange}
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="image">Image</label>
+                  <label htmlFor="image">{t("movie.section.image")}</label>
                   <input
                     id="imageInput"
                     type="file"
@@ -100,7 +102,11 @@ class AddMovie extends Component {
                   />
                 </div>
 
-                <input type="submit" value="Add" className="btn p-2  mt-4" />
+                <input
+                  type="submit"
+                  value={t("movie.section.add.button")}
+                  className="btn p-2  mt-4"
+                />
               </form>
             </div>
           </div>
@@ -109,7 +115,7 @@ class AddMovie extends Component {
     );
   }
 }
-export default AddMovie;
+export default withTranslation()(AddMovie);
 
 const Styles = styled.div`
   input,

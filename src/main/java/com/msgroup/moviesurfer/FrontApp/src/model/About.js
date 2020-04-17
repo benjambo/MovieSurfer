@@ -3,8 +3,10 @@ import jere from "../assets/jere.jpeg";
 import walter from "../assets/walter.jpeg";
 import abdullah from "../assets/abdullah.jpg";
 import benjamin from "../assets/benjamin.jpeg";
+import { useTranslation } from "react-i18next";
 
 export const About = () => {
+  const { t } = useTranslation();
   return (
     <div>
       <div id="myCarousel" className="carousel slide" data-ride="carousel">
@@ -22,8 +24,7 @@ export const About = () => {
                 <h2 className="quotes">
                   <strong>Jere Saarelma</strong>
                   <br />
-                  I'm 25 y.o. programmer from Metropolia. I have a lot of
-                  interest in Java and Backend-development{" "}
+                  {t("about.section.jere")}
                 </h2>
               </div>
             </div>
@@ -35,8 +36,7 @@ export const About = () => {
                 <h2 className="quotes">
                   <strong>Walter Ruoppa</strong>
                   <br />
-                  I'm 24 y.o. programming student from Metropolia. My interests
-                  are languages and Java-framework-development{" "}
+                  {t("about.section.walter")}
                 </h2>
               </div>
             </div>
@@ -46,13 +46,11 @@ export const About = () => {
             <div className="container">
               <div className="carousel-caption">
                 <h2 className="quotes">
-                  {" "}
                   <strong>
                     Abdullah <br />
                     Hinnawi <br />
                   </strong>
-                  I'm 31 y.o. programming student from Metropolia. I have a lot
-                  of interest in Java and Backend-development{" "}
+                  {t("about.section.abdullah")}
                 </h2>
               </div>
             </div>
@@ -64,8 +62,7 @@ export const About = () => {
                 <h2 className="quotes">
                   <strong>Benjamin Bowo</strong>
                   <br />
-                  I'm 23 y.o. programming student from Metropolia. I have a lot
-                  of interest in React and Frontend-development{" "}
+                  {t("about.section.benjamin")}
                 </h2>
               </div>
             </div>
