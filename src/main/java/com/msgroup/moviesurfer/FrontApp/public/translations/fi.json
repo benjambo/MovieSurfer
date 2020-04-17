@@ -44,5 +44,15 @@
   "movie.section.title": "Nimi",
   "movie.section.genre": "Tyylilaji",
   "movie.section.image": "Kuva",
-  "movie.section.add.button": "Lisää"
+  "movie.section.add.button": "Lisää",
+
+  "seats.section.movie": "Istuimet elokuvaan ",
+  "seats.section.reservation": "Varaa",
+  "seats.section.cancel": "Sulje",
+  "seats.sign.section": "Kirjaudu sisään varaaksesi istuimet elokuvaan ",
+  "seats.section.alert": "Tämä tuoli ei ole saatavilla. Valitse toinen",
+  "seats.sign.create": "Kirjaudu sisään tai luo tili",
+  "seats.section.picked": "Valitsit istuimen ",
+  "seats.section.unavailable1": "Istuin ",
+  "seats.section.unavailable2": " ei ole saatavilla"
 }

@@ -44,5 +44,15 @@
   "movie.section.title": "Title",
   "movie.section.genre": "Genre",
   "movie.section.image": "Image",
-  "movie.section.add.button": "Add"
+  "movie.section.add.button": "Add",
+
+  "seats.section.movie": "Seats for ",
+  "seats.section.reservation": "Reserve",
+  "seats.section.cancel": "Cancel",
+  "seats.sign.section": "Please sign in to reserve a seat for",
+  "seats.section.alert": "This seat is not available! Pick another seat",
+  "seats.sign.create": "Sign In or Create an Account",
+  "seats.section.picked": "Picked seat number  ",
+  "seats.section.unavailable1": "Seat number ",
+  "seats.section.unavailable2": " is not available"
 }

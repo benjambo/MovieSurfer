@@ -52,7 +52,7 @@ const MovieReservationModal = ({
   //if seat is not available alert user. Else reserve seat.
   const handleReserve = () => {
     if (!freeSeat) {
-      alert("this seat is not available! pick another seat.");
+      alert(t("seats.section.alert"));
     } else {
       const email = getUserEmail();
       seatObject.reservedTo = email;
@@ -68,7 +68,7 @@ const MovieReservationModal = ({
   return (
     <div>
       <Button variant="dark" onClick={handleShow}>
-        {t("seats.section.reserve")}
+        {t("seats.section.reservation")}
       </Button>
       <Modal
         className="reservation-modal"
@@ -78,8 +78,7 @@ const MovieReservationModal = ({
       >
         <Modal.Header closeButton>
           <Modal.Title>
-            {t("pleaseSigntoReserve.section")}{" "}
-            {movie.title}
+            {t("seats.sign.section")} {movie.title}
           </Modal.Title>
         </Modal.Header>
         <Modal.Footer>
@@ -87,10 +86,10 @@ const MovieReservationModal = ({
             onClick={() => history.push("/sign")}
             variant="outline-success"
           >
-            Sign in or Create Account
+            {t("seats.sign.create")}
           </Button>
           <Button variant="outline-danger" onClick={handleCloseNotSinged}>
-            Close
+            {t("seats.section.cancel")}
           </Button>
         </Modal.Footer>
       </Modal>
@@ -103,7 +102,9 @@ const MovieReservationModal = ({
         animation={true}
       >
         <Modal.Header closeButton>
-          <Modal.Title>{t("seatsFor.section.movie")} {movie.title}</Modal.Title>
+          <Modal.Title>
+            {t("seats.section.movie")} {movie.title}
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
@@ -121,10 +122,9 @@ const MovieReservationModal = ({
           </Button>
 
           <Button variant="outline-danger" onClick={handleClose}>
-            {t("seats.section.close")}
+            {t("seats.section.cancel")}
           </Button>
         </Modal.Footer>
-
       </Modal>
     </div>
   );
