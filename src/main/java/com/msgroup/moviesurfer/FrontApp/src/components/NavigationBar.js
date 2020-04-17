@@ -51,6 +51,12 @@ const Styles = styled.div`
       color: #690505;
     }
   }
+  .dropdown {
+    color: black;
+    &:hover {
+      color: #690505;
+    }
+  }
 `;
 
 export const NavigationBar = () => {
@@ -106,10 +112,16 @@ export const NavigationBar = () => {
               title={t("navigation.section.languages")}
               id="basic-nav-dropdown"
             >
-              <NavDropdown.Item onClick={changeLanguage("en")}>
+              <NavDropdown.Item
+                className="dropdown"
+                onClick={changeLanguage("en")}
+              >
                 {t("navigation.section.languages.english")}
               </NavDropdown.Item>
-              <NavDropdown.Item onClick={changeLanguage("fi")}>
+              <NavDropdown.Item
+                className="dropdown"
+                onClick={changeLanguage("fi")}
+              >
                 {t("navigation.section.languages.finnish")}
               </NavDropdown.Item>
             </NavDropdown>
