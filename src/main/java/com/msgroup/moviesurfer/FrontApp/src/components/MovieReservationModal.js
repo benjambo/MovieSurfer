@@ -5,6 +5,7 @@ import MovieSeats from "./MovieSeats";
 import { isLoggedIn, getUserEmail } from "../services/AuthService";
 import seatServiceReact from "../services/seatServiceReact";
 import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 /**
  * Returns popup window on button click.
@@ -23,6 +24,7 @@ const MovieReservationModal = ({
   const [freeSeat, setFreeSeat] = useState(false);
   const [seatObject, setSeatObject] = useState(null);
   const [confirmation, setConfirmation] = useState(false);
+  const { t } = useTranslation();
 
   //handel modal opening and closing
   const handleClose = () => {
@@ -66,7 +68,7 @@ const MovieReservationModal = ({
   return (
     <div>
       <Button variant="dark" onClick={handleShow}>
-        Reserve
+        {t("seats.section.reserve")}
       </Button>
       <Modal
         className="reservation-modal"
@@ -76,7 +78,7 @@ const MovieReservationModal = ({
       >
         <Modal.Header closeButton>
           <Modal.Title>
-            Please Sign In or Create an Account to reserve seats for{" "}
+            {t("pleaseSigntoReserve.section")}{" "}
             {movie.title}
           </Modal.Title>
         </Modal.Header>
@@ -101,7 +103,7 @@ const MovieReservationModal = ({
         animation={true}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Seats for {movie.title}</Modal.Title>
+          <Modal.Title>{t("seatsFor.section.movie")} {movie.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
@@ -115,12 +117,14 @@ const MovieReservationModal = ({
         </Modal.Body>
         <Modal.Footer>
           <Button variant="outline-success" onClick={handleReserve}>
-            Reserve
+            {t("seats.section.reservation")}
           </Button>
+
           <Button variant="outline-danger" onClick={handleClose}>
-            Close
+            {t("seats.section.close")}
           </Button>
         </Modal.Footer>
+
       </Modal>
     </div>
   );
