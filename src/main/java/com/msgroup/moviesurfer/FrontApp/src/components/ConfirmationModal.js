@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import {useTranslation} from "react-i18next";
 
 /**
  * Returns modal window when ShowConfirmation === true.
@@ -12,13 +13,16 @@ import Modal from "react-bootstrap/Modal";
  * @returns {null|*}
  * @constructor
  */
+
 const ConfirmationModal = ({
+
   showConfirmation,
   setShowConfirmation,
   reservedSeat,
   movie
 }) => {
   //handle modal closing
+    const { t } = useTranslation();
   const handleClose = () => setShowConfirmation(false);
 
   //if showConfirmation is true show confirmation modal. else return null.
@@ -30,12 +34,12 @@ const ConfirmationModal = ({
         </Modal.Header>
         <Modal.Body>
           <div className="seats">
-            Seat number {reservedSeat} reserved for movie {movie.title}.
+              {t("seat.section.number")} {reservedSeat} {t("seatreservedformovie.section.number")} {movie.title}.
           </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="outline-danger" onClick={handleClose}>
-            Close
+              {t("seat.section.reserve")}
           </Button>
         </Modal.Footer>
       </Modal>

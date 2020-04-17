@@ -54,5 +54,10 @@
   "seats.sign.create": "Sign In or Create an Account",
   "seats.section.picked": "Picked seat number  ",
   "seats.section.unavailable1": "Seat number ",
-  "seats.section.unavailable2": " is not available"
+  "seats.section.unavailable2": " is not available",
+
+  "seat.section.reserve": "Close",
+  "seat.section.number": "Seat number",
+  "seatreservedformovie.section.number": "for movie number"
+
 }
