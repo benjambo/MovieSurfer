@@ -10,6 +10,8 @@ import com.msgroup.moviesurfer.security.JwtProvider;
 import com.msgroup.moviesurfer.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -42,6 +44,9 @@ public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    MessageSource messageSource;
+
     // Map<k,v> Key value pair
     Map<String, String> errorMap = new HashMap<>();
 
@@ -68,9 +73,11 @@ public class UserController {
                 if(user.getId()== null) {
                     System.out.println("New USER Registered Successfully!");
                     System.out.println(newUser);
-                    return new ResponseEntity<String>("Account Created Successfully!", HttpStatus.OK);
+                    String created =  messageSource.getMessage("userController.created", null, LocaleContextHolder.getLocale());
+                    return new ResponseEntity<String>(created, HttpStatus.OK);
                 }else{
-                    return new ResponseEntity<String>("Account Modified Successfully!", HttpStatus.OK);
+                    String modified = messageSource.getMessage("userController.modified", null, LocaleContextHolder.getLocale());
+                    return new ResponseEntity<String>(modified, HttpStatus.OK);
                 }
             }
 
@@ -95,7 +102,8 @@ public class UserController {
     @GetMapping(value ="/users/{id}")
     public ResponseEntity<?> getUserById(@PathVariable Long id){
         User user = userService.getUserById(id);
-        if(user == null) return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        String userNotFound = messageSource.getMessage("userController.userNotFound", null, LocaleContextHolder.getLocale());
+        if(user == null) return new ResponseEntity<>(userNotFound, HttpStatus.NOT_FOUND);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
@@ -177,7 +185,9 @@ public class UserController {
             if(!userRole.equals("ADMIN")){
                // throw new UsernameNotFoundException("Admin" + loginrequest.getEmail() +" not found");
                 System.out.println("Admin not found");
-                return new ResponseEntity<String>("Admin " + loginrequest.getEmail() + " not found", HttpStatus.UNAUTHORIZED);
+                String[] params = new String[]{loginrequest.getEmail()};
+                String adminNotFound = messageSource.getMessage("userController.adminNotFound", params, LocaleContextHolder.getLocale());
+                return new ResponseEntity<String>(adminNotFound, HttpStatus.UNAUTHORIZED);
 
             };
                 System.out.println("The Admin " + loginrequest.getEmail() + " authenticated successfully");
