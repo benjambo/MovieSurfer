@@ -1,6 +1,9 @@
 import axios from "axios";
+
 const seatsUrl = "http://localhost:8080/api/seats";
-const reserveSeatUrl = "http://localhost:8080/api/seats/reserve";
+//  To send the chosen language as a parameter with http request
+let language = localStorage.getItem("language");
+const reserveSeatUrl = "http://localhost:8080/api/seats/reserve?language="+language;
 
 /**
  * get all seats from seats table
