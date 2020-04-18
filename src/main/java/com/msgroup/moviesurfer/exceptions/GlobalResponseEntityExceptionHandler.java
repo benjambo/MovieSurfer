@@ -1,4 +1,7 @@
 package com.msgroup.moviesurfer.exceptions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -16,7 +19,6 @@ import javax.persistence.TransactionRequiredException;
 @RestController
 public class GlobalResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
-
     /**
      * TO handle unique email exceptions
      * @param ex
@@ -26,7 +28,6 @@ public class GlobalResponseEntityExceptionHandler extends ResponseEntityExceptio
     public final ResponseEntity<Object> handleUniqueEmailException(UniqueEmailException ex){
 
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.ALREADY_REPORTED);
-
 
     }
 

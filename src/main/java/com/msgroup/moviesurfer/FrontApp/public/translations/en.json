@@ -56,7 +56,9 @@
   "seats.section.unavailable1": "Seat number ",
   "seats.section.unavailable2": " is not available",
   "seatreservedformovie.section.number":"reserved for",
-  "seat.section.number": "Seat Number"
+  "seat.section.number": "Seat Number",
+
+  "ConfirmationModal.title": "Reservation successful"
 
 
 

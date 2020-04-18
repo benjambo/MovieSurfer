@@ -59,7 +59,10 @@
   "seat.section.reserve1": "Istuin numero ",
   "seat.section.reserve2": "ei ole saatavilla ",
   "seatnumber.section.reserve ": "Istuin ",
-  "seat.section.number": "Istuin numero"
+  "seat.section.number": "Istuin numero",
+
+
+  "ConfirmationModal.title": "Varaus onnistui"
 
 
 }

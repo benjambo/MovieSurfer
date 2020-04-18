@@ -4,7 +4,9 @@ import com.msgroup.moviesurfer.exceptions.UniqueEmailException;
 import com.msgroup.moviesurfer.model.User;
 import com.msgroup.moviesurfer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -24,6 +26,9 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    MessageSource messageSource;
 
     public User saveUser(User user){
 
@@ -51,7 +56,9 @@ public class UserService {
              return userRepository.save(user);
 
             }catch(Exception e){
-                throw new UniqueEmailException("The email '" + user.getEmail() + "' is already registered!");
+                String[] params = new String[]{user.getEmail()};
+                String alreadyRegistered =  messageSource.getMessage("userService.alreadyRegistered", params, LocaleContextHolder.getLocale());
+                throw new UniqueEmailException(alreadyRegistered);
             }
 
 

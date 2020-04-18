@@ -30,7 +30,7 @@ const ConfirmationModal = ({
     return (
       <Modal show={showConfirmation} onHide={handleClose} animation={true}>
         <Modal.Header closeButton>
-          <Modal.Title>Reservation successful</Modal.Title>
+          <Modal.Title>{t("ConfirmationModal.title")}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="seats">
