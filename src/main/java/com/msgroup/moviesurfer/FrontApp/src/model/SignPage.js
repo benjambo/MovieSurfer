@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { Alert } from "reactstrap";
 import * as auth from "../services/AuthService";
+import * as lang from "../services/languageService";
 import { withTranslation } from "react-i18next";
 
 class SignPage extends Component {
@@ -192,10 +193,9 @@ class SignPage extends Component {
         email: this.state.loginForm.emailSig,
         password: this.state.loginForm.passwordSig
       };
-
       console.log("Submitted Singing Successfully");
       axios
-        .post("http://localhost:8080/api/login", loginRequest)
+        .post("http://localhost:8080/api/login?language="+ lang.getLanguage(), loginRequest)
         .then(res => {
           console.log("###Loging In Response ", res);
 
@@ -233,10 +233,9 @@ class SignPage extends Component {
         email: this.state.registerForm.emailReg,
         password: this.state.registerForm.passwordReg
       };
-
       console.log("Submitted Registration Successfully");
       axios
-        .post("http://localhost:8080/api/register", registerRequest)
+        .post("http://localhost:8080/api/register?language="+ lang.getLanguage(), registerRequest)
         .then(res => {
           console.log(res);
           if (res.status === 200) {

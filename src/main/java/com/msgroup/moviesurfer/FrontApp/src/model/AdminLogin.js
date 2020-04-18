@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { Alert } from "reactstrap";
 import * as auth from "../services/AuthService";
+import * as lang from "../services/languageService";
 import { withTranslation } from "react-i18next";
 
 class AdminLogin extends Component {
@@ -92,7 +93,7 @@ class AdminLogin extends Component {
 
       console.log("Submitted Singing Successfully");
       axios
-        .post("http://localhost:8080/api/admin/login", loginRequest)
+        .post("http://localhost:8080/api/admin/login?language="+ lang.getLanguage(), loginRequest)
         .then(res => {
           console.log("###Loging In Response ", res);
 
