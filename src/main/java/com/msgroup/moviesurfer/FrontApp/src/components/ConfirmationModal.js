@@ -39,7 +39,7 @@ const ConfirmationModal = ({
         </Modal.Body>
         <Modal.Footer>
           <Button variant="outline-danger" onClick={handleClose}>
-              {t("seat.section.reserve")}
+              {t("seats.section.cancel")}
           </Button>
         </Modal.Footer>
       </Modal>
