@@ -58,7 +58,8 @@
   "seatreservedformovie.section.number":"varattu elokuvaan",
   "seat.section.reserve1": "Istuin numero ",
   "seat.section.reserve2": "ei ole saatavilla ",
-  "seatnumber.section.reserve ": "Istuin "
+  "seatnumber.section.reserve ": "Istuin ",
+  "seat.section.number": "Istuin numero"
 
 
 }
