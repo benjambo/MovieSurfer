@@ -4,6 +4,8 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.pdf.PdfWriter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,10 @@ import java.util.ArrayList;
 
 @Service
 public class CustomEmailService {
+
+
+    @Autowired
+    MessageSource messageSource;
 
     @Autowired
     private JavaMailSenderImpl javaMailSender;
@@ -83,17 +89,19 @@ public class CustomEmailService {
             MimeBodyPart textBodyPart = new MimeBodyPart();
 
             //String thanks = "\nDear Customer\nThank you for using our service!\n\n\nReservation Information: \n\n";
-            String thanks = "\nDear Customer,\nThank you for choosing us. We are pleased to confirm your reservation as below:\n\n";
+            // @LocaleContextHolder.getLocale():
+            // Return the Locale associated with the given user context,if any, or the system default Locale otherwise.
+            // This is effectively a replacement for Locale.getDefault(), able to optionally respect a user-level Locale setting.
+            //
+            // messageSource.getMessage(String key, @Nullable Object[] params, Locale locale)
+            String thanks = messageSource.getMessage("customEmailService.thanks", null, LocaleContextHolder.getLocale());
 
             StringBuilder ticketInfo = new StringBuilder();
             for(String s: ticket){
                 ticketInfo.append(s).append("\n");
             }
 
-            String contactInfo = "\n\n\n\n\n" +
-                    "\nFeel free to contact our Customer Service at info@moviesurfer.com" +
-                    " if you have any questions or concerns. They're available 24/7.\n" +
-                    "\nRegards,\nMovieSurfer Team,\n050 469 3422";
+            String contactInfo = messageSource.getMessage("customEmailService.contactInfo", null, LocaleContextHolder.getLocale());
             // Set body part's text
             textBodyPart.setText(thanks + ticketInfo.toString() + contactInfo);
 
@@ -119,7 +127,8 @@ public class CustomEmailService {
 
 
             Font font=new Font(Font.FontFamily.COURIER,12,Font.NORMAL,BaseColor.BLACK);
-            Paragraph information = new Paragraph("Ticket Information",new Font(Font.FontFamily.COURIER,16,Font.UNDERLINE,BaseColor.BLACK));
+            String tiString = messageSource.getMessage("customEmailService.tiString", null, LocaleContextHolder.getLocale());
+            Paragraph information = new Paragraph(tiString,new Font(Font.FontFamily.COURIER,16,Font.UNDERLINE,BaseColor.BLACK));
             information.setSpacingBefore(200f);
             //Paragraph paragraph = new Paragraph();
             // paragraph.add(new Chunk(ticketInfo));

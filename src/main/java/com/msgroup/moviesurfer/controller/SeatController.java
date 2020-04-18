@@ -7,6 +7,8 @@ import com.msgroup.moviesurfer.services.MovieService;
 import com.msgroup.moviesurfer.services.SeatService;
 import com.msgroup.moviesurfer.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +35,9 @@ public class SeatController {
 
     @Autowired
     private CustomEmailService customEmailService;
+
+    @Autowired
+    MessageSource messageSource;
 
 
     /**
@@ -84,13 +89,21 @@ public class SeatController {
 
             User user = userService.getUserByEmail(reservableSeat.getReservedTo());
 
+            String fNameMessage = messageSource.getMessage("seatController.fNameMessage", null, LocaleContextHolder.getLocale());
+            String emailMessage = messageSource.getMessage("seatController.emailMessage", null,LocaleContextHolder.getLocale() );
+            String mMessage =  messageSource.getMessage("seatController.mMessage", null,LocaleContextHolder.getLocale() );
+            String snMessage = messageSource.getMessage("seatController.snMessage", null,LocaleContextHolder.getLocale() );
+            String thMessage = messageSource.getMessage("seatController.thMessage", null,LocaleContextHolder.getLocale() );
+            String tMessage = messageSource.getMessage("seatController.tMessage", null,LocaleContextHolder.getLocale() );
+
             // set ticket's information
-            String fullName = "Full Name: " + user.getFirstName() + " " + user.getLastName();
-            String email = "Email: " + reservableSeat.getReservedTo();
-            String movie = "Movie: " + m.getTitle();
-            String seatNumber = "Seat Number: " + reservableSeat.getNumber();
-            String theater = "Theater: Theater";
-            String time = "Time: 19.00";
+            String fullName = fNameMessage + ": "+ user.getFirstName() + " " + user.getLastName();
+            String email = emailMessage+ ": " + reservableSeat.getReservedTo();
+            String movie = mMessage + ": " + m.getTitle();
+            String seatNumber = snMessage + ": " + reservableSeat.getNumber();
+            String theater = thMessage;
+            String time = tMessage + ": 19.00";
+
             ArrayList<String> ticketInfo = new ArrayList<>();
             ticketInfo.add(fullName);
             ticketInfo.add(email);
