@@ -5,6 +5,8 @@ import com.msgroup.moviesurfer.model.Movie;
 import com.msgroup.moviesurfer.services.MovieService;
 import com.msgroup.moviesurfer.services.SeatService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +37,9 @@ public class MovieController {
     @Autowired
     private SeatService seatService;
 
+    @Autowired
+    MessageSource messageSource;
+
     /**
      * addMovie receives http post request from the client to add a movie.
      * // @valid to pass a valid request body of type Movie ,so if an empty request body passed
@@ -63,7 +68,8 @@ public class MovieController {
         }else{
             movieService.save(movie);
             System.out.println("New movie added successfully");
-            return new ResponseEntity<String>("Movie added successfully",HttpStatus.OK);
+            String added =  messageSource.getMessage("movieController.added", null, LocaleContextHolder.getLocale());
+            return new ResponseEntity<String>(added,HttpStatus.OK);
         }
     }
 
@@ -92,10 +98,12 @@ public class MovieController {
         try {
             movieService.deleteMovie(id);
             seatService.deleteSeatsByMovieId(id);
-           return new ResponseEntity<String>("Movie deleted successfully!", HttpStatus.OK);
+            String deleted =  messageSource.getMessage("movieController.deleted", null, LocaleContextHolder.getLocale());
+           return new ResponseEntity<String>(deleted, HttpStatus.OK);
 
         } catch (EmptyResultDataAccessException | EntityNotFoundException e) {
-            return new ResponseEntity<String>("Movie not found!", HttpStatus.BAD_REQUEST);
+            String movieNotFound =  messageSource.getMessage("movieController.movieNotFound", null, LocaleContextHolder.getLocale());
+            return new ResponseEntity<String>(movieNotFound, HttpStatus.BAD_REQUEST);
         }
 
     }
