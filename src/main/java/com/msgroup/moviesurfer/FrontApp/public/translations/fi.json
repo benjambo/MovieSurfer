@@ -54,6 +54,11 @@
   "seats.sign.create": "Kirjaudu sisään tai luo tili",
   "seats.section.picked": "Valitsit istuimen ",
   "seats.section.unavailable1": "Istuin ",
-  "seats.section.unavailable2": " ei ole saatavilla"
+  "seats.section.unavailable2": " ei ole saatavilla",
+  "seatreservedformovie.section.number":"varattu elokuvaan",
+  "seat.section.reserve1": "Istuin numero ",
+  "seat.section.reserve2": "ei ole saatavilla ",
+  "seatnumber.section.reserve ": "Istuin "
+
 
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import greenSeat from "../assets/greenseat.png";
 import redSeat from "../assets/redseat.png";
+import {useTranslation} from "react-i18next";
 
 /**
  * compare movie id to seat movieid.
@@ -23,15 +24,17 @@ const Seat = ({
   setReservedSeat,
   setSeatObject
 }) => {
+  const { t } = useTranslation();
   const greenSeatClickHandler = () => {
-    setReserve("Picked seat number " + seat.number);
+    //"Picked seat number "
+    setReserve(t("seatnumber.section.reserve ") + seat.number);
     setFreeSeat(true);
     setReservedSeat(seat.number);
     setSeatObject(seat);
   };
 
   const redSeatClickHandler = () => {
-    setReserve("Seat number " + seat.number + " is not available");
+    setReserve(t("seat.section.reserve1") + seat.number +  " " + t("seat.section.reserve2"));
     setFreeSeat(false);
   };
 
