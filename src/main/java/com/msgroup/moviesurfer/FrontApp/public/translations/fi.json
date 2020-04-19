@@ -3,11 +3,11 @@
   "navigation.section.home": "Koti",
   "navigation.section.gallery": "Galleria",
   "navigation.section.about": "Meistä",
-  "navigation.section.sign": "Kirjaudu sisään",
+  "navigation.section.sign": "Kirjautuminen",
   "navigation.section.admin": "Ylläpitäjä",
   "navigation.section.logout": "Kirjaudu ulos",
   "navigation.section.languages": "Kielet",
-    "navigation.section.languages.english": "Englanti",
+    "navigation.section.languages.english": "English",
     "navigation.section.languages.finnish": "Suomi",
 
   "footer.section.times": "Tavoiteltavissa sähköpostitse:",
