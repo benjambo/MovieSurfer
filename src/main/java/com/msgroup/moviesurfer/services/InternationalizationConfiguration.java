@@ -6,7 +6,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+//import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
@@ -56,10 +56,13 @@ public class InternationalizationConfiguration implements WebMvcConfigurer { // 
         return localeChangeInterceptor;
     }
 
-    // addInterceprtors() method enables the application to change the language
-    // depending on the language parameter appended to any request.
-    //  If the request does not have a language parameter or if
-    //  the language parameter does not exist, it falls back to the default Locale specified
+    /**
+     * addInterceprtors() method enables the application to change the language
+     * depending on the language parameter appended to any request.
+     *  If the request does not have a language parameter or if
+     *   the language parameter does not exist, it falls back to the default Locale specified
+     * @param registry
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
       registry.addInterceptor(localeChangeInterceptor());

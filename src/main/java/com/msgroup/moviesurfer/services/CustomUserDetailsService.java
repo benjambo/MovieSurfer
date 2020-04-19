@@ -4,6 +4,8 @@ import com.msgroup.moviesurfer.model.User;
 import com.msgroup.moviesurfer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,6 +18,9 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    MessageSource messageSource;
 
     public static String userRole = null;
 
@@ -31,7 +36,9 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = userRepository.findByEmail(userEmail);
         if(user==null){
             System.out.println("The User " + userEmail + " not found. An exception thrown ");
-            throw new UsernameNotFoundException("User not found");
+
+            String userNotFound = messageSource.getMessage("customUserDetailsService.userNotFound", null, LocaleContextHolder.getLocale());
+            throw new UsernameNotFoundException(userNotFound);
         }
         System.out.println( "The user: " + userEmail + " found from the database");
         userRole = user.getRole();

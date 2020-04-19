@@ -1,6 +1,9 @@
 package com.msgroup.moviesurfer.security;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -19,6 +22,10 @@ import java.io.IOException;
  */
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
+
+    @Autowired
+    MessageSource messageSource;
+
     /**
      * This method will be called when the user trying to access protected endpoint without authentication,
      * or when the user send log in request with invalid email or password.
@@ -37,7 +44,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
         System.out.println("AuthenticationEntryPoint interface implemented with overwritten message: Invalid email or password!");
 
-        String invalidLoginResponse = "Invalid Email OR Password!";
+        String invalidLoginResponse = messageSource.getMessage("jwtAuthenticationEntryPoint.invalidLoginResponse", null, LocaleContextHolder.getLocale());;
 
         httpServletResponse.setStatus(401);
         httpServletResponse.getWriter().print(invalidLoginResponse);
