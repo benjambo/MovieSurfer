@@ -58,9 +58,8 @@
   "seatreservedformovie.section.number":"varattu elokuvaan",
   "seat.section.reserve1": "Istuin numero ",
   "seat.section.reserve2": "ei ole saatavilla ",
-  "seatnumber.section.reserve ": "Istuin ",
+  "seatnumber.section.reserve ": "Vapaa istuin numero ",
   "seat.section.number": "Istuin numero",
-
 
   "ConfirmationModal.title": "Varaus onnistui"
 

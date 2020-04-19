@@ -93,7 +93,11 @@ class AdminLogin extends Component {
 
       console.log("Submitted Singing Successfully");
       axios
-        .post("http://localhost:8080/api/admin/login?language="+ lang.getLanguage(), loginRequest)
+        .post(
+          "http://localhost:8080/api/admin/login?language=" +
+            lang.getLanguage(),
+          loginRequest
+        )
         .then(res => {
           console.log("###Loging In Response ", res);
 

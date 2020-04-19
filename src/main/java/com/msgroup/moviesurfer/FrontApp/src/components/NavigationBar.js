@@ -64,12 +64,10 @@ export const NavigationBar = () => {
 
   const { t } = useTranslation();
 
-
   const changeLanguage = code => e => {
     localStorage.setItem("language", code);
     window.location.reload();
   };
-
 
   return (
     <Styles>

@@ -4,7 +4,8 @@ import * as lang from "../services/languageService";
 const seatsUrl = "http://localhost:8080/api/seats";
 
 //  Send the chosen language as a parameter (lang.getLanguage()) with http request
-const reserveSeatUrl = "http://localhost:8080/api/seats/reserve?language="+lang.getLanguage();
+const reserveSeatUrl =
+  "http://localhost:8080/api/seats/reserve?language=" + lang.getLanguage();
 
 /**
  * get all seats from seats table

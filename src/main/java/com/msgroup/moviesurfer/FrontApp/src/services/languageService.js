@@ -1,6 +1,3 @@
-﻿
-
-export function getLanguage() {
-   return localStorage.getItem("language");
-
+﻿export function getLanguage() {
+  return localStorage.getItem("language");
 }
