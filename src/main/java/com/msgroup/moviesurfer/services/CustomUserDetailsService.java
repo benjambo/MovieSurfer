@@ -11,8 +11,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-// When the user trying to log in , make sure that the user is actually exists so
-// UserDetailsService interface has to be implemented
+/**
+ * When the user trying to log in , make sure that the user is actually exists so
+ * UserDetailsService interface has to be implemented
+ */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
@@ -26,11 +28,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     /**
      * To check if the user exists when the user trying to log in
-     * @param userEmail
+     * @param userEmail in this case username = userEmail
      * @return user of type UserDetails
-     * @throws UsernameNotFoundException
+     * @throws UsernameNotFoundException exception
      */
-    // In this case username = userEmail
     @Override
     public UserDetails loadUserByUsername(String userEmail) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(userEmail);
