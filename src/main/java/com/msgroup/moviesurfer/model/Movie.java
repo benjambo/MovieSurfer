@@ -37,42 +37,75 @@ public class Movie {
 
 */
 
-    // Empty constructor
+    /**
+     * Empty constructor
+     */
     public Movie() {
 
     }
 
-    // Getters and setters
-
+    /**
+     * To get movie's id
+     * @return id type Long
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * To set movie's id
+     * @param id type Long
+     */
     public void setId(Long id) {
         this.id = id;
     }
 
+    /**
+     * Too get movie's title
+     * @return title type String
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * To set movie's title
+     * @param title type String
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
+    /**
+     * To get movie's genre
+     * @return genre String
+     */
     public String getGenre() {
         return genre;
     }
 
+    /**
+     * To set movie's genre
+     * @param genre type String
+     */
     public void setGenre(String genre) {
         this.genre = genre;
     }
 
+    /**
+     * To get movie's image
+     * @return image type String
+     */
     public String getImage() {
         return image;
     }
 
+    /**
+     * To set movie's image
+     * @param image type String
+     */
     public void setImage(String image) {
         this.image = image;
     }
+
 }

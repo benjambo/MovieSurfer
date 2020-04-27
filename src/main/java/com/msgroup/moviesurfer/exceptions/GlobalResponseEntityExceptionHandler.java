@@ -1,7 +1,5 @@
 package com.msgroup.moviesurfer.exceptions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,16 +10,19 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.TransactionRequiredException;
 
-// Global exception handling for controllers / services.
-// When the controller/service throws the exception which is wired up in this class, it
-// will come here to be handled
+
+/**
+ * Global exception handling for controllers / services.
+ * When the controller/service throws the exception which is wired up in this class, it
+ * will come here to be handled
+ */
 @ControllerAdvice
 @RestController
 public class GlobalResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
     /**
      * TO handle unique email exceptions
-     * @param ex
+     * @param ex UniqueEmailException
      * @return response entity
      */
     @ExceptionHandler
@@ -33,7 +34,7 @@ public class GlobalResponseEntityExceptionHandler extends ResponseEntityExceptio
 
     /**
      * To handle entity not found exceptions
-     * @param ex
+     * @param ex EntityNotFoundException
      * @return response entity
      */
     // EntityNotFoundException is a spring built-in exception
@@ -47,7 +48,7 @@ public class GlobalResponseEntityExceptionHandler extends ResponseEntityExceptio
 
     /**
      * To handle transaction required exceptions
-     * @param ex
+     * @param ex TransactionRequiredException
      * @return response entity
      */
     @ExceptionHandler

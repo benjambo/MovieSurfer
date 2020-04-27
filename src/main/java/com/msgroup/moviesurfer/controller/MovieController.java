@@ -84,7 +84,6 @@ public class MovieController {
 
     }
 
-    // To delete a movie by it's id
 
     /**
      * To delete a movie by id

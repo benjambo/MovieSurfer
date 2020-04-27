@@ -61,14 +61,13 @@ public class SeatController {
     }
 
 
-    // To reserve single seat
-
     /**
      * To reserve a single seat
-     * @param id the seat's id to be reserved
-     * @Param seat object to get updated reservedTo value.
-     * @return response entity of type String
+     * @param seat object
+     * @return  return response entity of type String
+     * @throws Exception
      */
+
     @PostMapping(value = "/seats/reserve")
     public ResponseEntity<?> reserveSeat(@RequestBody Seat seat) throws Exception {
 

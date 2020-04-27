@@ -15,20 +15,36 @@ public class LoginRequest {
     @NotBlank(message = "password cannot be blank")
     private String password;
 
-    // Getters and setters
 
+    /**
+     * To get the login request's email
+     * @return email type String
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * To set the login request's email
+     * @param email type String
+     */
     public void setEmail(String email) {
         this.email = email;
     }
+
+    /**
+     * To get login request's password
+     * @return password type String
+     */
 
     public String getPassword() {
         return password;
     }
 
+    /**
+     * To set login request's password
+     * @param password type String
+     */
     public void setPassword(String password) {
         this.password = password;
     }
