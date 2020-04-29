@@ -12,6 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class LoginRequestTest {
 
+    /**
+     * Test for user login validation
+     */
 
     private final Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 
