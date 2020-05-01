@@ -13,16 +13,25 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
 
 /**
- * Configuration class for Internationalization
+ * Configuration class for localization & Internationalization
  */
 @Configuration
 public class InternationalizationConfiguration implements WebMvcConfigurer { // tai extends WebMvcConfigurerAdapter
 
+    /**
+     * Spring uses this Bean to know which language will be returned.
+     * This Bean has access to the ResourceBundles with the specified basenames "messages"
+     * ResourceBundleMessageSource resolves the messages using Java resource bundles.
+     * Spring's locale decides which language will be returned. messageSource always needs a Locale
+     * parameter to resolve a message. If none can be found Spring falls back to Locale.getDefault().
+     * @return messageSource of type ResourceBundleMessageSource
+     */
     @Bean
     public ResourceBundleMessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         // Set default encoding as UTF-8 to make letters like ö,ä,å appears correctly (to support different languages)
         messageSource.setDefaultEncoding("UTF-8");
+        // The addBasenames() method adds the specified basenames to the existing basename configuration.
         messageSource.addBasenames("messages");
         return messageSource;
     }
@@ -40,13 +49,13 @@ public class InternationalizationConfiguration implements WebMvcConfigurer { // 
     }
 
     /**
-     * LocaleChangeInterceptor is a used to change the new Locale based
-     * on the value of the language parameter added to a request.
+     * LocaleChangeInterceptor is a used to change Locale based
+     * on the value of the language parameter added to the request.
      *
      * @language should be the name of the request param i.e  localhost:8010/api/movies?language=fi
      *
      * @return localeChangeInterceptor
-     * Note: All requests to the backend needing Internationalization should have the "language" request param
+     * Note: All requests to the backend needing Internationalization should have the "language" param
      */
 
     @Bean

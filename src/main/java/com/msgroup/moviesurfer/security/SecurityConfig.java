@@ -80,8 +80,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * to build the authenticationManager, which used to authenticate the user
      * when he tying to log in.
      *
-     * @param authenticationManagerBuilder
-     * @throws Exception
+     * @param authenticationManagerBuilder object
+     * @throws Exception exception
      */
     @Override
     protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
@@ -92,7 +92,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      * The AuthenticationManager used to authenticate the user when he tying to log in.
      * It is built using the AuthenticationManagerBuilder.
      * @return super.authenticationManager()
-     * @throws Exception
+     * @throws Exception exception
      */
     @Override
     @Bean(BeanIds.AUTHENTICATION_MANAGER)

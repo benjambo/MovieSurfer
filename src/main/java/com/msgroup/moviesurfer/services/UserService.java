@@ -30,6 +30,11 @@ public class UserService {
     @Autowired
     MessageSource messageSource;
 
+    /**
+     * To save the user which passed from UserController to the database
+     * @param user object
+     * @return user object
+     */
     public User saveUser(User user){
 
              /*
