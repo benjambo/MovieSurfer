@@ -76,6 +76,11 @@ public class UserController {
                // return new ResponseEntity<List<FieldError>>(result.getFieldErrors(), HttpStatus.BAD_REQUEST);
             }else {
                 User newUser = userService.saveUser(user);
+                System.out.println("New USER Registered Successfully!");
+                System.out.println(newUser);
+                String created =  messageSource.getMessage("userController.created", null, LocaleContextHolder.getLocale());
+                return new ResponseEntity<String>(created, HttpStatus.OK);
+                /*
                 if(user.getId()== null) {
                     System.out.println("New USER Registered Successfully!");
                     System.out.println(newUser);
@@ -85,6 +90,7 @@ public class UserController {
                     String modified = messageSource.getMessage("userController.modified", null, LocaleContextHolder.getLocale());
                     return new ResponseEntity<String>(modified, HttpStatus.OK);
                 }
+                */
             }
 
     }

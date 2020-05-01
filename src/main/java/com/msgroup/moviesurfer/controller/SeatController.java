@@ -113,8 +113,8 @@ public class SeatController {
 
             String from = "moviesurfer2020@gmail.com";
             String to = reservableSeat.getReservedTo();
-            String subject = "Seat Reservation Confirmation";
-            customEmailService.sendEmailWithAttachments(from,  to, subject, ticketInfo);
+            String emailSubject = messageSource.getMessage("seatController.emailSubject", null, LocaleContextHolder.getLocale());
+            customEmailService.sendEmailWithAttachments(from,  to, emailSubject, ticketInfo);
             System.out.println("Confirmation email sent successfully!");
 
             return new ResponseEntity<String>("Seat reserved successfully! ", HttpStatus.OK);
