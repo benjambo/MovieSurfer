@@ -256,7 +256,9 @@
                 <version>3.0.0-M4</version>
             </plugin>
 
+
             <!--to generate Cobertura coverage reports-->
+            <!--
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
@@ -276,6 +278,7 @@
                     </execution>
                 </executions>
             </plugin>
+            -->
             <!--  to generate JaCoCo coverage reports -->
             <plugin>
                 <groupId>org.jacoco</groupId>
