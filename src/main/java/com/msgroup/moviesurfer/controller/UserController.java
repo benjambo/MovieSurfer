@@ -50,11 +50,17 @@ public class UserController {
     // Map<k,v> Key value pair
     Map<String, String> errorMap = new HashMap<>();
 
-    // @Valid: to pass a valid request body of type User ,so if an empty request body passed,
-    // it will response with a status of 404.
-    // BindingResult analyzes the User object and checks weather or not there are errors for example: blank firstName.
-    // BindingResult will return a list of the detected errors List<FieldError>.
-    // ResponseEntity<?>: question mark is for a generic type.
+    /**
+     * To register a user
+     * @Valid: to pass a valid request body of type User ,so if an empty request body passed,
+     * it will response with a status of 404.
+     *  BindingResult analyzes the User object and checks weather or not there are errors for example: blank firstName.
+     *  BindingResult will return a list of the detected errors List<FieldError>.
+     *  ResponseEntity<?>: question mark is for a generic type.
+     * @param user object of type User
+     * @param result a list of the detected errors List<FieldError>.
+     * @return ResponseEntity<?> could be a String or Map<String,String> object
+     */
     @PostMapping(value = "/register")
     public ResponseEntity<?> registerUser(@Valid @RequestBody User user,BindingResult result){
 

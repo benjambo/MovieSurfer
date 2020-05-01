@@ -17,8 +17,25 @@ public interface UserRepository extends CrudRepository<User, Long> { // Long ref
    // @Override
    // List<User> findAll();
 
+    /**
+     * To get a user by email
+     * @param email user email
+     * @return user object
+     */
     User findByEmail(String email);
+
+    /**
+     * To get a user by id
+     * @param id user id
+     * @return user object
+     */
     User getById(Long id);
+
+    /**
+     * To get a user by role
+     * @param role user role
+     * @return user object
+     */
     User findByRole(String role);
 
 }

@@ -18,10 +18,31 @@ import java.util.List;
 @Repository
 public interface SeatRepository extends JpaRepository<Seat,Long> {
 
-
+    /**
+     * TO get a seat by id
+     * @param id seat's id
+     * @return seat object
+     */
     Seat getById(Long id);
+
+    /**
+     * To get all reserved seats
+     * @param b isReserved = true/false
+     * @return list of seat's
+     */
     List<Seat> findAllByReserved(boolean b);
+
+    /**
+     * To get the seats which belong to a particular movie
+     * @param movieId movie id
+     * @return list of seats
+     */
     List<Seat> findAllByMovieId(Long movieId);
+
+    /**
+     * To delete all seats which belong to a particular movie
+     * @param movieId movie id
+     */
     void deleteAllByMovieId(Long movieId);
 }
 

@@ -15,6 +15,10 @@ import java.util.List;
 @Repository // Indicates that an annotated class is a repository, which is an abstraction of data access and storage.
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
+    /**
+     * To find all movies
+     * @return list of movies
+     */
     @Override
     List<Movie> findAll();
 
