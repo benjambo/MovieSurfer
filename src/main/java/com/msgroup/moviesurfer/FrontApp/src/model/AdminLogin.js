@@ -11,8 +11,8 @@ class AdminLogin extends Component {
     super(props);
     this.state = {
       loginForm: {
-        email: "admin@moviesurfer.com",
-        password: "Moviesurfer2020"
+        email: "",
+        password: ""
       },
       serverMessage: "",
       visibleSuccess: false,
