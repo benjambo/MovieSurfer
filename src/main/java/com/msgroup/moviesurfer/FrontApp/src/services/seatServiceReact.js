@@ -5,8 +5,7 @@ import * as lang from "../services/languageService";
 const seatsUrl = "/api/seats";
 
 //  Send the chosen language as a parameter (lang.getLanguage()) with http request
-const reserveSeatUrl =
-  "/api/seats/reserve?language=" + lang.getLanguage();
+const reserveSeatUrl = "/api/seats/reserve?language=" + lang.getLanguage();
 
 /**
  * get all seats from seats table

@@ -9,6 +9,7 @@
 > MovieSurfer is an application for every movie lover
 ### ✨ [JavaDoc](http://users.metropolia.fi/~abdullh/MovieSurfer_JavaDoc)
 ### ✨ [Demo video of project](https://drive.google.com/a/metropolia.fi/file/d/1ehcXtf-aUfPu-cBXk6XSxS9hrygYwoDw/view?usp=sharing)
+### ✨ [Website Demo](https://moviesurfer-app.herokuapp.com)
 
 ## Prerequisites:
 

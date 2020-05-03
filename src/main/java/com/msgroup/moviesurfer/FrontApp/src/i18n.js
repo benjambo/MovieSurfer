@@ -1,22 +1,24 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import XHR from "i18next-xhr-backend";
-//import LanguageDetector from "i18next-browser-languagedetector";
 
+// Languages that are allowed for translation
 const allowedLanguages = ["en", "fi"];
 
+// Setting the default language
 const defaultLng = "en";
 let lng = defaultLng;
 
+// Storing the language
 const storageLanguage = localStorage.getItem("language");
 if (storageLanguage && allowedLanguages.indexOf(storageLanguage) > -1) {
   lng = storageLanguage;
 }
 
+// Set Internationalization to action
 i18n
   .use(XHR)
   .use(initReactI18next)
-  //.use(LanguageDetector)
   .init({
     lng,
     debug: true,
