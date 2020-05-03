@@ -1,0 +1,69 @@
+{
+  "navigation.section.search": "Search",
+  "navigation.section.home": "Home",
+  "navigation.section.gallery": "Gallery",
+  "navigation.section.about": "About Us",
+  "navigation.section.sign": "Sign In",
+  "navigation.section.admin": "Admins",
+  "navigation.section.logout": "Sign out",
+  "navigation.section.languages": "Languages",
+    "navigation.section.languages.english": "English",
+    "navigation.section.languages.finnish": "Suomi (Finnish)",
+
+  "footer.section.times": "Availability through email:",
+  "footer.section.hours": "SERVICE HOURS",
+  "footer.section.hours.service": "Customer service",
+    "footer.section.hours.open": "open:",
+    "footer.section.hours.mon": "Mon - Thu 6:00 - 21:00",
+    "footer.section.hours.fri": "Friday 6:00 - 20:00",
+    "footer.section.hours.sat": "Sat - Sun 10:00 - 20:00",
+
+  "sign.section.sign": "Sign In",
+  "sign.section.admin": "Sign In As Admin",
+  "sign.section.email": "Email",
+  "sign.section.password": "Password",
+  "sign.section.create": "Create Account",
+  "sign.section.first": "First Name",
+  "sign.section.last": "Last Name",
+    "sign.section.validation.email": "Please enter valid email",
+    "sign.section.validation.email.miss": "Email is required",
+    "sign.section.validation.password": "Password is required",
+    "sign.section.validation.password.parameters": "Password must contain at least one number, one uppercase and 6 characters",
+    "sign.section.validation.success": "Logged In Successfully",
+    "sign.section.validation.invalid": "Invalid Email Or Password",
+    "sign.section.validation.first.miss": "First name is required",
+    "sign.section.validation.last.miss": "Last name is required",
+    "sign.section.validation.alphabet": "Enter alphabet characters only",
+
+  "about.section.jere": "I'm 25 y.o. programmer from Metropolia. I have a lot of interest in Java and Backend-development",
+  "about.section.walter": "I'm 24 y.o. programming student from Metropolia. My interests are languages and Java-framework-development",
+  "about.section.abdullah": "I'm 31 y.o. programming student from Metropolia. I have a lot of interest in Java and Backend-development",
+  "about.section.benjamin": "I'm 23 y.o. programming student from Metropolia. I have a lot of interest in React and Frontend-development",
+
+  "movie.section.add": "Add Movie",
+  "movie.section.title": "Title",
+  "movie.section.genre": "Genre",
+  "movie.section.image": "Image",
+  "movie.section.add.button": "Add",
+
+  "seats.section.movie": "Seats for ",
+  "seats.section.reservation": "Reserve",
+  "seats.section.cancel": "Cancel",
+  "seats.sign.section": "Please sign in to reserve a seat for",
+  "seats.section.alert": "This seat is not available! Pick another seat",
+  "seats.sign.create": "Sign In or Create an Account",
+  "seats.section.picked": "Picked seat number  ",
+  "seats.section.unavailable1": "Seat number ",
+  "seats.section.unavailable2": " is not available",
+  "seatreservedformovie.section.number":"reserved for",
+  "seat.section.reserve1": "Seat number ",
+  "seat.section.reserve2": " isn't available",
+  "seatnumber.section.reserve ": "Available seat number ",
+  "seat.section.number": "Seat Number",
+
+  "ConfirmationModal.title": "Reservation successful"
+
+
+
+
+}
