@@ -70,7 +70,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //authenticationEntryPoint handles what exceptions need to be thrown when user is not authenticated
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .authorizeRequests().antMatchers("/api/register", "/api/login").permitAll()
-                .antMatchers("/**").permitAll()
+                .antMatchers("/",
+                        "/favicon.ico",
+                        "/**/*.png",
+                        "/**/*.gif",
+                        "/**/*.svg",
+                        "/**/*.jpg",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.js").permitAll()
                 .anyRequest().authenticated();
 
     }
