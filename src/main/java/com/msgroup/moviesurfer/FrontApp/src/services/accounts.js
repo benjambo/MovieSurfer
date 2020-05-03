@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "https://moviesurfer-app.herokuapp.com/api/movies";
+const baseUrl = "/api/movies";
 
 /**
  * Get all movies from database.

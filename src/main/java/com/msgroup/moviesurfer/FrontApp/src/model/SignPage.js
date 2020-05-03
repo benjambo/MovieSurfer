@@ -196,7 +196,7 @@ class SignPage extends Component {
       console.log("Submitted Singing Successfully");
       axios
         .post(
-          "https://moviesurfer-app.herokuapp.com/api/login?language=" + lang.getLanguage(),
+          "/api/login?language=" + lang.getLanguage(),
           loginRequest
         )
         .then(res => {
@@ -239,7 +239,7 @@ class SignPage extends Component {
       console.log("Submitted Registration Successfully");
       axios
         .post(
-          "https://moviesurfer-app.herokuapp.com/api/register?language=" + lang.getLanguage(),
+          "/api/register?language=" + lang.getLanguage(),
           registerRequest
         )
         .then(res => {

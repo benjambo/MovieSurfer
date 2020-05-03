@@ -94,7 +94,7 @@ class AdminLogin extends Component {
       console.log("Submitted Singing Successfully");
       axios
         .post(
-          "https://moviesurfer-app.herokuapp.com/api/admin/login?language=" +
+          "/api/admin/login?language=" +
             lang.getLanguage(),
           loginRequest
         )

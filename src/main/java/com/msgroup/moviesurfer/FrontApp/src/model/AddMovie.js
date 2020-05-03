@@ -50,7 +50,7 @@ class AddMovie extends Component {
 
     console.log("NEW MOVIE OBJECT: ", newMovie);
     axios
-      .post("https://moviesurfer-app.herokuapp.com/api/addmovie", newMovie)
+      .post("/api/addmovie", newMovie)
       .then(res => {
         console.log("#### Add movie response ", res);
 
