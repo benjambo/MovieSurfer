@@ -56,5 +56,6 @@
   },
   "devDependencies": {
     "jsonwebtoken": "^8.5.1"
-  }
+  },
+  "homepage": "https://moviesurfer-app.herokuapp.com/about"
 }
