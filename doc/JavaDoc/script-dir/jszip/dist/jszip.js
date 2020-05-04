@@ -12795,7 +12795,7 @@ exports.inflateUndermine = inflateUndermine;
             var prevlen = -1; /* last emitted length */
             var curlen; /* length of current code */
 
-            var nextlen = tree[0 * 2 + 1]; /*.Len*/ /* length of next code */
+            var nextlen = tree[0 * 2 + 1]; /* length of next code */ /*.Len*/
 
             var count = 0; /* repeat count of the current code */
             var max_count = 7; /* max repeat count */
@@ -12854,11 +12854,11 @@ exports.inflateUndermine = inflateUndermine;
             var prevlen = -1; /* last emitted length */
             var curlen; /* length of current code */
 
-            var nextlen = tree[0 * 2 + 1]; /*.Len*/ /* length of next code */
+            var nextlen = tree[0 * 2 + 1]; /* length of next code */ /*.Len*/
 
             var count = 0; /* repeat count of the current code */
             var max_count = 7; /* max repeat count */
-            var min_count = 4; /* guard already set */ /* min repeat count */
+            var min_count = 4; /* min repeat count */ /* guard already set */
 
             /* tree[max_code+1].Len = -1; */ if (nextlen === 0) {
               max_count = 138;

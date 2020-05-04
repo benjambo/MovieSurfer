@@ -195,10 +195,7 @@ class SignPage extends Component {
       };
       console.log("Submitted Singing Successfully");
       axios
-        .post(
-          "http://localhost:8080/api/login?language=" + lang.getLanguage(),
-          loginRequest
-        )
+        .post("/api/login?language=" + lang.getLanguage(), loginRequest)
         .then(res => {
           console.log("###Loging In Response ", res);
 
@@ -238,10 +235,7 @@ class SignPage extends Component {
       };
       console.log("Submitted Registration Successfully");
       axios
-        .post(
-          "http://localhost:8080/api/register?language=" + lang.getLanguage(),
-          registerRequest
-        )
+        .post("/api/register?language=" + lang.getLanguage(), registerRequest)
         .then(res => {
           console.log(res);
           if (res.status === 200) {

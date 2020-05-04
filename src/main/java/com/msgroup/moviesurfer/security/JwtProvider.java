@@ -21,7 +21,7 @@ public class JwtProvider {
     public static final String SECRET = "SecretKeyToGenJWTs";
     public static final String TOKEN_PREFIX = "Bearer ";
     public static final String HEADER_STRING = "Authorization";
-    public static final long EXPIRATION_TIME = 60_000; // 60 seconds
+    public static final long EXPIRATION_TIME = 3600000; // 3600000 milliseconds = 60 minutes
 
     /**
      * TO generate the token

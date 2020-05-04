@@ -11,8 +11,8 @@ class AdminLogin extends Component {
     super(props);
     this.state = {
       loginForm: {
-        email: "admin@moviesurfer.com",
-        password: "Moviesurfer2020"
+        email: "",
+        password: ""
       },
       serverMessage: "",
       visibleSuccess: false,
@@ -93,11 +93,7 @@ class AdminLogin extends Component {
 
       console.log("Submitted Singing Successfully");
       axios
-        .post(
-          "http://localhost:8080/api/admin/login?language=" +
-            lang.getLanguage(),
-          loginRequest
-        )
+        .post("/api/admin/login?language=" + lang.getLanguage(), loginRequest)
         .then(res => {
           console.log("###Loging In Response ", res);
 
