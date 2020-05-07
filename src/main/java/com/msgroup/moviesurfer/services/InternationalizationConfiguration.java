@@ -29,7 +29,7 @@ public class InternationalizationConfiguration implements WebMvcConfigurer { // 
     @Bean
     public ResourceBundleMessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        // Set default encoding as UTF-8 to make letters like ö,ä,å appears correctly (to support different languages)
+        // Set default encoding as UTF-8 to make letters like scandinavian letters  appear correctly (to support different languages)
         messageSource.setDefaultEncoding("UTF-8");
         // The addBasenames() method adds the specified basenames to the existing basename configuration.
         messageSource.addBasenames("messages");

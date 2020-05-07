@@ -31,11 +31,11 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
      * or when the user send log in request with invalid email or password.
      * It will override the response message to be "Invalid email or password!".
      * It will override the  http response status to be 401.
-     * @param httpServletRequest
-     * @param httpServletResponse
+     * @param httpServletRequest request
+     * @param httpServletResponse response
      * @param e exception
-     * @throws IOException
-     * @throws ServletException
+     * @throws IOException exception
+     * @throws ServletException exception
      */
     @Override
     public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,

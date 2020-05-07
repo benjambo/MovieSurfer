@@ -164,7 +164,7 @@ public class User implements UserDetails {
      * UserDetails Interface Implementation Method
      * Returns the username used to authenticate the user.
      * @return email as the username type String
-     * @JsonIgnore added to prevent saving this field to the database
+     * JsonIgnore added to prevent saving this field to the database
      */
     @Override
     @JsonIgnore
@@ -176,7 +176,7 @@ public class User implements UserDetails {
      * UserDetails Interface Implementation Method
      * Indicates whether the user's account has expired.
      * @return true type boolean
-     * @JsonIgnore added to prevent saving this field to the database
+     * JsonIgnore added to prevent saving this field to the database
      */
     @Override
     @JsonIgnore
@@ -187,7 +187,7 @@ public class User implements UserDetails {
      * UserDetails Interface Implementation Method
      * Indicates whether the user is locked or unlocked.
      * @return true type boolean
-     * @JsonIgnore added to prevent saving this field to the database
+     * JsonIgnore added to prevent saving this field to the database
      */
     @Override
     @JsonIgnore
@@ -199,7 +199,7 @@ public class User implements UserDetails {
      * UserDetails Interface Implementation Method
      * Indicates whether the user's credentials (password) has expired.
      * @return true type boolean
-     * @JsonIgnore added to prevent saving this field to the database
+     * JsonIgnore added to prevent saving this field to the database
      */
     @Override
     @JsonIgnore
@@ -211,7 +211,7 @@ public class User implements UserDetails {
      * UserDetails Interface Implementation Method
      * Indicates whether the user is enabled or disabled.
      * @return true type boolean
-     * @JsonIgnore added to prevent saving this field to the database
+     * JsonIgnore added to prevent saving this field to the database
      */
     @Override
     @JsonIgnore

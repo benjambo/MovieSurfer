@@ -59,8 +59,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //       **** Authorization  ****
     /**
      * Configure method defines which URL paths should be secured and which should not
-     * @param http
-     * @throws Exception
+     * @param http http
+     *
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
