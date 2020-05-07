@@ -97,6 +97,7 @@ export const MovieCatalog = () => {
     return <div className="grid-container">{mapMovies()}</div>;
   };
 
+  //handle user input in search field
   const handleFilterChange = event => {
     setNewFilter(event.target.value);
     console.log(event.target.value);
