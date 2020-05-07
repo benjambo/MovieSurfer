@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import MovieSeats from "./MovieSeats";
-import { isLoggedIn, getUserEmail } from "../services/AuthService";
+import {getUserEmail, isLoggedIn} from "../services/AuthService";
 import seatServiceReact from "../services/seatServiceReact";
-import { useHistory } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import {useHistory} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 /**
  * Returns popup window on button click.
@@ -54,8 +54,7 @@ const MovieReservationModal = ({
     if (!freeSeat) {
       alert(t("seats.section.alert"));
     } else {
-      const email = getUserEmail();
-      seatObject.reservedTo = email;
+      seatObject.reservedTo = getUserEmail();
       console.log(seatObject);
       seatServiceReact.reserveSeat(seatObject);
       setConfirmation(true);
