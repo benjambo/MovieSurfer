@@ -20,9 +20,8 @@ const ConfirmationModal = ({
   reservedSeat,
   movie
 }) => {
-  //handle modal closing
   const { t } = useTranslation();
-  const handleClose = () => setShowConfirmation(false);
+  const handleClose = () => setShowConfirmation(false); //handle modal closing
 
   //if showConfirmation is true show confirmation modal. else return null.
   if (showConfirmation) {
