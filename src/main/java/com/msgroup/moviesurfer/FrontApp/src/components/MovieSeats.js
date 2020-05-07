@@ -8,6 +8,9 @@ import Seat from "./Seat";
  * Green seats are free seats.
  *
  * @param movie
+ * @param setFreeSeat
+ * @param setReservedSeat
+ * @param setSeatObject
  * @returns {*}
  * @constructor
  */
@@ -16,12 +19,14 @@ const MovieSeats = ({ movie, setFreeSeat, setReservedSeat, setSeatObject }) => {
 
   const [reserve, setReserve] = useState("");
 
+  //get seats from database using seatServiceReact.getAll()
   useEffect(() => {
     seatServiceReact.getAll().then(result => {
       setSeats(result);
     });
   }, []);
 
+  //Seats to individual seat components
   const MapSeats = ({ seats }) => {
     const mapMovies = () =>
       seats.map(seat => (
